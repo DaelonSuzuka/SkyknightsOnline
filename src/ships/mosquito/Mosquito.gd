@@ -33,22 +33,22 @@ func _ready():
 
     $Health.maximum = 3000
 
-    mass = 10
-    linear_damp = 1
-    angular_damp = 3
+    # mass = 10
+    # linear_damp = 1
+    # angular_damp = 3
     
-    $Engine.max_speed = 150
-    $Engine.acceleration = 0.6
-    $Engine.hover_thrust = 45
-    $Engine.up_thrust = 500
-    $Engine.down_thrust = 300
-    $Engine.vertical_decay = 0.98
-    $Engine.throttle_accel = 15
-    $Engine.throttle_brake = 20
-    $Engine.throttle_max = 1000
-    $Engine.pitch_speed = 75
-    $Engine.roll_speed = 75
-    $Engine.yaw_speed = 15
+    # $Engine.max_speed = 150
+    # $Engine.acceleration = 0.6
+    # $Engine.hover_thrust = 45
+    # $Engine.up_thrust = 500
+    # $Engine.down_thrust = 300
+    # $Engine.vertical_decay = 0.98
+    # $Engine.throttle_accel = 15
+    # $Engine.throttle_brake = 20
+    # $Engine.throttle_max = 1000
+    # $Engine.pitch_speed = 75
+    # $Engine.roll_speed = 75
+    # $Engine.yaw_speed = 15
 
     $Cockpit.hide()
 

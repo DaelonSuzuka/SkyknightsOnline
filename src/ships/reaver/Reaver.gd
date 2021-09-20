@@ -33,23 +33,31 @@ func _ready():
     }
 
     $Health.maximum = 3000
-    
-    mass = 10
-    linear_damp = 1
-    angular_damp = 3
 
-    $Engine.max_speed = 150
-    $Engine.acceleration = 0.6
-    $Engine.hover_thrust = 45
-    $Engine.up_thrust = 750
-    $Engine.down_thrust = 500
-    $Engine.vertical_decay = 0.98
-    $Engine.throttle_accel = 15
-    $Engine.throttle_brake = 20
-    $Engine.throttle_max = 1500
-    $Engine.pitch_speed = 75
-    $Engine.roll_speed = 75
-    $Engine.yaw_speed = 15
+    $Engine.afterburner.vert.accel_up = 2
+    $Engine.afterburner.vert.max_up = 100
+    $Engine.afterburner.speed.accel = 2
+    $Engine.afterburner.speed.max = 200
+
+    $Engine.vert.hover = 45
+    $Engine.vert.accel_up = 1
+    $Engine.vert.accel_down = -1
+    $Engine.vert.max_up = 50
+    $Engine.vert.max_down = -35
+
+    $Engine.speed.accel = 1
+    $Engine.speed.brake = 2
+    $Engine.speed.max = 100
+
+    $Engine.pitch.accel = .2
+    $Engine.pitch.max = 10
+    $Engine.pitch.lerp = .05
+    $Engine.roll.accel = .2
+    $Engine.roll.max = 2
+    $Engine.roll.lerp = .1
+    $Engine.yaw.accel = .1
+    $Engine.yaw.max = 1
+    $Engine.yaw.lerp = .1
 
     if nosegun != 'none':
         equip('weapons', 'nosegun', nosegun)
@@ -63,7 +71,7 @@ func give_ammo():
 
 func _physics_process(delta):
     var target_wing_angle = -90
-    target_wing_angle += $Engine.throttle / 10
+    target_wing_angle += $Engine.speed.current / 10
     target_wing_angle = clamp(target_wing_angle, -90, 0)
     
     wing_angle = lerp(wing_angle, target_wing_angle, wing_turn_speed)

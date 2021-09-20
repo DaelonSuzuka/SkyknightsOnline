@@ -232,5 +232,12 @@ func _process(delta):
 
         HUD.SeatingDiagram.health = ship.get_node('Health').current
 
-        HUD.Debug.Throttle.text = 'throttle: ' + str(ship.get_node('Engine').throttle)
-        HUD.Debug.Velocity.text = 'speed: ' + str(ship.linear_velocity.length())
+        var engine = ship.get_node('Engine')
+
+        HUD.Debug.set_field('speed', str(engine.speed.current))
+        HUD.Debug.set_field('vert', str(engine.vert.current))
+        HUD.Debug.set_field('pitch_target', str(engine.pitch.target))
+        HUD.Debug.set_field('pitch', str(engine.pitch.current))
+        HUD.Debug.set_field('roll', str(engine.roll.current))
+        HUD.Debug.set_field('yaw', str(engine.yaw.current))
+

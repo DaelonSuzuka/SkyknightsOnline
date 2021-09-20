@@ -41,22 +41,22 @@ func _ready():
 
     $Health.maximum = 4500
 
-    mass = 15
-    linear_damp = 1
-    angular_damp = 3
+    # mass = 15
+    # linear_damp = 1
+    # angular_damp = 3
 
-    $Engine.max_speed = 150
-    $Engine.acceleration = 0.6
-    $Engine.hover_thrust = 100
-    $Engine.up_thrust = 500
-    $Engine.down_thrust = 300
-    $Engine.vertical_decay = 0.98
-    $Engine.throttle_accel = 25
-    $Engine.throttle_brake = 35
-    $Engine.throttle_max = 1500
-    $Engine.pitch_speed = 50
-    $Engine.roll_speed = 50
-    $Engine.yaw_speed = 20
+    # $Engine.max_speed = 150
+    # $Engine.acceleration = 0.6
+    # $Engine.hover_thrust = 100
+    # $Engine.up_thrust = 500
+    # $Engine.down_thrust = 300
+    # $Engine.vertical_decay = 0.98
+    # $Engine.throttle_accel = 25
+    # $Engine.throttle_brake = 35
+    # $Engine.throttle_max = 1500
+    # $Engine.pitch_speed = 50
+    # $Engine.roll_speed = 50
+    # $Engine.yaw_speed = 20
 
     if nosegun != 'none':
         equip('weapons', 'nosegun', nosegun)

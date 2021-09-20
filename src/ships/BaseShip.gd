@@ -1,4 +1,4 @@
-extends RigidBody
+extends KinematicBody
 
 var data = null
 
@@ -9,6 +9,11 @@ var seating_diagram_outline = ''
 
 var slots = {}
 var inventory = {}
+
+
+var mass = 10
+var linear_damp = 1
+var angular_damp = 3
 
 sync var server_transform = Transform()
 sync var server_linear_velocity = Vector3()
@@ -87,5 +92,12 @@ func _physics_process(delta):
 
     $Engine.calculate_forces(input_state)
 
-    apply_torque_impulse($Engine.torque * delta)
-    apply_central_impulse($Engine.velocity * delta)
+    # this order is important
+    rotate_object_local(Vector3.RIGHT, $Engine.pitch.current * delta)
+    rotate_object_local(Vector3.UP, $Engine.yaw.current * delta)
+    rotate_object_local(Vector3.FORWARD, $Engine.roll.current * delta)
+
+    var velocity = Quat(global_transform.basis).xform($Engine.velocity)
+    move_and_collide(velocity * delta)
+
+    transform = transform.orthonormalized()
