@@ -27,7 +27,7 @@ var automatic = true
 
 var crosshair = null
 
-var Bullet = preload('res://src/ships/Bullet.tscn')
+var Bullet = preload('res://src/ships/common/weapons/Bullet.tscn')
 
 var rng = RandomNumberGenerator.new()
 

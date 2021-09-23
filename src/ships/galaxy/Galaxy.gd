@@ -1,4 +1,4 @@
-extends 'res://src/ships/BaseShip.gd'
+extends 'res://src/ships/common/BaseShip.gd'
 
 func _ready():
     ship_dir = 'res://src/ships/galaxy/'

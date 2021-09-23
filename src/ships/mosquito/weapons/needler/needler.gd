@@ -1,4 +1,4 @@
-extends 'res://src/ships/BaseWeapon.gd'
+extends 'res://src/ships/common/weapons/BaseWeapon.gd'
 
 func _ready():
     magazine_capacity = 75

@@ -1,10 +1,20 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/ships/ThirdPersonCamera.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+var pos setget , get_pos
+
+func get_pos():
+    return $CameraPos
+"
+__meta__ = {
+"Scene_Path": "res://src/ships/ThirdPersonCamera.tscn"
+}
 
 [node name="ThirdPersonCamera" type="Spatial"]
 visible = false
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
 [node name="InnerGimbal" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.984313, -0.176432, 0, 0.176432, 0.984313, 0, 7.62571, -14.6593 )

@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://src/ships/FirstPersonCamera.gd" type="Script" id=1]
-[ext_resource path="res://src/ships/ThirdPersonCamera.gd" type="Script" id=2]
-[ext_resource path="res://src/ships/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ships/common/FirstPersonCamera.gd" type="Script" id=1]
+[ext_resource path="res://src/ships/common/ThirdPersonCamera.gd" type="Script" id=2]
+[ext_resource path="res://src/ships/common/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ships/reaver/Reaver.gd" type="Script" id=4]
-[ext_resource path="res://src/ships/Seats.gd" type="Script" id=5]
+[ext_resource path="res://src/ships/common/Seats.gd" type="Script" id=5]
 [ext_resource path="res://src/ships/reaver/cosmetics/fins.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://src/ships/Engine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/ships/common/Engine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/ships/common/Afterburner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/healthbar/HealthBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ships/reaver/ReaverMaterial.tres" type="Material" id=10]
 
@@ -231,3 +232,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9
+
+[node name="Afterburner" parent="." instance=ExtResource( 8 )]

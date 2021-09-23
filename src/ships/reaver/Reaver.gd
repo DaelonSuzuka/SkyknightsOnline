@@ -1,4 +1,4 @@
-extends 'res://src/ships/BaseShip.gd'
+extends 'res://src/ships/common/BaseShip.gd'
 
 export(String, 'none', 'mustang', 'vortek') var nosegun = 'none'
 
@@ -34,16 +34,16 @@ func _ready():
 
     $Health.maximum = 3000
 
-    $Engine.afterburner.vert.accel_up = 2
-    $Engine.afterburner.vert.max_up = 100
-    $Engine.afterburner.speed.accel = 2
-    $Engine.afterburner.speed.max = 200
+    # $Engine.afterburner.vert.up.accel = 2
+    # $Engine.afterburner.vert.up.max = 100
+    # $Engine.afterburner.speed.accel = 2
+    # $Engine.afterburner.speed.max = 200
 
     $Engine.vert.hover = 45
-    $Engine.vert.accel_up = 1
-    $Engine.vert.accel_down = -1
-    $Engine.vert.max_up = 50
-    $Engine.vert.max_down = -35
+    $Engine.vert.up.accel = 1
+    $Engine.vert.down.accel = -1
+    $Engine.vert.up.max = 50
+    $Engine.vert.down.max = -35
 
     $Engine.speed.accel = 1
     $Engine.speed.brake = 2

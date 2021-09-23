@@ -1,4 +1,4 @@
-extends 'res://src/ships/BaseShip.gd'
+extends 'res://src/ships/common/BaseShip.gd'
 
 
 export(String, 'none', 'needler', 'rotary', 'banshee') var nosegun = 'none'
