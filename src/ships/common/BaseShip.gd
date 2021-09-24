@@ -10,11 +10,6 @@ var seating_diagram_outline = ''
 var slots = {}
 var inventory = {}
 
-
-var mass = 10
-var linear_damp = 1
-var angular_damp = 3
-
 sync var server_transform = Transform()
 sync var server_linear_velocity = Vector3()
 sync var server_angular_velocity = Vector3()
@@ -27,6 +22,7 @@ sync var dead = false
 
 onready var healthbar = $HealthBar
 onready var seats = $Seats
+onready var engine = $Engine
 
 func _ready():
     add_to_group('ships')
@@ -93,11 +89,11 @@ func _physics_process(delta):
     $Engine.calculate_forces(input_state)
 
     # this order is important
-    rotate_object_local(Vector3.RIGHT, $Engine.pitch.current * delta)
-    rotate_object_local(Vector3.UP, $Engine.yaw.current * delta)
-    rotate_object_local(Vector3.FORWARD, $Engine.roll.current * delta)
+    rotate_object_local(Vector3.RIGHT, $Engine.data.pitch.current * delta)
+    rotate_object_local(Vector3.UP, $Engine.data.yaw.current * delta)
+    rotate_object_local(Vector3.FORWARD, $Engine.data.roll.current * delta)
 
-    var velocity = Quat(global_transform.basis).xform($Engine.velocity)
+    var velocity = Quat(global_transform.basis).xform($Engine.data.velocity)
     move_and_collide(velocity * delta)
 
     transform = transform.orthonormalized()

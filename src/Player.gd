@@ -92,8 +92,9 @@ func enter_ship(new_ship):
     switch_seat(ship.seats.get_first_empty_seat())
     
     # update UI stuff
+    ship.engine.EditPanel.show()
     ship.healthbar.hide()
-    HUD.SeatingDiagram.load_ship(ship)
+    # HUD.SeatingDiagram.load_ship(ship)
     if ship.current_weapon:
         HUD.WeaponInfo.show()
         if ship.current_weapon.get('crosshair'):
@@ -102,6 +103,7 @@ func enter_ship(new_ship):
 
 func leave_ship():
     ship.healthbar.show()
+    ship.engine.EditPanel.hide()
     ship = null
     
     HUD.SeatingDiagram.hide()
@@ -231,13 +233,3 @@ func _process(delta):
             HUD.WeaponInfo.ammo = "%04d" % weapon.ammo
 
         HUD.SeatingDiagram.health = ship.get_node('Health').current
-
-        var engine = ship.get_node('Engine')
-
-        HUD.Debug.set_field('speed', str(engine.speed.current))
-        HUD.Debug.set_field('vert', str(engine.vert.current))
-        HUD.Debug.set_field('pitch_target', str(engine.pitch.target))
-        HUD.Debug.set_field('pitch', str(engine.pitch.current))
-        HUD.Debug.set_field('roll', str(engine.roll.current))
-        HUD.Debug.set_field('yaw', str(engine.yaw.current))
-

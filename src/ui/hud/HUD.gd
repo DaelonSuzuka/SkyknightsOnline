@@ -15,3 +15,4 @@ func _ready():
     Crosshair.hide()
     ReloadIndicator.hide()
     Chat.hide()
+    # Debug.hide()
