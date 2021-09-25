@@ -75,7 +75,7 @@ func _ready():
 
 func copy_pressed():
     var out = {}
-    for field in fields:
+    for field in inputs:
         if inputs[field].text:
             out[field] = float(inputs[field].text)
 
