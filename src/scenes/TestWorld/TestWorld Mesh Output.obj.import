@@ -14,6 +14,6 @@ dest_files=[ "res://.import/TestWorld Mesh Output.obj-dc1d07a0ea141037d1ce922679
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
+scale_mesh=Vector3( 10000, 10000, 10000 )
 offset_mesh=Vector3( 0, 0, 0 )
 optimize_mesh=true
