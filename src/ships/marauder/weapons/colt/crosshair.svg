@@ -23,13 +23,13 @@
      borderopacity="1.0"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
+     inkscape:pagecheckerboard="true"
      inkscape:document-units="px"
      showgrid="false"
      units="px"
-     inkscape:zoom="3.1108586"
-     inkscape:cx="89.846578"
-     inkscape:cy="139.67205"
+     inkscape:zoom="24.886869"
+     inkscape:cx="124.00114"
+     inkscape:cy="124.88514"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -42,12 +42,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <ellipse
-       style="fill:none;stroke:#000000;stroke-width:1.83984;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+    <path
        id="path850"
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 130.5,116.26367 v 2.05664 a 9.9999989,9.9999989 0 0 1 7.16016,7.17969 h 2.04882 A 12,11.999999 0 0 0 130.5,116.26367 Z m -5,0.006 A 12,11.999999 0 0 0 116.29297,125.5 h 2.04687 A 9.9999989,9.9999989 0 0 1 125.5,118.32031 Z M 116.29492,130.5 a 12,11.999999 0 0 0 9.20508,9.20117 v -2.04883 A 9.9999989,9.9999989 0 0 1 118.34766,130.5 Z m 21.36328,0 a 9.9999989,9.9999989 0 0 1 -7.1582,7.17773 v 2.05665 A 12,11.999999 0 0 0 139.70898,130.5 Z"
+       transform="scale(0.26458333)" />
+    <circle
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.079375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path844"
        cx="33.866665"
        cy="33.866665"
-       rx="14.080081"
-       ry="14.080079" />
+       r="0.52916664" />
   </g>
 </svg>
