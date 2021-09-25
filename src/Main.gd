@@ -16,7 +16,7 @@ func _ready():
     var args = parse_cmd_args()
 
     if args['server']:
-        HUD.Chat.show()
+        # HUD.Chat.show()
         Network.create_server()
         OS.set_window_title('Skyknights Online - Server')
         MainMenu.hide()

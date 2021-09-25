@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/ui/hud/Debug.gd" type="Script" id=1]
-[ext_resource path="res://src/ui/hud/reload.png" type="Texture" id=2]
-[ext_resource path="res://src/ui/hud/reload_background.png" type="Texture" id=3]
+[ext_resource path="res://src/ui/hud/textures/reload.png" type="Texture" id=2]
+[ext_resource path="res://src/ui/hud/textures/reload_background.png" type="Texture" id=3]
 [ext_resource path="res://src/ui/hud/FpsCounter.gd" type="Script" id=4]
 [ext_resource path="res://addons/RadialMenu/RadialMenu.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/hud/HUD.gd" type="Script" id=6]
 [ext_resource path="res://src/ui/hud/WeaponInfo.gd" type="Script" id=7]
+[ext_resource path="res://src/ui/hud/textures/horizon_indicator.png" type="Texture" id=8]
+[ext_resource path="res://src/ui/hud/textures/heading_indicator.png" type="Texture" id=9]
+[ext_resource path="res://src/ui/hud/textures/pitch_ladder.png" type="Texture" id=10]
+[ext_resource path="res://src/ui/hud/PitchLadderShader.tres" type="Material" id=11]
+[ext_resource path="res://src/ui/hud/HeadingIndicatorShader.tres" type="Material" id=12]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 6 )
@@ -92,6 +97,96 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HorizonIndicator" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -500.0
+margin_right = 500.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 500, 500 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeadingIndicator" type="TextureRect" parent="HorizonIndicator"]
+material = ExtResource( 12 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -400.0
+margin_right = 400.0
+margin_bottom = -350.0
+rect_clip_content = true
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HorizonLeft" type="TextureRect" parent="HorizonIndicator"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -300.0
+margin_right = 100.0
+margin_bottom = 300.0
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="HorizonRight" type="TextureRect" parent="HorizonIndicator"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -300.0
+margin_bottom = 300.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PitchLadderRight" type="TextureRect" parent="HorizonIndicator"]
+material = ExtResource( 11 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -265.0
+margin_right = -30.0
+margin_bottom = 265.0
+rect_clip_content = true
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 4
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PitchLadderLeft" type="TextureRect" parent="HorizonIndicator"]
+material = ExtResource( 11 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 30.0
+margin_top = -265.0
+margin_right = 70.0
+margin_bottom = 265.0
+rect_clip_content = true
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Debug" type="PanelContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -142,3 +237,12 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 200, 20 )
+hdr = false
+disable_3d = true
+
+[node name="TextureRect" type="TextureRect" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0

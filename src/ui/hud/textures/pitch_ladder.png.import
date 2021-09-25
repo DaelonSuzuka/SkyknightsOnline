@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reload.png-ae85cff2e8ac25c6c0547ec897bffec5.stex"
+path="res://.import/pitch_ladder.png-44c423d47dd9440e9d1849ba68bcfdb4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ui/hud/reload.png"
-dest_files=[ "res://.import/reload.png-ae85cff2e8ac25c6c0547ec897bffec5.stex" ]
+source_file="res://src/ui/hud/textures/pitch_ladder.png"
+dest_files=[ "res://.import/pitch_ladder.png-44c423d47dd9440e9d1849ba68bcfdb4.stex" ]
 
 [params]
 

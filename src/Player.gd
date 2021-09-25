@@ -36,7 +36,7 @@ func radial_item_selected(id, pos):
 func update_mouse_capture():
     if capture_mouse:
         Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-        HUD.Chat.InputField.release_focus()
+        # HUD.Chat.InputField.release_focus()
     else:
         Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -92,23 +92,31 @@ func enter_ship(new_ship):
     switch_seat(ship.seats.get_first_empty_seat())
     
     # update UI stuff
-    ship.engine.EditPanel.show()
+    HUD.show_hud()
+    ship.engine.show_editor()
     ship.healthbar.hide()
     # HUD.SeatingDiagram.load_ship(ship)
     if ship.current_weapon:
         HUD.WeaponInfo.show()
         if ship.current_weapon.get('crosshair'):
-            HUD.Crosshair.show()
+            # HUD.Crosshair.show()
+            # HUD.HorizonIndicator.show()
+            # HUD.HeadingIndicator.show()
+            # HUD.PitchLadder.show()
             HUD.Crosshair.texture = load(ship.current_weapon.crosshair)
 
 func leave_ship():
     ship.healthbar.show()
-    ship.engine.EditPanel.hide()
+    ship.engine.hide_editor()
     ship = null
     
-    HUD.SeatingDiagram.hide()
-    HUD.WeaponInfo.hide()
-    HUD.Crosshair.hide()
+    HUD.hide_hud()
+    # HUD.SeatingDiagram.hide()
+    # HUD.WeaponInfo.hide()
+    # HUD.Crosshair.hide()
+    # HUD.HorizonIndicator.show()
+    # HUD.HeadingIndicator.show()
+    # HUD.PitchLadder.show()
 
 func toggle_menu(state):
     if state:
@@ -232,4 +240,10 @@ func _process(delta):
             HUD.WeaponInfo.magazine = "%04d" % weapon.magazine
             HUD.WeaponInfo.ammo = "%04d" % weapon.ammo
 
-        HUD.SeatingDiagram.health = ship.get_node('Health').current
+        var angle = ship.global_transform.basis.get_euler()
+        HUD.PitchLadderLeft.material.set_shader_param("pitch", angle.x / PI)
+        HUD.PitchLadderRight.material.set_shader_param("pitch", angle.x / PI)
+        HUD.HeadingIndicator.material.set_shader_param("heading", -angle.y / PI)
+        HUD.HorizonIndicator.rect_rotation = -angle.z / PI * 180
+
+        # HUD.SeatingDiagram.health = ship.get_node('Health').current

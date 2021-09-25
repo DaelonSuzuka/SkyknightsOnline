@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reload_background.png-5d725b1fc3bb0d555b9c4c84daaee059.stex"
+path="res://.import/reload.png-0c24136a855f17c8b2e4a98717e03101.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ui/hud/reload_background.png"
-dest_files=[ "res://.import/reload_background.png-5d725b1fc3bb0d555b9c4c84daaee059.stex" ]
+source_file="res://src/ui/hud/textures/reload.png"
+dest_files=[ "res://.import/reload.png-0c24136a855f17c8b2e4a98717e03101.stex" ]
 
 [params]
 

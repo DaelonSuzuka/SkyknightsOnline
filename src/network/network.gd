@@ -148,7 +148,7 @@ func _on_connected_to_server():
     MainMenu.Spawn.show()
     MainMenu.Status.text = 'connected'
     
-    HUD.Chat.show()
+    # HUD.Chat.show()
     Game.rpc('create_player', id)
 
     player_info.net_id = get_tree().get_network_unique_id()

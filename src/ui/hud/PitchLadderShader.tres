@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+uniform float pitch = 0;
+
+void fragment(){
+    vec2 newuv = UV;
+    newuv.y += pitch * 0.5 ;
+    vec4 c = texture(TEXTURE, newuv);
+    COLOR = c;
+}"
+
+[resource]
+shader = SubResource( 3 )
+shader_param/pitch = 0.0
