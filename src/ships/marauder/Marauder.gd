@@ -32,30 +32,34 @@ func _ready():
 
     $Health.maximum = 3000
 
-    $Afterburner.data.vert.up.accel = 2
+    $Afterburner.data.vert.up.accel = 2.0
     $Afterburner.data.vert.up.max = 100
-    $Afterburner.data.speed.accel = 2
+    $Afterburner.data.speed.accel = 2.0
     $Afterburner.data.speed.max = 348 / 3.6
 
-    $Engine.data.vert.hover = 45
-    $Engine.data.vert.up.accel = 1
-    $Engine.data.vert.down.accel = -1
-    $Engine.data.vert.up.max = 50
+    $Engine.data.vert.hover = 45.0
+    $Engine.data.vert.up.force = 2.0
+    $Engine.data.vert.down.force = -1.5
+    $Engine.data.vert.up.max = 50.0
     $Engine.data.vert.down.max = -35
 
-    $Engine.data.speed.accel = 1
-    $Engine.data.speed.brake = 2
-    $Engine.data.speed.max = 200 / 3.6
+    $Engine.data.speed.accel = .7
+    $Engine.data.speed.brake = 1.2
+    $Engine.data.speed.max = 200
+    $Engine.data.speed.response = .05
 
     $Engine.data.pitch.force = .2
-    $Engine.data.pitch.max = 1
-    $Engine.data.pitch.lerp = .05
+    $Engine.data.pitch.max = 2.0
+    $Engine.data.pitch.response = .2
+    $Engine.data.pitch.damp = .95
     $Engine.data.roll.force = .2
-    $Engine.data.roll.max = 1
-    $Engine.data.roll.lerp = .1
+    $Engine.data.roll.max = 2.0
+    $Engine.data.roll.response = .2
+    $Engine.data.roll.damp = .95
     $Engine.data.yaw.force = .1
-    $Engine.data.yaw.max = 1
-    $Engine.data.yaw.lerp = .1
+    $Engine.data.yaw.max = 1.0
+    $Engine.data.yaw.response = .1
+    $Engine.data.yaw.damp = .9
 
     $Engine.backup_data()
 
