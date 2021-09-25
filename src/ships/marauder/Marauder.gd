@@ -85,11 +85,9 @@ func _physics_process(delta):
     $Model/Engines.rotation_degrees.x = wing_angle
 
     if input_state['afterburner']:
-        if !('afterburner' in $Engine.modifiers):
-            $Engine.modifiers['afterburner'] = $Afterburner.data
+        $Engine.add_modifier('afterburner', $Afterburner)
     else:
-        if 'afterburner' in $Engine.modifiers:
-            $Engine.modifiers.erase('afterburner')
+        $Engine.remove_modifier('afterburner')
 
     if current_weapon:
         current_weapon.firing = input_state['fire_primary']

@@ -80,15 +80,13 @@ func calculate_forces(input, modifier={}):
     var attitude = max(abs(angle.x), abs(angle.z))
     var hover_factor = 1 - (attitude / 2)
     
-    if modifiers.keys() != active_modifiers:
-        active_modifiers.clear()
-        restore_data()
-        for mod in modifiers:
-            active_modifiers.append(mod)
-            apply_modifier(modifiers[mod], data)
-
-
-
+    # if modifiers.keys() != active_modifiers:
+    #     active_modifiers.clear()
+    #     restore_data()
+    #     for mod in modifiers:
+    #         active_modifiers.append(mod)
+    #         data = modifiers[mod].apply(data)
+            
     var vert = data.vert
     var speed = data.speed
     var pitch = data.pitch
