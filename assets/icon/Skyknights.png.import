@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Skyknights.png-9c9f5a594ca45df616e20b5bbe437bd8.s3tc.stex"
-path.etc2="res://.import/Skyknights.png-9c9f5a594ca45df616e20b5bbe437bd8.etc2.stex"
+path.s3tc="res://.import/Skyknights.png-d07b04239b22a78f4c955a59b582872f.s3tc.stex"
+path.etc2="res://.import/Skyknights.png-d07b04239b22a78f4c955a59b582872f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Skyknights.png"
-dest_files=[ "res://.import/Skyknights.png-9c9f5a594ca45df616e20b5bbe437bd8.s3tc.stex", "res://.import/Skyknights.png-9c9f5a594ca45df616e20b5bbe437bd8.etc2.stex" ]
+source_file="res://assets/icon/Skyknights.png"
+dest_files=[ "res://.import/Skyknights.png-d07b04239b22a78f4c955a59b582872f.s3tc.stex", "res://.import/Skyknights.png-d07b04239b22a78f4c955a59b582872f.etc2.stex" ]
 
 [params]
 
