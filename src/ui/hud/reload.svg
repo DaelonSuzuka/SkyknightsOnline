@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866667"
+   version="1.1"
+   id="svg1609"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="reload.svg"
+   inkscape:export-filename="P:\SkyknightsOnline\src\ui\hud\reload.png"
+   inkscape:export-xdpi="96.795944"
+   inkscape:export-ydpi="96.795944"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1611"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     width="256px"
+     inkscape:zoom="2.6832492"
+     inkscape:cx="22.547291"
+     inkscape:cy="64.28773"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1606">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Feather"
+       id="filter3197"
+       x="-0.045665522"
+       y="-0.045665522"
+       width="1.091331"
+       height="1.091331">
+      <feGaussianBlur
+         stdDeviation="0.31"
+         result="blur"
+         id="feGaussianBlur3189" />
+      <feComposite
+         in="SourceGraphic"
+         in2="blur"
+         operator="atop"
+         result="composite1"
+         id="feComposite3191" />
+      <feComposite
+         in2="composite1"
+         operator="in"
+         result="composite2"
+         id="feComposite3193" />
+      <feComposite
+         in2="composite2"
+         operator="in"
+         result="composite3"
+         id="feComposite3195" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:none;stroke:#ffdd55;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3197)"
+       id="path1714"
+       cx="16.933332"
+       cy="16.933332"
+       inkscape:export-filename="P:\SkyknightsOnline\src\ui\hud\reload.png"
+       inkscape:export-xdpi="94.117966"
+       inkscape:export-ydpi="94.117966"
+       r="15.388634" />
+  </g>
+</svg>
