@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/mustang.obj-e7c853b2ae3e42d8f9b4ad453a0e195e.mesh"
+
+[deps]
+
+files=[ "res://.import/mustang.obj-e7c853b2ae3e42d8f9b4ad453a0e195e.mesh" ]
+
+source_file="res://src/ships/marauder/weapons/colt/mustang.obj"
+dest_files=[ "res://.import/mustang.obj-e7c853b2ae3e42d8f9b4ad453a0e195e.mesh", "res://.import/mustang.obj-e7c853b2ae3e42d8f9b4ad453a0e195e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

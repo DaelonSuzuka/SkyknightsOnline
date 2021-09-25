@@ -1,6 +1,6 @@
 extends 'res://src/ships/common/BaseShip.gd'
 
-export(String, 'none', 'mustang', 'vortek') var nosegun = 'none'
+export(String, 'none', 'colt', 'vortek') var nosegun = 'none'
 
 var wing_angle = 0
 var wing_turn_speed = 0.05
@@ -12,7 +12,7 @@ func _ready():
         'weapons': {
             'nosegun': {
                 'none': null,
-                'mustang': "weapons/mustang/Mustang.tscn",
+                'colt': "weapons/colt/Colt.tscn",
                 'vortek': "weapons/vortek/Vortek.tscn",
             },
             'pylons': {

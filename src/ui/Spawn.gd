@@ -5,22 +5,9 @@ signal spawn_pressed(ship_data)
 var ships = {
     'marauder': {
         'noseguns': [
-            'mustang',
-            'vortek',
+            'colt',
         ],
     },
-    # 'mosquito': {
-    #     'noseguns': [
-    #         'needler',
-    #         'rotary',
-    #     ],
-    # },
-    # 'liberator': {
-    #     'noseguns': [
-    #         'tank_buster',
-    #         'vektor',
-    #     ],
-    # },
 }
 
 func _ready():

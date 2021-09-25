@@ -23,13 +23,13 @@
      borderopacity="1.0"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="true"
+     inkscape:pagecheckerboard="0"
      inkscape:document-units="px"
      showgrid="false"
      units="px"
-     inkscape:zoom="24.886869"
-     inkscape:cx="124.92532"
-     inkscape:cy="126.5125"
+     inkscape:zoom="3.1108586"
+     inkscape:cx="89.846578"
+     inkscape:cy="139.67205"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -42,21 +42,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <circle
-       style="fill:none;stroke:#ffffff;stroke-width:0.3351;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:1.83984;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        id="path850"
        cx="33.866665"
        cy="33.866665"
-       r="1.9491167" />
-    <ellipse
-       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.157266;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path881"
-       cx="33.866665"
-       cy="33.866665"
-       rx="0.45053369"
-       ry="0.45053354"
-       inkscape:export-filename="P:\SkyknightsOnline\src\ships\marauder\weapons\colt\path881.png"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       rx="14.080081"
+       ry="14.080079" />
   </g>
 </svg>
