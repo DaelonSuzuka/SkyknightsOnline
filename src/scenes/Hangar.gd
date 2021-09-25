@@ -2,10 +2,7 @@ extends Spatial
 
 
 var ships = {
-    'reaver': preload("res://src/ships/reaver/Reaver.tscn"),
-    # 'mosquito': preload("res://src/ships/mosquito/Mosquito.tscn"),
-    'liberator': preload("res://src/ships/liberator/Liberator.tscn"),
-    # 'galaxy': preload("res://src/ships/galaxy/Galaxy.tscn"),
+    'marauder': preload("res://src/ships/marauder/Marauder.tscn"),
 }
 
 var ship = null

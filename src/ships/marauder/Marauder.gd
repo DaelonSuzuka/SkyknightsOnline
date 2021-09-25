@@ -6,9 +6,7 @@ var wing_angle = 0
 var wing_turn_speed = 0.05
 
 func _ready():
-    ship_dir = 'res://src/ships/reaver/'
-    seating_diagram = ship_dir + 'reaver_seating_diagram.png'
-    seating_diagram_outline = ship_dir + 'reaver_seating_diagram_outline.png'
+    ship_dir = 'res://src/ships/marauder/'
 
     slots = {
         'weapons': {

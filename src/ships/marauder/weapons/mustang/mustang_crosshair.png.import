@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vortek_crosshair.png-b53a5664fd0ec300a8d7d5d602f7efcf.stex"
+path="res://.import/mustang_crosshair.png-49175f51263746b4c388742fc45e4e05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ships/reaver/weapons/vortek/vortek_crosshair.png"
-dest_files=[ "res://.import/vortek_crosshair.png-b53a5664fd0ec300a8d7d5d602f7efcf.stex" ]
+source_file="res://src/ships/marauder/weapons/mustang/mustang_crosshair.png"
+dest_files=[ "res://.import/mustang_crosshair.png-49175f51263746b4c388742fc45e4e05.stex" ]
 
 [params]
 

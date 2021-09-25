@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reaver_seating_diagram_outline.png-b6c19bcae6984708b09e7eba3a74366e.stex"
+path="res://.import/vortek_crosshair.png-2418bfa058cc3db47c0e08156d056852.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ships/reaver/reaver_seating_diagram_outline.png"
-dest_files=[ "res://.import/reaver_seating_diagram_outline.png-b6c19bcae6984708b09e7eba3a74366e.stex" ]
+source_file="res://src/ships/marauder/weapons/vortek/vortek_crosshair.png"
+dest_files=[ "res://.import/vortek_crosshair.png-2418bfa058cc3db47c0e08156d056852.stex" ]
 
 [params]
 

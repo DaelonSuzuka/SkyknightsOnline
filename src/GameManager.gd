@@ -8,9 +8,7 @@ onready var scenes = {
 }
 
 onready var ships = {
-    'reaver': preload("res://src/ships/reaver/Reaver.tscn"),
-    'mosquito': preload("res://src/ships/mosquito/Mosquito.tscn"),
-    'liberator': preload("res://src/ships/liberator/Liberator.tscn"),
+    'marauder': preload("res://src/ships/marauder/Marauder.tscn"),
 }
 
 

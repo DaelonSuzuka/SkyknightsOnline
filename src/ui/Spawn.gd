@@ -3,7 +3,7 @@ extends HBoxContainer
 signal spawn_pressed(ship_data)
 
 var ships = {
-    'reaver': {
+    'marauder': {
         'noseguns': [
             'mustang',
             'vortek',
@@ -15,12 +15,12 @@ var ships = {
     #         'rotary',
     #     ],
     # },
-    'liberator': {
-        'noseguns': [
-            'tank_buster',
-            'vektor',
-        ],
-    },
+    # 'liberator': {
+    #     'noseguns': [
+    #         'tank_buster',
+    #         'vektor',
+    #     ],
+    # },
 }
 
 func _ready():

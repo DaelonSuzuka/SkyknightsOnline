@@ -93,9 +93,9 @@ func join_server():
         
     get_tree().set_network_peer(net)
 
-func kick_player(net_id, reason):
-    rpc_id(net_id, "kicked", reason)
-    get_tree().network_peer.disconnect_peer(net_id)
+func kick_player(id, reason):
+    rpc_id(id, "kicked", reason)
+    get_tree().network_peer.disconnect_peer(id)
 
 
 ### Event handlers

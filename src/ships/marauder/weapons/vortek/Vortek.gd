@@ -14,4 +14,4 @@ func _ready():
     min_damage_after = 200
     cone_of_fire = 0.5
 
-    crosshair = 'res://src/ships/reaver/weapons/vortek/vortek_crosshair.png'
+    crosshair = 'res://src/ships/marauder/weapons/vortek/vortek_crosshair.png'
