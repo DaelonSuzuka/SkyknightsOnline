@@ -1,8 +1,5 @@
 extends PanelContainer
 
-onready var Throttle = $VBox/Throttle
-onready var Velocity = $VBox/Velocity
-
 var fields = {}
 
 func _ready():
