@@ -90,6 +90,7 @@ func paste_pressed():
         for field in json.result:
             if field in fields:
                 set_field(field, json.result[field])
+                inputs[field].text = str(json.result[field])
         get_node('../EditButtons/HBox/Label').text = 'pasted from clipboard'
     else:
         get_node('../EditButtons/HBox/Label').text = 'invalid settings'
