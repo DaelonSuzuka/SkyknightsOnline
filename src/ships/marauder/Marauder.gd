@@ -32,20 +32,20 @@ func _ready():
 
     $Health.maximum = 3000
 
-    $Afterburner.data.vert.up.accel = 2.0
+    $Afterburner.data.vert.up.accel = 4.0
     $Afterburner.data.vert.up.max = 100
-    $Afterburner.data.speed.accel = 2.0
-    $Afterburner.data.speed.max = 348 / 3.6
+    $Afterburner.data.speed.accel = 4.0
+    $Afterburner.data.speed.max = 200
 
     $Engine.data.vert.hover = 45.0
-    $Engine.data.vert.up.force = 2.0
-    $Engine.data.vert.down.force = -1.5
-    $Engine.data.vert.up.max = 50.0
-    $Engine.data.vert.down.max = -35
+    $Engine.data.vert.up.force = 4.0
+    $Engine.data.vert.up.max = 120.0
+    $Engine.data.vert.down.force = -3
+    $Engine.data.vert.down.max = -80
 
-    $Engine.data.speed.accel = .7
-    $Engine.data.speed.brake = 1.2
-    $Engine.data.speed.max = 200
+    $Engine.data.speed.accel = 1.5
+    $Engine.data.speed.brake = 2.5
+    $Engine.data.speed.max = 350
     $Engine.data.speed.response = .05
 
     $Engine.data.pitch.force = .2
