@@ -19,9 +19,11 @@ background_color = Color( 0.831373, 0.0196078, 1, 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 5.0
 ambient_light_sky_contribution = 0.5
-fog_enabled = true
 tonemap_mode = 3
-auto_exposure_enabled = true
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.4, 0.4, 0.4, 1 )
+albedo_texture = ExtResource( 10 )
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_world_triplanar = true
@@ -37,15 +39,36 @@ albedo_texture = ExtResource( 6 )
 uv1_scale = Vector3( 0.1, 0.1, 0.1 )
 uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.380392, 0.380392, 0.380392, 1 )
-albedo_texture = ExtResource( 10 )
-
 [node name="TestWorld" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 173.281, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -196.195, 0 )
+use_in_baked_light = true
+mesh = ExtResource( 11 )
+material/0 = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -196.195, 0 )
+visible = false
+shape = ExtResource( 7 )
+
+[node name="GIProbe" type="GIProbe" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1779.74, 0 )
+extents = Vector3( 6000, 2000, 6000 )
+data = ExtResource( 5 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 visible = false
@@ -91,66 +114,66 @@ height = 5.0
 depth = 2500.0
 
 [node name="Targets" type="Spatial" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 547.913, 635.705, -147.284 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1287.25, 697.015, 2158.26 )
 
 [node name="Target" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 )
+transform = Transform( 4.3089, 0, -2.53641, 0, 5, 0, 2.53641, 0, 4.3089, -853.815, -21.9932, 207.039 )
 rings = "four"
 
 [node name="Target2" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -50 )
+transform = Transform( -0.617574, 0, -4.96171, 0, 5, 0, 4.96171, 0, -0.617574, 668.907, 527.419, -1135 )
 rings = "four"
 
 [node name="Target3" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -100 )
+transform = Transform( -0.0520972, 0, -4.99973, 0, 5, 0, 4.99973, 0, -0.0520972, 617.519, 50, -897.627 )
 rings = "four"
 
 [node name="Target4" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -150 )
+transform = Transform( 0.953959, 0, -4.90815, 0, 5, 0, 4.90815, 0, 0.953959, 236.681, 554.027, -1036.67 )
 rings = "four"
 
 [node name="Target5" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -200 )
+transform = Transform( 3.91722, 0, -3.10731, 0, 5, 0, 3.10731, 0, 3.91722, -526.145, -88.7286, -433.703 )
 rings = "four"
 
 [node name="Target6" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+transform = Transform( 4.99685, 0, -0.177375, 0, 5, 0, 0.177375, 0, 4.99685, -1238.77, 628.181, 1058.57 )
 rings = "four"
 
 [node name="Target7" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, -50 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -1124.65, 157.208, 968.317 )
 rings = "four"
 
 [node name="Target8" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, -100 )
+transform = Transform( 4.87279, 0, 1.12067, 0, 5, 0, -1.12067, 0, 4.87279, -996.687, 157.208, 1402.07 )
 rings = "four"
 
 [node name="Target9" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, -150 )
+transform = Transform( 1.30825, 0, -4.82581, 0, 5, 0, 4.82581, 0, 1.30825, -18.5073, -107.424, -697.469 )
 rings = "four"
 
 [node name="Target10" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, -200 )
+transform = Transform( 1.19258, 0, -4.85569, 0, 5, 0, 4.85569, 0, 1.19258, 100.174, 157.208, -805.929 )
 rings = "four"
 
 [node name="Target11" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0 )
+transform = Transform( 4.66568, 0, -1.79762, 0, 5, 0, 1.79762, 0, 4.66568, -1143.56, 263.348, 620.854 )
 rings = "four"
 
 [node name="Target12" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, -50 )
+transform = Transform( 4.48185, 0, -2.21653, 0, 5, 0, 2.21653, 0, 4.48185, -1182.95, 417.095, 212.217 )
 rings = "four"
 
 [node name="Target13" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, -100 )
+transform = Transform( 4.00559, 0, -2.99253, 0, 5, 0, 2.99253, 0, 4.00559, -1034.17, 261.407, -100 )
 rings = "four"
 
 [node name="Target14" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, -150 )
+transform = Transform( 3.54256, 0, -3.52849, 0, 5, 0, 3.52849, 0, 3.54256, -740.972, 309.579, -561.393 )
 rings = "four"
 
 [node name="Target15" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, -200 )
+transform = Transform( 2.32846, 0, -4.42474, 0, 5, 0, 4.42474, 0, 2.32846, -312.8, 261.407, -767.27 )
 rings = "four"
 
 [node name="Props" type="Spatial" parent="."]
@@ -192,7 +215,7 @@ transform = Transform( -0.17748, 0.415909, -0.89192, 0, 0.906308, 0.422618, 0.98
 far = 10000.0
 
 [node name="Spawnpoints" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 718.822, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 392.199, 0 )
 
 [node name="1" type="Position3D" parent="Spawnpoints"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, 0, 0 )
@@ -252,59 +275,40 @@ material = SubResource( 4 )
 
 [node name="Lights" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3249.43, 0 )
-visible = false
 
 [node name="Omni" type="Spatial" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 414.226, 0 )
 
 [node name="Top" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 800, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 750.867, 0 )
 light_energy = 2.95
-omni_range = 3298.9
+omni_range = 10000.0
 
 [node name="Bottom" type="OmniLight" parent="Lights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
 visible = false
-omni_range = 3298.9
+omni_range = 10000.0
 
 [node name="Front" type="OmniLight" parent="Lights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 1000, 0 )
+visible = false
 light_energy = 2.95
-omni_range = 3298.9
+omni_range = 10000.0
 
 [node name="Back" type="OmniLight" parent="Lights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1200, 1000, 0 )
+visible = false
 light_energy = 2.95
-omni_range = 3298.9
+omni_range = 10000.0
 
 [node name="Left" type="OmniLight" parent="Lights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 1200 )
+visible = false
 light_energy = 2.95
-omni_range = 3298.9
+omni_range = 10000.0
 
 [node name="Right" type="OmniLight" parent="Lights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -1200 )
+visible = false
 light_energy = 2.95
-omni_range = 3298.9
-
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 173.281, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -196.195, 0 )
-use_in_baked_light = true
-mesh = ExtResource( 11 )
-material/0 = SubResource( 5 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -196.195, 0 )
-visible = false
-shape = ExtResource( 7 )
-
-[node name="GIProbe" type="GIProbe" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1779.74, 0 )
-visible = false
-subdiv = 2
-extents = Vector3( 6000, 2000, 6000 )
-data = ExtResource( 5 )
+omni_range = 10000.0
