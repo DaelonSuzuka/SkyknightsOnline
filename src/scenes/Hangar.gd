@@ -26,6 +26,8 @@ func _ready():
     
     camera_location = $ShipCamera.transform
 
+    _ship_selected(0)
+
 # func _handle_input_event(action, state):
 #     match action:
 #         'exit':
