@@ -2,6 +2,7 @@ extends Spatial
 
 var flight_sens = Vector2(1, 1)
 var freelook_sens = Vector2(1, 1)
+var invert_y = false
 var ship = null
 var seat = null
 var first_person = true
@@ -15,6 +16,7 @@ func _ready():
 
     Settings.connect_to('Controls/Mouse/Flight', self, 'flight_sens_changed')
     Settings.connect_to('Controls/Mouse/Freelook', self, 'freelook_sens_changed')
+    Settings.connect_to('Controls/Mouse/InvertY', self, 'invert_y_changed')
 
     update_mouse_capture()
     update_camera_mode()
@@ -29,6 +31,9 @@ func flight_sens_changed(sens):
 func freelook_sens_changed(sens):
     if sens:
         freelook_sens = Vector2(float(sens), float(sens))
+func invert_y_changed(value):
+    print(value)
+    invert_y = value
 
 func radial_item_selected(id, pos):
     print(id, pos)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/ui/settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/settings/SettingSlider.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/settings/Tree.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/settings/SettingTextbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui/settings/SettingCheckbox.tscn" type="PackedScene" id=5]
 
 [node name="Settings" type="TabContainer"]
 anchor_left = 0.5
@@ -73,7 +74,6 @@ margin_bottom = 106.0
 default_value = "9099"
 
 [node name="Controls" type="TabContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -140,6 +140,19 @@ hint_tooltip = "Mouse sensitivity for operating a gun turret"
 margin_top = 128.0
 margin_right = 584.0
 margin_bottom = 132.0
+
+[node name="Label2" type="Label" parent="Controls/Mouse"]
+margin_top = 136.0
+margin_right = 584.0
+margin_bottom = 150.0
+text = "Other options"
+
+[node name="InvertY" parent="Controls/Mouse" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 584.0
+margin_bottom = 178.0
 
 [node name="Keyboard" type="VBoxContainer" parent="Controls"]
 visible = false
