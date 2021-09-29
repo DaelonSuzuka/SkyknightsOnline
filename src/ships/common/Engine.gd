@@ -1,19 +1,22 @@
 extends Spatial
 
 var _vert = {
-    current = 0.0,
-    target = 0.0,
-    hover = 0.0,
     up = {
+        current = 0.0,
+        target = 0.0,
         force = 1.0,
         max = 10.0,
+        response = .1,
+        damp = .95,
     },
     down = {
+        current = 0.0,
+        target = 0.0,
         force = -1.0,
         max = 10.0,
+        response = .1,
+        damp = .95,
     },
-    damp = .95,
-    response = .1,
 }
 
 var _speed = {
@@ -82,8 +85,10 @@ func backup_data():
 func restore_data():
     var new_data = base_data.duplicate(true)
 
-    new_data.vert.target = data.vert.target
-    new_data.vert.current = data.vert.current
+    new_data.vert.up.target = data.vert.up.target
+    new_data.vert.up.current = data.vert.up.current
+    new_data.vert.down.target = data.vert.down.target
+    new_data.vert.down.current = data.vert.down.current
     new_data.speed.target = data.speed.target
     new_data.speed.current = data.speed.current
     new_data.pitch.target = data.pitch.target
@@ -107,21 +112,26 @@ func calculate_forces(input, modifier={}):
     #         active_modifiers.append(mod)
     #         data = modifiers[mod].apply(data)
             
-    var vert = data.vert
+    var up = data.vert.up
+    var down = data.vert.down
     var speed = data.speed
     var pitch = data.pitch
     var yaw = data.yaw
     var roll = data.roll
 
-    # up = hover_thrust * hover_factor
-    if !input['vertical_thrust_up'] and !input['vertical_thrust_down']:
-        vert.target *= vert.damp
     if input['vertical_thrust_up']:
-        vert.target += vert.up.force
+        up.target += up.force
+    else:
+        up.target *= up.damp
+    up.target = clamp(up.target, 0, up.max)
+    up.current = lerp(up.current, up.target, up.response)
+
     if input['vertical_thrust_down']:
-        vert.target += vert.down.force
-    vert.target = clamp(vert.target, vert.down.max, vert.up.max)
-    vert.current = lerp(vert.current, vert.target, vert.response)
+        down.target += down.force
+    else:
+        down.target *= down.damp
+    down.target = clamp(down.target, down.max, 0)
+    down.current = lerp(down.current, down.target, down.response)
 
     if input['throttle_up']:
         speed.target += speed.accel
@@ -131,7 +141,7 @@ func calculate_forces(input, modifier={}):
     speed.current = lerp(speed.current, speed.target, speed.response)
 
     data.velocity.x = 0
-    data.velocity.y = vert.current
+    data.velocity.y = up.current + down.current
     data.velocity.z = speed.current
 
     pitch.input = clamp(input['pitch'], -1, 1)
@@ -169,5 +179,3 @@ func calculate_forces(input, modifier={}):
     roll.target *= roll.damp
     roll.target = clamp(roll.target, -roll.max, roll.max)
     roll.current = lerp(roll.current, roll.target, roll.response)
-
-    # panel.
