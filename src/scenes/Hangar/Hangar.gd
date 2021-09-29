@@ -17,7 +17,7 @@ func _ready():
     $UI/PrimarySelector.connect('item_activated', self, '_primary_selected')
     $UI/SecondarySelector.connect('item_activated', self, 'secondary_selected')
     
-    # $UI/ShipSelector.hide()
+    $UI/ShipSelector.hide()
     $UI/PrimarySelector.hide()
     $UI/SecondarySelector.hide()
 
@@ -27,6 +27,10 @@ func _ready():
     camera_location = $ShipCamera.transform
 
     _ship_selected(0)
+    
+    $UI/ShipSelector.hide()
+    $UI/PrimarySelector.hide()
+    $UI/SecondarySelector.hide()
 
 # func _handle_input_event(action, state):
 #     match action:
