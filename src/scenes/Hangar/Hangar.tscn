@@ -42,6 +42,7 @@ material = ExtResource( 3 )
 
 [node name="Pedestal" type="CSGCombiner" parent="."]
 transform = Transform( 0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 0, 2.28967, 0 )
+use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Pedestal"]
 transform = Transform( 0.606696, 0, 0.794934, 0, 1, 0, -0.794934, 0, 0.606696, 0, -2.57285, 0 )
