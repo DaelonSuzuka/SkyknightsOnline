@@ -14,10 +14,9 @@ func post_import(scene):
     scene.get_node('Engines').set_surface_material(0, engines)
     scene.get_node('Radar').set_surface_material(0, radar)
 
-    var panel1 = load('res://src/ships/marauder/materials/Panel1.tres')
     var panel1 = SpatialMaterial.new()
-    # panel1.flags_unshaded = true
-    # panel1.flags_transparent = true
+    panel1.flags_unshaded = true
+    panel1.flags_transparent = true
     scene.get_node('Panel1').set_surface_material(0, panel1)
 
     # var panel2 = SpatialMaterial.new()
