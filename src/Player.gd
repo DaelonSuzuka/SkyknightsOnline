@@ -32,7 +32,6 @@ func freelook_sens_changed(sens):
     if sens:
         freelook_sens = Vector2(float(sens), float(sens))
 func invert_y_changed(value):
-    print(value)
     invert_y = value
 
 func radial_item_selected(id, pos):
@@ -184,6 +183,8 @@ func _physics_process(delta):
 
     if capture_mouse:
         pitch = mouse_delta.y * flight_sens.y
+        if invert_y:
+            pitch *= -1
         roll = mouse_delta.x * flight_sens.x
     else:
         pitch = 0
