@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://src/scenes/Hangar/Hangar.gd" type="Script" id=2]
+[ext_resource path="res://src/scenes/Hangar/HangarWallMaterial.tres" type="Material" id=3]
+[ext_resource path="res://src/scenes/Hangar/HangarFloorMaterial.tres" type="Material" id=4]
+[ext_resource path="res://src/scenes/Hangar/HangarPedestalMaterial.tres" type="Material" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="Hangar" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="Enviroment" type="CSGCombiner" parent="."]
+
+[node name="Floor" type="CSGBox" parent="Enviroment"]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, -1.62781, -0.987511, 0 )
+material_override = SubResource( 1 )
+use_in_baked_light = true
+material = ExtResource( 4 )
+
+[node name="BackWall" type="CSGBox" parent="Enviroment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.3769 )
+material_override = SubResource( 1 )
+width = 197.129
+height = 78.1842
+material = ExtResource( 3 )
+
+[node name="SideWall" type="CSGBox" parent="Enviroment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.8748, 0, 0 )
+material_override = SubResource( 1 )
+height = 78.3805
+depth = 120.153
+material = ExtResource( 3 )
+
+[node name="Pedestal" type="CSGCombiner" parent="."]
+transform = Transform( 0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 0, 2.28967, 0 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Pedestal"]
+transform = Transform( 0.606696, 0, 0.794934, 0, 1, 0, -0.794934, 0, 0.606696, 0, -2.57285, 0 )
+material_override = SubResource( 2 )
+use_collision = true
+radius = 5.83232
+height = 1.9782
+sides = 32
+material = ExtResource( 5 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 76.5671, 0 )
+light_energy = 2.95
+omni_range = 3298.9
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 0.270281, 0.962781, 0, -0.962781, 0.270281, -11.7943, 49.6208, 52.7016 )
+light_energy = 1.32
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.707761, -0.611947, 0.35298, 0, 0.499652, 0.866226, -0.706452, -0.613081, 0.353634, 16.8131, 37.7072, 14.5568 )
+light_energy = 5.82
+light_indirect_energy = 5.68
+light_specular = 0.49
+shadow_enabled = true
+spot_range = 156.7
+spot_angle = 26.8
+
+[node name="ShipCamera" type="Spatial" parent="."]
+transform = Transform( 0.968908, 0.0948677, -0.228512, 0, 0.923572, 0.383425, 0.247422, -0.371504, 0.894856, -3.41012, 7.73563, 10.9151 )
+
+[node name="NosegunCamera" type="Spatial" parent="."]
+transform = Transform( 0.997803, 0, -0.0662565, 0, 1, 0, 0.0662565, 0, 0.997803, -4.61101, 2.98986, 8.85412 )
+
+[node name="BellygunCamera" type="Spatial" parent="."]
+transform = Transform( 0.999902, 0, -0.0139796, 0, 1, 0, 0.0139796, 0, 0.999902, 9.74848, 4.59718, 7.12837 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.997803, 0.0215382, -0.062658, 0, 0.945689, 0.325073, 0.0662565, -0.324359, 0.943611, -0.120166, 8.58172, 8.45338 )
+current = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ShipSelector" type="ItemList" parent="UI"]
+margin_right = 120.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrimarySelector" type="ItemList" parent="UI"]
+margin_left = 120.0
+margin_right = 240.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondarySelector" type="ItemList" parent="UI"]
+margin_left = 240.0
+margin_right = 360.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
