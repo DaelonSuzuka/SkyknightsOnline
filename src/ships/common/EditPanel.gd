@@ -41,7 +41,8 @@ func create_labels():
 
         var parts = field.split('.')
 
-        if parts[1] in ['current', 'target', 'input'] or parts.size() == 3 and parts[2] in ['current', 'target', 'input']:
+        if parts.size() == 2 and parts[1] in ['current', 'target', 'input'] or \
+            parts.size() == 3 and parts[2] in ['current', 'target', 'input']:
             $Scroll/Items.add_child(Label.new())
             $Scroll/Items.add_child(Label.new())
         else:

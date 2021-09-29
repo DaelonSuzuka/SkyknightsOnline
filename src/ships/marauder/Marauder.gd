@@ -37,7 +37,8 @@ func _ready():
     $Afterburner.data.speed.accel = 4.0
     $Afterburner.data.speed.max = 200
 
-    $Engine.data.vert.hover = 45.0
+    $Engine.data.vert.hover.force = 5
+    $Engine.data.vert.hover.max = 45.0
     $Engine.data.vert.up.force = 4.0
     $Engine.data.vert.up.max = 120.0
     $Engine.data.vert.down.force = -3

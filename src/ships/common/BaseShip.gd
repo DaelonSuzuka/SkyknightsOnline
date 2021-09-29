@@ -93,7 +93,6 @@ func _physics_process(delta):
     rotate_object_local(Vector3.UP, $Engine.data.yaw.current * delta)
     rotate_object_local(Vector3.FORWARD, $Engine.data.roll.current * delta)
 
-    var velocity = Quat(global_transform.basis).xform($Engine.data.velocity)
-    move_and_slide(velocity)
+    move_and_slide($Engine.data.velocity, Vector3.UP)
 
     transform = transform.orthonormalized()

@@ -1,6 +1,14 @@
 extends Spatial
 
 var _vert = {
+    hover = {
+        current = 0.0,
+        target = 0.0,
+        force = 1.0,
+        max = 10.0,
+        response = .1,
+        damp = .95,
+    },
     up = {
         current = 0.0,
         target = 0.0,
@@ -45,6 +53,7 @@ var _yaw = _angle.duplicate()
 
 var data = {
     velocity = Vector3(),
+    gravity = 50.0,
     vert = _vert.duplicate(true),
     speed = _speed.duplicate(true),
     pitch = _pitch.duplicate(true),
@@ -103,8 +112,9 @@ func restore_data():
 func calculate_forces(input, modifier={}):
     var angle = global_transform.basis.get_euler()
     var attitude = max(abs(angle.x), abs(angle.z))
-    var hover_factor = 1 - (attitude / 2)
-    
+    var hover_factor = 1 - (attitude / PI) * 2
+    hover_factor = clamp(hover_factor, 0, 1)
+
     # if modifiers.keys() != active_modifiers:
     #     active_modifiers.clear()
     #     restore_data()
@@ -112,12 +122,15 @@ func calculate_forces(input, modifier={}):
     #         active_modifiers.append(mod)
     #         data = modifiers[mod].apply(data)
             
+    var hover = data.vert.hover
     var up = data.vert.up
     var down = data.vert.down
     var speed = data.speed
     var pitch = data.pitch
     var yaw = data.yaw
     var roll = data.roll
+
+    hover.current = hover_factor * hover.max
 
     if input['vertical_thrust_up']:
         up.target += up.force
@@ -141,8 +154,11 @@ func calculate_forces(input, modifier={}):
     speed.current = lerp(speed.current, speed.target, speed.response)
 
     data.velocity.x = 0
-    data.velocity.y = up.current + down.current
+    data.velocity.y = hover.current + up.current + down.current
     data.velocity.z = speed.current
+
+    data.velocity = Quat(global_transform.basis).xform(data.velocity)
+    data.velocity.y -= data.gravity
 
     pitch.input = clamp(input['pitch'], -1, 1)
     if input['pitch_up']:
