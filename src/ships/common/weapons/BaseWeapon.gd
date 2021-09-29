@@ -27,8 +27,6 @@ var automatic = true
 
 var crosshair = null
 
-var Bullet = preload('res://src/ships/common/weapons/Bullet.tscn')
-
 var rng = RandomNumberGenerator.new()
 
 func get_cof_spread():
@@ -37,9 +35,8 @@ func get_cof_spread():
     return Vector2(x_spread, y_spread).normalized() * ((cone_of_fire / 90) + (pellet_spread / 90))
 
 func fire():
-    var bullet = Bullet.instance()
+    var bullet = Game.create_bullet()
     bullet.init(self, get_cof_spread())
-    get_parent().get_parent().get_parent().add_child(bullet)
 
 func reload():
     if magazine < magazine_capacity and ammo:

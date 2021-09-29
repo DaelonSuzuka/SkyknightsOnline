@@ -3,21 +3,30 @@ extends Node
 onready var scenes = {
     'player': preload("res://src/Player.tscn"),
     'peer': preload("res://src/Peer.tscn"),
-    'test_world': preload("res://src/scenes/TestWorld.tscn"),
-    'hangar': preload("res://src/scenes/Hangar.tscn"),
+    'test_world': preload("res://src/scenes/VRTraining/VRTraining.tscn"),
+    'hangar': preload("res://src/scenes/Hangar/Hangar.tscn"),
+    'bullet': preload('res://src/ships/common/weapons/Bullet.tscn'),
 }
 
 onready var ships = {
     'marauder': preload("res://src/ships/marauder/Marauder.tscn"),
 }
 
+var Bullets
 
 onready var World = get_node('/root/Main/World')
 onready var Ships = get_node('/root/Main/Ships')
 onready var Players = get_node('/root/Main/Players')
 
 func _ready():
-    pass
+    Bullets = Node.new()
+    Bullets.name = 'Bullets'
+    add_child(Bullets)
+
+func create_bullet():
+    var bullet = scenes['bullet'].instance()
+    Bullets.add_child(bullet)
+    return bullet
 
 func on_local_pressed():
     Game.load_world('test_world')
