@@ -65,6 +65,17 @@ func _ready():
 
     $Engine.EditPanel.create_labels()
 
+    # var panel1_material = SpatialMaterial.new()
+    # panel1_material.flags_unshaded = true
+    # panel1_material.flags_transparent = true
+    # $Model/Panel1.set_surface_material(0, panel1_material)
+
+    # var panel1_texture = ViewportTexture.new()
+    # panel1_texture.viewport_path = 'Panels/Panel1/Viewport'
+    # $Model/Panel1.get_surface_material(0).albedo_texture = panel1_texture
+
+    $Model/Panel1.get_surface_material(0).albedo_texture = $Panels/Panel1/Viewport.get_texture()
+
     if nosegun != 'none':
         equip('weapons', 'nosegun', nosegun)
 
