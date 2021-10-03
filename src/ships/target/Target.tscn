@@ -15,6 +15,8 @@ height = 1.0
 script = ExtResource( 2 )
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
+current = 5000
+maximum = 5000
 
 [node name="HealthBar" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2073, 0 )
@@ -47,35 +49,35 @@ visible = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
 light_energy = 2.95
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [node name="Bottom" type="OmniLight" parent="EditorLights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [node name="Front" type="OmniLight" parent="EditorLights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
 light_energy = 2.95
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [node name="Back" type="OmniLight" parent="EditorLights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0 )
 light_energy = 2.95
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [node name="Left" type="OmniLight" parent="EditorLights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
 light_energy = 2.95
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [node name="Right" type="OmniLight" parent="EditorLights/Omni"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
 light_energy = 2.95
 editor_only = true
-omni_range = 3298.9
+omni_range = 100.0
 
 [editable path="Model"]
