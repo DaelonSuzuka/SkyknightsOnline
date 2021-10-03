@@ -53,7 +53,7 @@ var _yaw = _angle.duplicate()
 
 var data = {
     velocity = Vector3(),
-    gravity = 50.0,
+    gravity = 9.8,
     vert = _vert.duplicate(true),
     speed = _speed.duplicate(true),
     pitch = _pitch.duplicate(true),
