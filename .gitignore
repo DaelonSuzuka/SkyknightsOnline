@@ -5,6 +5,8 @@ settings.json
 
 *.blend[0-9]
 
-SkyknightsOnline.exe
-SkyknightsOnline.x86_64
-SkyknightsOnline.zip
+SkyknightsOnlineWin.exe
+SkyknightsOnlineWin.zip
+SkyknightsOnlineLinux.x86_64
+SkyknightsOnlineLinux.zip
+SkyknightsOnlineMac.zip
