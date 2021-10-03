@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/kenney_prototype_textures/light/texture_08.png" type="Texture" id=1]
-[ext_resource path="res://src/scenes/Tower/Tower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/VRTraining/VRTraining.gd" type="Script" id=3]
 [ext_resource path="res://src/ships/target/Target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/scenes/VRTraining/GIProbeData.tres" type="GIProbeData" id=5]
@@ -9,6 +8,7 @@
 [ext_resource path="res://src/scenes/VRTraining/VRTrainingMeshProcessed.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrainCollision.tres" type="Shape" id=8]
 [ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrainMaterial.tres" type="Material" id=9]
+[ext_resource path="res://src/props/Biolab.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -102,84 +102,108 @@ material = SubResource( 3 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1287.25, 697.015, 2158.26 )
 
 [node name="Target" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.3089, 0, -2.53641, 0, 5, 0, 2.53641, 0, 4.3089, -853.815, -21.9932, 207.039 )
+transform = Transform( 0.86178, 0, -0.507282, 0, 1, 0, 0.507282, 0, 0.86178, -853.815, -21.9932, 207.039 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target2" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( -0.617574, 0, -4.96171, 0, 5, 0, 4.96171, 0, -0.617574, 668.907, 527.419, -1135 )
+transform = Transform( -0.123515, 0, -0.992343, 0, 1, 0, 0.992343, 0, -0.123515, 668.907, 527.419, -1135 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target3" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( -0.0520972, 0, -4.99973, 0, 5, 0, 4.99973, 0, -0.0520972, 617.519, 50, -897.627 )
+transform = Transform( -0.0104195, 0, -0.999946, 0, 1, 0, 0.999946, 0, -0.0104195, 617.519, 50, -897.627 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target4" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.953959, 0, -4.90815, 0, 5, 0, 4.90815, 0, 0.953959, 236.681, 554.027, -1036.67 )
+transform = Transform( 0.190792, 0, -0.981631, 0, 1, 0, 0.981631, 0, 0.190792, 236.681, 554.027, -1036.67 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target5" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 3.91722, 0, -3.10731, 0, 5, 0, 3.10731, 0, 3.91722, -526.145, -88.7286, -433.703 )
+transform = Transform( 0.783444, 0, -0.621462, 0, 1, 0, 0.621462, 0, 0.783444, -526.145, -88.7286, -433.703 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target6" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.99685, 0, -0.177375, 0, 5, 0, 0.177375, 0, 4.99685, -1238.77, 628.181, 1058.57 )
+transform = Transform( 0.999371, 0, -0.035475, 0, 1, 0, 0.035475, 0, 0.999371, -1238.77, 628.181, 1058.57 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target7" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -1124.65, 157.208, 968.317 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1124.65, 157.208, 968.317 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target8" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.87279, 0, 1.12067, 0, 5, 0, -1.12067, 0, 4.87279, -996.687, 157.208, 1402.07 )
+transform = Transform( 0.974558, 0, 0.224134, 0, 1, 0, -0.224134, 0, 0.974558, -996.687, 157.208, 1402.07 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target9" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1.30825, 0, -4.82581, 0, 5, 0, 4.82581, 0, 1.30825, -18.5073, -107.424, -697.469 )
+transform = Transform( 0.26165, 0, -0.965163, 0, 1, 0, 0.965163, 0, 0.26165, -18.5073, -107.424, -697.469 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target10" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1.19258, 0, -4.85569, 0, 5, 0, 4.85569, 0, 1.19258, 100.174, 157.208, -805.929 )
+transform = Transform( 0.238516, 0, -0.971139, 0, 1, 0, 0.971139, 0, 0.238516, 100.174, 157.208, -805.929 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target11" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.66568, 0, -1.79762, 0, 5, 0, 1.79762, 0, 4.66568, -1143.56, 263.348, 620.854 )
+transform = Transform( 0.933136, 0, -0.359524, 0, 1, 0, 0.359524, 0, 0.933136, -1143.56, 263.348, 620.854 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target12" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.48185, 0, -2.21653, 0, 5, 0, 2.21653, 0, 4.48185, -1182.95, 417.095, 212.217 )
+transform = Transform( 0.89637, 0, -0.443306, 0, 1, 0, 0.443306, 0, 0.89637, -1182.95, 417.095, 212.217 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target13" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 4.00559, 0, -2.99253, 0, 5, 0, 2.99253, 0, 4.00559, -1034.17, 261.407, -100 )
+transform = Transform( 0.801118, 0, -0.598506, 0, 1, 0, 0.598506, 0, 0.801118, -1034.17, 261.407, -100 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target14" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 3.54256, 0, -3.52849, 0, 5, 0, 3.52849, 0, 3.54256, -740.972, 309.579, -561.393 )
+transform = Transform( 0.708512, 0, -0.705698, 0, 1, 0, 0.705698, 0, 0.708512, -740.972, 309.579, -561.393 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Target15" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 2.32846, 0, -4.42474, 0, 5, 0, 4.42474, 0, 2.32846, -312.8, 261.407, -767.27 )
+transform = Transform( 0.465692, 0, -0.884947, 0, 1, 0, 0.884947, 0, 0.465692, -312.8, 261.407, -767.27 )
 rings = "four"
+respawn_delay = 10
 
 [node name="Props" type="Spatial" parent="."]
 
-[node name="Tower" parent="Props" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1801.99, 277.545, -1099.99 )
+[node name="Biolab" parent="Props" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -973.519, 308.435, 0 )
+
+[node name="Biolab2" parent="Props" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2959.99, 311.872, 0 )
+
+[node name="Biolab3" parent="Props" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 276.796, -2379.61 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -1200, 1200, 1200 )
+visible = false
 far = 10000.0
 
 [node name="Camera2" type="Camera" parent="."]
 transform = Transform( -0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, 0.353553, -0.612373, 1500, 1200, -1200 )
+visible = false
 far = 10000.0
 
 [node name="Camera3" type="Camera" parent="."]
 transform = Transform( -0.17748, 0.415909, -0.89192, 0, 0.906308, 0.422618, 0.984124, 0.0750063, -0.160851, -97.2036, 513.673, -309.4 )
+visible = false
 far = 10000.0
 
 [node name="Spawnpoints" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 477.549, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 394.456, 0 )
 
 [node name="1" type="Position3D" parent="Spawnpoints"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, 0, 0 )
@@ -190,8 +214,7 @@ use_in_baked_light = true
 use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/1/CSGCombiner"]
-radius = 20.0
-height = 5.0
+radius = 10.0
 sides = 12
 material = SubResource( 4 )
 
@@ -204,8 +227,8 @@ use_in_baked_light = true
 use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/2/CSGCombiner"]
-radius = 20.0
-height = 5.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0046, -20.9027, 10.2663 )
+radius = 10.0
 sides = 12
 material = SubResource( 4 )
 
@@ -218,8 +241,8 @@ use_in_baked_light = true
 use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/3/CSGCombiner"]
-radius = 20.0
-height = 5.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2663, -20.9027, -17.0046 )
+radius = 10.0
 sides = 12
 material = SubResource( 4 )
 
@@ -232,8 +255,8 @@ use_in_baked_light = true
 use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/4/CSGCombiner"]
-radius = 20.0
-height = 5.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0046, -20.9027, -10.2663 )
+radius = 10.0
 sides = 12
 material = SubResource( 4 )
 
