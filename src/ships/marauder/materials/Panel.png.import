@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Panel.png-d863a33299a9b71c9d97f2fe1094c7ea.s3tc.stex"
-path.etc2="res://.import/Panel.png-d863a33299a9b71c9d97f2fe1094c7ea.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/ships/marauder/materials/Panel.png"
-dest_files=[ "res://.import/Panel.png-d863a33299a9b71c9d97f2fe1094c7ea.s3tc.stex", "res://.import/Panel.png-d863a33299a9b71c9d97f2fe1094c7ea.etc2.stex" ]
+dest_files=[ "res://.import/Panel.png-d863a33299a9b71c9d97f2fe1094c7ea.s3tc.stex" ]
 
 [params]
 

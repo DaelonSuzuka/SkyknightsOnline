@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/healthbar_green.png-9ed703b4af1d1f41066e6499f3a5e92c.s3tc.stex"
-path.etc2="res://.import/healthbar_green.png-9ed703b4af1d1f41066e6499f3a5e92c.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/components/healthbar/healthbar_green.png"
-dest_files=[ "res://.import/healthbar_green.png-9ed703b4af1d1f41066e6499f3a5e92c.s3tc.stex", "res://.import/healthbar_green.png-9ed703b4af1d1f41066e6499f3a5e92c.etc2.stex" ]
+dest_files=[ "res://.import/healthbar_green.png-9ed703b4af1d1f41066e6499f3a5e92c.s3tc.stex" ]
 
 [params]
 

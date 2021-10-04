@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Wings.png-2662ec0da6e649be154cc2434ddf724e.s3tc.stex"
-path.etc2="res://.import/Wings.png-2662ec0da6e649be154cc2434ddf724e.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/ships/marauder/materials/Wings.png"
-dest_files=[ "res://.import/Wings.png-2662ec0da6e649be154cc2434ddf724e.s3tc.stex", "res://.import/Wings.png-2662ec0da6e649be154cc2434ddf724e.etc2.stex" ]
+dest_files=[ "res://.import/Wings.png-2662ec0da6e649be154cc2434ddf724e.s3tc.stex" ]
 
 [params]
 
