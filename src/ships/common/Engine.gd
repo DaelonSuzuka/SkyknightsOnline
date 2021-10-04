@@ -79,14 +79,17 @@ func remove_modifier(name):
         modifiers.erase(name)
 
 onready var EditPanel = $EditPanel
+var editor_visible = false
 
 func show_editor():
     $EditPanel.show()
     $EditButtons.show()
+    editor_visible = true
 
 func hide_editor():
     $EditPanel.hide()
     $EditButtons.hide()
+    editor_visible = false
 
 func backup_data():
     base_data = data.duplicate(true)

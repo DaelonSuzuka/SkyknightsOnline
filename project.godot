@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area",
+"class": "AmmoSource",
+"language": "GDScript",
+"path": "res://src/props/common/AmmoSource.gd"
+} ]
+_global_script_class_icons={
+"AmmoSource": ""
+}
+
 [application]
 
 config/name="SkyknightsOnline"

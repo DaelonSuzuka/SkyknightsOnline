@@ -13,6 +13,7 @@ var actions = {
     'scoreboard': {'key': KEY_TAB},
     'map': {'key': KEY_M},
     'open_chat': {'key': KEY_ENTER},
+    'toggle_ship_engine_stats': {'key': KEY_MINUS},
 
     # movement
     'throttle_up': {'key': KEY_W},
