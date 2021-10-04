@@ -33,20 +33,20 @@ func _ready():
     $Health.maximum = 3000
 
     $Afterburner.data.vert.up.accel = 4.0
-    $Afterburner.data.vert.up.max = 100
+    $Afterburner.data.vert.up.max = 35
     $Afterburner.data.speed.accel = 4.0
-    $Afterburner.data.speed.max = 200
+    $Afterburner.data.speed.max = 100
 
-    $Engine.data.vert.hover.force = 5
-    $Engine.data.vert.hover.max = 45.0
+    $Engine.data.vert.hover.force = 1
+    $Engine.data.vert.hover.max = 5
     $Engine.data.vert.up.force = 4.0
-    $Engine.data.vert.up.max = 120.0
+    $Engine.data.vert.up.max = 35.0
     $Engine.data.vert.down.force = -3
-    $Engine.data.vert.down.max = -80
+    $Engine.data.vert.down.max = -30
 
-    $Engine.data.speed.accel = 1.5
-    $Engine.data.speed.brake = 2.5
-    $Engine.data.speed.max = 350
+    $Engine.data.speed.accel = 0.5
+    $Engine.data.speed.brake = 1.0
+    $Engine.data.speed.max = 250 / 3.6
     $Engine.data.speed.response = .05
 
     $Engine.data.pitch.force = .2
@@ -58,7 +58,7 @@ func _ready():
     $Engine.data.roll.response = .2
     $Engine.data.roll.damp = .95
     $Engine.data.yaw.force = .1
-    $Engine.data.yaw.max = 1.0
+    $Engine.data.yaw.max = 0.5
     $Engine.data.yaw.response = .1
     $Engine.data.yaw.damp = .9
 
@@ -76,6 +76,7 @@ func _ready():
     # $Model/Panel1.get_surface_material(0).albedo_texture = panel1_texture
 
     $Model/Panel1.get_surface_material(0).albedo_texture = $Panels/Panel1/Viewport.get_texture()
+    $Panels/Panel1/Viewport/Sprite.texture = $Panels/Panel1/Viewport/Sprite/InnerViewport.get_texture()
 
     if nosegun != 'none':
         equip('weapons', 'nosegun', nosegun)
