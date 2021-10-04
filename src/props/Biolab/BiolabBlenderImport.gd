@@ -1,7 +1,7 @@
 tool
 extends EditorScenePostImport
 
-var mat_path = 'res://src/props/biolab/materials/'
+var mat_path = 'res://src/props/Biolab/materials/'
 var res_path = mat_path + '%s.tres'
 var tex_path = mat_path + '%s.png'
 
