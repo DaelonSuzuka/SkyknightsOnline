@@ -25,6 +25,7 @@ __meta__ = {
 }
 
 [node name="General" type="VBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -154,33 +155,18 @@ margin_top = 154.0
 margin_right = 584.0
 margin_bottom = 178.0
 
-[node name="Keyboard" type="VBoxContainer" parent="Controls"]
+[node name="Keyboard" type="Tree" parent="Controls"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 53.0
 margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Description" type="Label" parent="Controls/Keyboard"]
-margin_right = 584.0
-margin_bottom = 14.0
-text = "Keybindings"
+margin_bottom = 17.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="HSeparator" type="HSeparator" parent="Controls/Keyboard"]
-margin_top = 18.0
-margin_right = 584.0
-margin_bottom = 22.0
-
-[node name="Tree" type="Tree" parent="Controls/Keyboard"]
-margin_top = 26.0
-margin_right = 584.0
-margin_bottom = 27.0
-script = ExtResource( 3 )
 
 [node name="Controller" type="Control" parent="Controls"]
 visible = false
