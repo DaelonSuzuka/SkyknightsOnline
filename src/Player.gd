@@ -99,14 +99,9 @@ func enter_ship(new_ship):
     HUD.show_hud()
     ship.engine.show_editor()
     ship.healthbar.hide()
-    # HUD.SeatingDiagram.load_ship(ship)
     if ship.current_weapon:
         HUD.WeaponInfo.show()
         if ship.current_weapon.get('crosshair'):
-            # HUD.Crosshair.show()
-            # HUD.HorizonIndicator.show()
-            # HUD.HeadingIndicator.show()
-            # HUD.PitchLadder.show()
             HUD.Crosshair.texture = load(ship.current_weapon.crosshair)
 
 func leave_ship():
@@ -115,12 +110,6 @@ func leave_ship():
     ship = null
     
     HUD.hide_hud()
-    # HUD.SeatingDiagram.hide()
-    # HUD.WeaponInfo.hide()
-    # HUD.Crosshair.hide()
-    # HUD.HorizonIndicator.show()
-    # HUD.HeadingIndicator.show()
-    # HUD.PitchLadder.show()
 
 func toggle_menu(state):
     if state:
