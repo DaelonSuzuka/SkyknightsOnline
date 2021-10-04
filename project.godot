@@ -28,10 +28,10 @@ config/icon="res://assets/icon/Skyknights.svg"
 
 [autoload]
 
+InputManager="*res://src/InputManager.gd"
 Settings="*res://src/ui/settings/Settings.tscn"
 Network="*res://src/network/network.gd"
 Game="*res://src/GameManager.gd"
-InputManager="*res://src/InputManager.gd"
 MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
 
