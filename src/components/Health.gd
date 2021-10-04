@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 
 export var current = 1000
 export var maximum = 1000 setget set_maximum

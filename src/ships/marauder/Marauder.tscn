@@ -2,13 +2,13 @@
 
 [ext_resource path="res://src/ships/common/FirstPersonCamera.gd" type="Script" id=1]
 [ext_resource path="res://src/ships/common/ThirdPersonCamera.gd" type="Script" id=2]
-[ext_resource path="res://src/ships/common/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/components/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ships/marauder/Marauder.gd" type="Script" id=4]
 [ext_resource path="res://src/ships/common/Seats.gd" type="Script" id=5]
 [ext_resource path="res://src/ships/marauder/cosmetics/fins.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://src/ships/common/Engine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/ships/common/Afterburner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/ui/healthbar/HealthBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/components/healthbar/HealthBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ships/marauder/marauder.glb" type="PackedScene" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -77,7 +77,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.60748, 0 )
 [node name="Health" parent="." instance=ExtResource( 3 )]
 
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89191, 0 )
 
 [node name="EditorLights" type="Spatial" parent="."]
 
@@ -147,7 +146,7 @@ hdr = false
 physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="Panels/Panel1/Viewport/Sprite/InnerViewport"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0111697, 6.4514 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0111699, 6.4514 )
 projection = 2
 size = 0.1
 far = 100000.0
