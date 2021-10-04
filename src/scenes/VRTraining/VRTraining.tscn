@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/kenney_prototype_textures/light/texture_08.png" type="Texture" id=1]
+[ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrain.glb" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/VRTraining/VRTraining.gd" type="Script" id=3]
 [ext_resource path="res://src/ships/target/Target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/scenes/VRTraining/GIProbeData.tres" type="GIProbeData" id=5]
 [ext_resource path="res://addons/kenney_prototype_textures/dark/texture_02.png" type="Texture" id=6]
-[ext_resource path="res://src/scenes/VRTraining/VRTrainingMeshProcessed.obj" type="ArrayMesh" id=7]
-[ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrainCollision.tres" type="Shape" id=8]
-[ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrainMaterial.tres" type="Material" id=9]
 [ext_resource path="res://src/props/Biolab/Biolab.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -42,32 +40,13 @@ script = ExtResource( 3 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.914, 0 )
-use_in_baked_light = true
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-visible = false
-shape = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1779.74, 0 )
 visible = false
 extents = Vector3( 6000, 2000, 6000 )
 data = ExtResource( 5 )
+
+[node name="Terrain" parent="." instance=ExtResource( 2 )]
 
 [node name="Walls" type="CSGCombiner" parent="."]
 use_in_baked_light = true
@@ -179,13 +158,13 @@ respawn_delay = 10
 [node name="Props" type="Spatial" parent="."]
 
 [node name="Biolab" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -973.519, 308.435, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -973.519, 337.169, 0 )
 
 [node name="Biolab2" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2959.99, 311.872, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2959.99, 341.212, 0 )
 
 [node name="Biolab3" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 276.796, -2379.61 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 292.555, -2379.61 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -1200, 1200, 1200 )
@@ -203,10 +182,10 @@ visible = false
 far = 10000.0
 
 [node name="Spawnpoints" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 394.456, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 434.989, 0 )
 
 [node name="1" type="Position3D" parent="Spawnpoints"]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, 0, 0 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, -20.8135, 0 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="Spawnpoints/1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0 )
