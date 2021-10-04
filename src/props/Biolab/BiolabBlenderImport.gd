@@ -1,19 +1,29 @@
 tool
 extends EditorScenePostImport
 
+var mat_path = 'res://src/props/biolab/materials/'
+var res_path = mat_path + '%s.tres'
+var tex_path = mat_path + '%s.png'
+
 func post_import(scene):
     scene.name = 'Model'
 
-    var deck = SpatialMaterial.new()
-    deck.albedo_texture = load('res://src/props/biolab/Deck.png')
-    scene.get_node('Deck').set_surface_material(0, deck)
+    var parts = ['Deck', 'Dome', 'LandingPads']
+    var material
+    var node
 
-    var dome = SpatialMaterial.new()
-    dome.albedo_texture = load('res://src/props/biolab/Dome.png')
-    scene.get_node('Dome').set_surface_material(0, dome)
+    for part in parts:
+        node = scene.get_node(part)
 
-    var pads = SpatialMaterial.new()
-    pads.albedo_texture = load('res://src/props/biolab/LandingPads.png')
-    scene.get_node('LandingPads').set_surface_material(0, pads)
+        if Directory.new().file_exists(res_path % part):
+            material = load(res_path % part)
+        else:
+            material = SpatialMaterial.new()
+            material.albedo_texture = load(tex_path % part)
+            ResourceSaver.save(res_path % part, material)
+
+        node.set_surface_material(0, material)
+
+        node.create_trimesh_collision()
 
     return scene
