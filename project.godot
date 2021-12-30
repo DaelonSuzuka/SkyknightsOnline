@@ -39,6 +39,8 @@ HUD="*res://src/ui/hud/HUD.tscn"
 
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
 multirun/server/number_of_windows=3
 multirun/server/window_distance=400
 multirun/server/add_custom_args=true
