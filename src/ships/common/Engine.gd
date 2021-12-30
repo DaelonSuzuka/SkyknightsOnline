@@ -1,30 +1,18 @@
 extends Spatial
 
+var _direction = {
+    current = 0.0,
+    target = 0.0,
+    force = 1.0,
+    max = 10.0,
+    response = .1,
+    damp = .95,
+}
+
 var _vert = {
-    hover = {
-        current = 0.0,
-        target = 0.0,
-        force = 1.0,
-        max = 10.0,
-        response = .1,
-        damp = .95,
-    },
-    up = {
-        current = 0.0,
-        target = 0.0,
-        force = 1.0,
-        max = 10.0,
-        response = .1,
-        damp = .95,
-    },
-    down = {
-        current = 0.0,
-        target = 0.0,
-        force = -1.0,
-        max = 10.0,
-        response = .1,
-        damp = .95,
-    },
+    hover = _direction.duplicate(true),
+    up = _direction.duplicate(true),
+    down = _direction.duplicate(true),
 }
 
 var _speed = {
@@ -47,18 +35,18 @@ var _angle = {
     damp = .95,
 }
 
-var _pitch = _angle.duplicate()
-var _roll = _angle.duplicate()
-var _yaw = _angle.duplicate()
-
 var data = {
     velocity = Vector3(),
     gravity = 9.8,
-    vert = _vert.duplicate(true),
+    vert = {
+        hover = _direction.duplicate(true),
+        up = _direction.duplicate(true),
+        down = _direction.duplicate(true),
+    },
     speed = _speed.duplicate(true),
-    pitch = _pitch.duplicate(true),
-    roll = _roll.duplicate(true),
-    yaw = _yaw.duplicate(true),
+    pitch = _angle.duplicate(true),
+    roll = _angle.duplicate(true),
+    yaw = _angle.duplicate(true),
 }
 var base_data = data.duplicate(true)
 
