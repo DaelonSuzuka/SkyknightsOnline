@@ -30,7 +30,7 @@ height = 2.15855
 radius = 0.930727
 height = 2.2808
 
-[node name="Reaver" type="KinematicBody"]
+[node name="Marauder" type="KinematicBody"]
 script = ExtResource( 4 )
 
 [node name="Model" parent="." instance=ExtResource( 11 )]
