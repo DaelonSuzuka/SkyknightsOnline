@@ -6,8 +6,8 @@
 [ext_resource path="res://src/props/common/SpawnPoint.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 20.0
 height = 15.0
+radius = 20.0
 
 [node name="Biolab" type="Spatial"]
 script = ExtResource( 2 )
