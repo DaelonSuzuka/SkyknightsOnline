@@ -8,21 +8,20 @@ onready var Ping = $Bar/System/NetStatus/Ping
 onready var Spawn = $Bar/Spawn
 onready var Username = $Bar/System/NetStatus/Username
 
-
 func _ready():
-    $Bar/System/Settings.connect('pressed', Settings, 'toggle_visibility')
-    $Bar/System/Quit.connect('pressed', self, 'quit_pressed')
+	$Bar/System/Settings.connect('pressed', Settings, 'toggle_visibility')
+	$Bar/System/Quit.connect('pressed', self, 'quit_pressed')
 
-    $Bar/System/Connect.disabled = true
+	$Bar/System/Connect.disabled = true
 
-    Settings.connect_to('General/Username', self, 'username_changed')
+	Settings.connect_to('General/Username', self, 'username_changed')
 
 func quit_pressed():
-    get_tree().quit()
+	get_tree().quit()
 
 func username_changed(name):
-    Username.text = name
-    if name != '':
-        $Bar/System/Connect.disabled = false
-    else:
-        $Bar/System/Connect.disabled = true
+	Username.text = name
+	if name != '':
+		$Bar/System/Connect.disabled = false
+	else:
+		$Bar/System/Connect.disabled = true

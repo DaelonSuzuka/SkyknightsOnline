@@ -29,7 +29,9 @@ func _physics_process(delta):
 	transform.origin += grav * delta
 
 	var space_state = get_world().direct_space_state
-	var result = space_state.intersect_ray(prev_pos, transform.origin, [self], collision_mask, true, true)
+	var result = space_state.intersect_ray(
+		prev_pos, transform.origin, [self], collision_mask, true, true
+	)
 	if 'collider' in result:
 		var target = result['collider'].get_parent()
 		fired_by.on_impact(target, origin.distance_to(transform.origin))

@@ -8,27 +8,27 @@ var value = '' setget set_value
 signal value_changed(value)
 
 func _ready():
-    Settings.register(self)
+	Settings.register(self)
 
-    if setting_name == 'auto':
-        $Name.text = name
-    else:
-        $Name.text = setting_name
-    
-    $Description.text = description
+	if setting_name == 'auto':
+		$Name.text = name
+	else:
+		$Name.text = setting_name
 
-    set_value(default_value)
+	$Description.text = description
 
-    $LineEdit.connect('text_entered', self, 'line_changed')
+	set_value(default_value)
+
+	$LineEdit.connect('text_entered', self, 'line_changed')
 
 func emit():
-    value = $LineEdit.text
-    emit_signal('value_changed', value)
+	value = $LineEdit.text
+	emit_signal('value_changed', value)
 
 func set_value(new_value):
-    value = new_value
-    $LineEdit.text = new_value
+	value = new_value
+	$LineEdit.text = new_value
 
 func line_changed(text):
-    value = text
-    emit()
+	value = text
+	emit()

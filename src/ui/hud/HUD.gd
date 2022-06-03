@@ -12,22 +12,22 @@ onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
 # onready var Chat = $ChatBox
 
 func _ready():
-    hide_hud()
+	hide_hud()
 
 func hide_hud():
-    WeaponInfo.hide()
-    Crosshair.hide()
-    ReloadIndicator.hide()
-    HorizonIndicator.hide()
-    HeadingIndicator.hide()
-    PitchLadderLeft.hide()
-    PitchLadderRight.hide()
+	WeaponInfo.hide()
+	Crosshair.hide()
+	ReloadIndicator.hide()
+	HorizonIndicator.hide()
+	HeadingIndicator.hide()
+	PitchLadderLeft.hide()
+	PitchLadderRight.hide()
 
 func show_hud():
-    WeaponInfo.show()
-    Crosshair.show()
-    ReloadIndicator.show()
-    HorizonIndicator.show()
-    HeadingIndicator.show()
-    PitchLadderLeft.show()
-    PitchLadderRight.show()
+	WeaponInfo.show()
+	Crosshair.show()
+	ReloadIndicator.show()
+	HorizonIndicator.show()
+	HeadingIndicator.show()
+	PitchLadderLeft.show()
+	PitchLadderRight.show()

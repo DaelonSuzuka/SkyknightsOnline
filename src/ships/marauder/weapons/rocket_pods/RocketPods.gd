@@ -1,7 +1,7 @@
 extends Spatial
 
 func _ready():
-    pass
+	pass
 
 #func _process(delta):
 #    pass

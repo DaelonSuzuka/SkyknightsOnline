@@ -1,7 +1,7 @@
 extends Label
 
 func _ready():
-    pass
+	pass
 
 func _process(_delta):
-   text = 'fps: ' + str(Engine.get_frames_per_second())
+	text = 'fps: ' + str(Engine.get_frames_per_second())

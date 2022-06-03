@@ -2,8 +2,8 @@ extends Spatial
 
 var pos setget , get_pos
 
-var yaw_limit = Vector2(-PI/2, PI/2)
-var pitch_limit = Vector2(-PI/2, PI/5)
+var yaw_limit = Vector2(-PI / 2, PI / 2)
+var pitch_limit = Vector2(-PI / 2, PI / 5)
 
 func get_pos():
 	return $InnerGimbal/CameraPos
