@@ -269,8 +269,8 @@ func _draw():
 			Draw.draw_ring_segment(
 				self,
 				coords,
-				_get_color('Selected Background'),
-				_get_color('Selected Stroke'),
+				_get_color('SelectedBackground'),
+				_get_color('SelectedStroke'),
 				0.5,
 				true
 			)
@@ -285,13 +285,13 @@ func _draw():
 		var coords = Draw.calc_ring_segment(
 			outer, outer + rw, start_angle, start_angle + count * item_angle, center_offset
 		)
-		Draw.draw_ring_segment(self, coords, _get_color('Ring Background'), null, 0, true)
+		Draw.draw_ring_segment(self, coords, _get_color('RingBackground'), null, 0, true)
 	elif decorator_ring_position == Position.inside:
 		var rw = _get_constant('Decorator Ring Width')
 		var coords = Draw.calc_ring_segment(
 			inner - rw, inner, start_angle, start_angle + count * item_angle, center_offset
 		)
-		Draw.draw_ring_segment(self, coords, _get_color('Ring Background'), null, 0, true)
+		Draw.draw_ring_segment(self, coords, _get_color('RingBackground'), null, 0, true)
 
 	# draw selection ring segment
 	if selected != -1 and not has_open_submenu():
@@ -306,7 +306,7 @@ func _draw():
 				center_offset
 			)
 			Draw.draw_ring_segment(
-				self, select_coords, _get_color('Selector Segment'), null, 0, true
+				self, select_coords, _get_color('SelectorSegment'), null, 0, true
 			)
 		elif selector_position == Position.inside:
 			select_coords = Draw.calc_ring_segment(
@@ -317,7 +317,7 @@ func _draw():
 				center_offset
 			)
 			Draw.draw_ring_segment(
-				self, select_coords, _get_color('Selector Segment'), null, 0, true
+				self, select_coords, _get_color('SelectorSegment'), null, 0, true
 			)
 
 	if center_radius != 0:
@@ -326,16 +326,16 @@ func _draw():
 func _draw_center():
 	if is_submenu:
 		return
-	var bg = _get_color('Center Background')
-	var fg = _get_color('Center Stroke')
+	var bg = _get_color('CenterBackground')
+	var fg = _get_color('CenterStroke')
 	if selected == -1:
-		fg = _get_color('Selector Segment')
+		fg = _get_color('SelectorSegment')
 	var tex = CLOSE_TEXTURE
 	if active_submenu_idx != -1:
 		tex = BACK_TEXTURE
 	draw_circle(center_offset, center_radius, bg)
 	draw_arc(center_offset, center_radius, 0, 2 * PI, center_radius, fg, 2, true)
-	draw_texture(tex, center_offset - CLOSE_TEXTURE.get_size() / 2, _get_color('Icon Modulation'))
+	draw_texture(tex, center_offset - CLOSE_TEXTURE.get_size() / 2, _get_color('IconModulation'))
 
 func setup_gamepad(deviceid: int, xaxis: int, yaxis: int, deadzone: float=JOY_DEADZONE):
 	gamepad_device = deviceid
