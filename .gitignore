@@ -1,12 +1,7 @@
 .import
 export.cfg
-export_presets.cfg
 settings.json
 
 *.blend[0-9]
 
-SkyknightsOnlineWin.exe
-SkyknightsOnlineWin.zip
-SkyknightsOnlineLinux.x86_64
-SkyknightsOnlineLinux.zip
-SkyknightsOnlineMac.zip
+build
