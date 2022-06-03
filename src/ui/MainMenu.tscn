@@ -9,14 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -100.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Bar" type="HSplitContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1017.0
+margin_right = 1913.0
 margin_bottom = 93.0
 
 [node name="Spawn" type="HBoxContainer" parent="Bar"]
@@ -43,55 +40,56 @@ text = "Spawn"
 
 [node name="System" type="HBoxContainer" parent="Bar"]
 margin_left = 213.0
-margin_right = 1010.0
+margin_right = 1906.0
 margin_bottom = 86.0
 alignment = 2
 
 [node name="VSeparator3" type="VSeparator" parent="Bar/System"]
-margin_left = 400.0
-margin_right = 404.0
+margin_left = 1296.0
+margin_right = 1300.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Local" type="Button" parent="Bar/System"]
-margin_left = 408.0
-margin_right = 490.0
+margin_left = 1304.0
+margin_right = 1386.0
 margin_bottom = 86.0
 text = "VR Training"
 
 [node name="VSeparator5" type="VSeparator" parent="Bar/System"]
-margin_left = 494.0
-margin_right = 498.0
+margin_left = 1390.0
+margin_right = 1394.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Connect" type="Button" parent="Bar/System"]
-margin_left = 502.0
-margin_right = 566.0
+margin_left = 1398.0
+margin_right = 1462.0
 margin_bottom = 86.0
+disabled = true
 text = "Connect"
 
 [node name="Spacer" type="Label" parent="Bar/System"]
-margin_left = 570.0
+margin_left = 1466.0
 margin_top = 36.0
-margin_right = 570.0
+margin_right = 1466.0
 margin_bottom = 50.0
 align = 1
 
 [node name="Spacer2" type="Label" parent="Bar/System"]
-margin_left = 574.0
+margin_left = 1470.0
 margin_top = 36.0
-margin_right = 574.0
+margin_right = 1470.0
 margin_bottom = 50.0
 align = 1
 
 [node name="NetStatus" type="VBoxContainer" parent="Bar/System"]
-margin_left = 578.0
-margin_right = 670.0
+margin_left = 1474.0
+margin_right = 1566.0
 margin_bottom = 86.0
 alignment = 1
 
@@ -127,26 +125,26 @@ text = "0 ms"
 align = 1
 
 [node name="VSeparator" type="VSeparator" parent="Bar/System"]
-margin_left = 674.0
-margin_right = 678.0
+margin_left = 1570.0
+margin_right = 1574.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Settings" type="Button" parent="Bar/System"]
-margin_left = 682.0
-margin_right = 745.0
+margin_left = 1578.0
+margin_right = 1641.0
 margin_bottom = 86.0
 text = "Settings"
 
 [node name="VSeparator2" type="VSeparator" parent="Bar/System"]
-margin_left = 749.0
-margin_right = 753.0
+margin_left = 1645.0
+margin_right = 1649.0
 margin_bottom = 86.0
 
 [node name="Quit" type="Button" parent="Bar/System"]
-margin_left = 757.0
-margin_right = 797.0
+margin_left = 1653.0
+margin_right = 1693.0
 margin_bottom = 86.0
 text = "Quit"
