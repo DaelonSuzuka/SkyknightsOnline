@@ -15,8 +15,8 @@ pull:
 web:
 	$(GODOT) --export "HTML5"
 
-webdeploy: web
-	cp build/web/* ~/www/html/skyknights
+webdeploy:
+	cp build/web/* /var/www/html/magnusdei.io/skyknights2
 
 win:
 	$(GODOT) --export "Windows Desktop"
@@ -32,6 +32,30 @@ serve: venv
 	$(VENV_PYTHON) server/main.py
 
 # **************************************************************************** #
+# download godot binary and export templates for linux
+
+GDVERSION = 3.5
+GDBUILD = rc6
+
+URL = https://downloads.tuxfamily.org/godotengine/$(GDVERSION)/$(GDBUILD)/
+GDBINARY = Godot_v$(GDVERSION)-$(GDBUILD)_linux_headless.64
+TEMPLATES = Godot_v$(GDVERSION)-$(GDBUILD)_export_templates.tpz
+
+download:
+	wget $(URL)$(GDBINARY).zip
+	unzip $(GDBINARY).zip
+	mkdir -p ~/godot
+	mv $(GDBINARY) ~/godot
+	rm $(GDBINARY).zip
+
+	wget $(URL)$(TEMPLATES)
+	unzip $(TEMPLATES)
+	mkdir -p ~/.local/share/godot/templates
+	mv templates/ ~/.local/share/godot/templates/$(GDVERSION).$(GDBUILD)/
+
+	rm $(TEMPLATES)
+
+# **************************************************************************** #
 # Variables
 
 WSLENV ?= notwsl
@@ -40,10 +64,10 @@ GD = ""
 ifndef WSLENV
 	GD := godot.exe
 else
-	GD := ~/godot/Godot_v3.5-beta5_linux_headless.64
+	GD := ~/godot/$(GDBINARY)
 endif
 
-GDARGS := --no-window --quiet
+GDARGS := --path isotope_project --no-window --quiet
 
 GODOT = $(GD) $(GDARGS)
 
