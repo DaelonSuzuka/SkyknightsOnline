@@ -260,6 +260,8 @@ func _process(delta):
 
 		HUD.Minimap.camera.translation.x = ship.translation.x
 		HUD.Minimap.camera.translation.z = ship.translation.z
+
+		# TODO: @shazam pls help
 		HUD.Minimap.camera.rotation_degrees.z = ((-angle.y + 180) / PI * 180)
 
 		# HUD.SeatingDiagram.health = ship.get_node('Health').current
