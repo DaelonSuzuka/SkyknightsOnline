@@ -75,7 +75,7 @@ func create_server():
 	player_info.name = 'Server'
 	register_player(player_info)
 
-	Game.load_world('test_world')
+	Game.load_scene('test_world')
 
 func join_server():
 	var net = NetworkedMultiplayerENet.new()
@@ -100,7 +100,7 @@ func _on_player_connected(id):
 	if get_tree().is_network_server():
 		# Send the server info to the player
 		rpc_id(id, 'get_server_info', server_info)
-		Game.rpc_id(id, 'load_world', 'test_world')
+		Game.rpc_id(id, 'load_scene', 'test_world')
 
 		# Initialize the ping data entry
 		var ping_entry = {
