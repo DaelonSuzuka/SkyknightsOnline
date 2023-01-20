@@ -53,7 +53,7 @@ Args="*res://src/system/Args.gd"
 InputManager="*res://src/InputManager.gd"
 Settings="*res://src/ui/settings/Settings.tscn"
 Network="*res://src/network/network.gd"
-Game="*res://src/GameManager.gd"
+Game="*res://src/system/Game.gd"
 MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
 Scenes="*res://src/system/Scenes.gd"
@@ -159,7 +159,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc2=false
 quality/filters/msaa=2
 quality/filters/use_debanding=true

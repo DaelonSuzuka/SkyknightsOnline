@@ -1,5 +1,7 @@
 extends Spatial
 
+# ******************************************************************************
+
 var flight_sens = Vector2(1, 1)
 var freelook_sens = Vector2(1, 1)
 var invert_y = false
@@ -10,6 +12,8 @@ var freelook = false
 export var capture_mouse = false setget set_capture_mouse, get_capture_mouse
 var input_state = {}
 var camera_pos = null
+
+# ******************************************************************************
 
 func _ready():
 	InputManager.connect('input_event', self, '_handle_input_event')
@@ -136,12 +140,12 @@ func get_object_under_mouse():
 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
 	return selection
 
-func _input(event):
-	if !capture_mouse and event is InputEventMouseButton:
-		if event.button_index == BUTTON_RIGHT and event.pressed:
-			var selection = get_object_under_mouse()
-			if 'collider' in selection:
-				HUD.Radial.open_menu(get_viewport().get_mouse_position())
+# func _input(event):
+# 	if !capture_mouse and event is InputEventMouseButton:
+# 		if event.button_index == BUTTON_RIGHT and event.pressed:
+# 			var selection = get_object_under_mouse()
+# 			if 'collider' in selection:
+# 				HUD.Radial.open_menu(get_viewport().get_mouse_position())
 
 func _handle_input_event(action, state):
 	match action:

@@ -10,3 +10,7 @@ script = ExtResource( 2 )
 [node name="World" type="Node" parent="."]
 
 [node name="Ships" type="Node" parent="."]
+
+[node name="Bullets" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
