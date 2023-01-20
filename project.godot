@@ -57,6 +57,7 @@ Game="*res://src/GameManager.gd"
 MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
 Scenes="*res://src/system/Scenes.gd"
+Console="*res://addons/quentincaffeino/console/src/Console.tscn"
 
 [debug]
 
@@ -72,7 +73,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg" )
 
 [input]
 
