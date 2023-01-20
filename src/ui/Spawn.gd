@@ -8,6 +8,7 @@ var ships = {
 		'noseguns':
 		[
 			'colt',
+			'vortek',
 		],
 	},
 }

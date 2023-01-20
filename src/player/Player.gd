@@ -161,6 +161,10 @@ func handle_input(event):
 			print('menu')
 		'scoreboard':
 			print('scoreboard')
+		'minimap_zoom_in':
+			HUD.Minimap.zoom_in()
+		'minimap_zoom_out':
+			HUD.Minimap.zoom_out()
 		# 'open_chat':
 		#     if event.pressed:
 		#         print('chat')
@@ -253,5 +257,9 @@ func _process(delta):
 		HUD.PitchLadderRight.material.set_shader_param('pitch', angle.x / PI)
 		HUD.HeadingIndicator.material.set_shader_param('heading', -angle.y / PI)
 		HUD.HorizonIndicator.rect_rotation = -angle.z / PI * 180
+
+		HUD.Minimap.camera.translation.x = ship.translation.x
+		HUD.Minimap.camera.translation.z = ship.translation.z
+		HUD.Minimap.camera.rotation_degrees.z = ((-angle.y + 180) / PI * 180)
 
 		# HUD.SeatingDiagram.health = ship.get_node('Health').current

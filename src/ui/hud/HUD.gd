@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+# ******************************************************************************
+
 onready var Radial = $Radial
 onready var Debug = $Debug
 onready var WeaponInfo = $WeaponInfo
@@ -9,7 +11,10 @@ onready var HorizonIndicator = $HorizonIndicator
 onready var HeadingIndicator = $HorizonIndicator/HeadingIndicator
 onready var PitchLadderLeft = $HorizonIndicator/PitchLadderLeft
 onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
+onready var Minimap = $Minimap
 # onready var Chat = $ChatBox
+
+# ******************************************************************************
 
 func _ready():
 	hide_hud()
@@ -22,6 +27,7 @@ func hide_hud():
 	HeadingIndicator.hide()
 	PitchLadderLeft.hide()
 	PitchLadderRight.hide()
+	Minimap.hide()
 
 func show_hud():
 	WeaponInfo.show()
@@ -31,3 +37,4 @@ func show_hud():
 	HeadingIndicator.show()
 	PitchLadderLeft.show()
 	PitchLadderRight.show()
+	Minimap.show()
