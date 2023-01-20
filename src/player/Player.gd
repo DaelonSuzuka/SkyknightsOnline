@@ -43,6 +43,8 @@ func invert_y_changed(value):
 func radial_item_selected(id, pos):
 	print(id, pos)
 
+# ******************************************************************************
+
 func update_mouse_capture():
 	if capture_mouse:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -60,10 +62,12 @@ func get_capture_mouse():
 func toggle_mouse_capture(state=1):
 	if state:
 		capture_mouse = !capture_mouse
-		MainMenu.visible = !capture_mouse
+		# MainMenu.visible = !capture_mouse
 		HUD.Radial.close_menu()
 
 		update_mouse_capture()
+
+# ******************************************************************************
 
 func update_camera_pos():
 	if ship and camera_pos:
@@ -79,6 +83,8 @@ func toggle_camera_mode(state=1):
 	if state:
 		first_person = !first_person
 		update_camera_mode()
+
+# ******************************************************************************
 
 func toggle_ship_engine_editor(state=1):
 	if state and ship:
@@ -140,12 +146,38 @@ func get_object_under_mouse():
 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
 	return selection
 
-# func _input(event):
-# 	if !capture_mouse and event is InputEventMouseButton:
-# 		if event.button_index == BUTTON_RIGHT and event.pressed:
-# 			var selection = get_object_under_mouse()
-# 			if 'collider' in selection:
-# 				HUD.Radial.open_menu(get_viewport().get_mouse_position())
+var picked = null
+
+func _input(event):
+	if capture_mouse or !(event is InputEventMouseButton):
+		return
+	if event.button_index != BUTTON_RIGHT or !event.pressed:
+		return
+		
+	if HUD.Map.visible:
+		HUD.Map.handle_input(event)
+		return
+	
+	var rect = Rect2(HUD.Minimap.rect_position, HUD.Minimap.rect_size)
+	if rect.has_point(event.position):
+		HUD.Minimap.handle_input(event)
+		return
+
+		# if 'collider' in selection:
+		# 	var selected = selection.collider.owner.owner
+
+		# 	if selected != picked:
+		# 		picked = selected
+
+		# 		var camera = get_viewport().get_camera()
+		# 		var pos = camera.unproject_position(picked.global_translation)
+
+		# 		HUD.Radial.open_menu(pos)
+
+	var selection = get_object_under_mouse()
+	if 'collider' in selection:
+		HUD.Radial.open_menu(get_viewport().get_mouse_position())
+
 
 func handle_input(event):
 	match event.action:
@@ -154,20 +186,32 @@ func handle_input(event):
 		'toggle_ship_engine_stats':
 			toggle_ship_engine_editor(event.pressed)
 		'free_mouse':
-			toggle_mouse_capture(event.pressed)
+			if event.pressed:
+				toggle_mouse_capture()
 		'freelook':
 			set_freelook(event.pressed)
 		'open_menu':
-			print('menu')
+			if event.pressed:
+				print('menu')
 		'scoreboard':
 			print('scoreboard')
 		'toggle_minimap_size':
-			if event.pressed:
+			if event.pressed and !HUD.Map.visible:
 				HUD.Minimap.toggle_size()
 		'minimap_zoom_in':
-			HUD.Minimap.zoom_in()
+			if !HUD.Map.visible:
+				HUD.Minimap.zoom_in()
 		'minimap_zoom_out':
-			HUD.Minimap.zoom_out()
+			if !HUD.Map.visible:
+				HUD.Minimap.zoom_out()
+		'map':
+			if event.pressed:
+				if HUD.Map.visible:
+					set_capture_mouse(true)
+					HUD.Map.hide()
+				else:
+					set_capture_mouse(false)
+					HUD.Map.show()
 		# 'open_chat':
 		#     if event.pressed:
 		#         print('chat')

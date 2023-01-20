@@ -12,12 +12,14 @@ onready var HeadingIndicator = $HorizonIndicator/HeadingIndicator
 onready var PitchLadderLeft = $HorizonIndicator/PitchLadderLeft
 onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
 onready var Minimap = $Minimap
+onready var Map = $Map
 # onready var Chat = $ChatBox
 
 # ******************************************************************************
 
 func _ready():
 	hide_hud()
+	Map.hide()
 
 func hide_hud():
 	WeaponInfo.hide()
