@@ -161,6 +161,9 @@ func handle_input(event):
 			print('menu')
 		'scoreboard':
 			print('scoreboard')
+		'toggle_minimap_size':
+			if event.pressed:
+				HUD.Minimap.toggle_size()
 		'minimap_zoom_in':
 			HUD.Minimap.zoom_in()
 		'minimap_zoom_out':

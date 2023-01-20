@@ -21,6 +21,7 @@ var actions = {
 	'map': {'key': KEY_M},
 	'open_chat': {'key': KEY_ENTER},
 	'toggle_ship_engine_stats': {'key': KEY_MINUS},
+	'toggle_minimap_size': {'key': KEY_H},
 	'minimap_zoom_in': {'mouse': BUTTON_WHEEL_UP},
 	'minimap_zoom_out': {'mouse': BUTTON_WHEEL_DOWN},
 	# movement
