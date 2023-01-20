@@ -41,16 +41,6 @@ gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unused_variable=false
 gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
-multirun/server/number_of_windows=3
-multirun/server/window_distance=400
-multirun/server/add_custom_args=true
-multirun/client/number_of_windows=2
-multirun/client/window_distance=400
-multirun/client/add_custom_args=true
-multirun/server/first_window_args="--server=1"
-multirun/server/other_window_args="--connect=1"
-multirun/client/first_window_args="--connect=1"
-multirun/client/other_window_args="--server=1"
 
 [display]
 
@@ -59,7 +49,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/multirun/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/omnilaunch/plugin.cfg" )
 
 [input]
 

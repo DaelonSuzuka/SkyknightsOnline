@@ -1,0 +1,55 @@
+{
+	"current_profile": "Server",
+	"profiles": {
+		"Server": {
+			"layout": "",
+			"windows": [
+				{
+					"name": "main",
+					"main": true,
+					"args": "--server",
+					"number": 1,
+					"width": 0,
+					"height": 0
+				},
+				{
+					"name": "other",
+					"main": false,
+					"args": "--connect",
+					"number": 2,
+					"width": 0,
+					"height": 0
+				}
+			]
+		},
+		"Client": {
+			"layout": "",
+			"windows": [
+				{
+					"name": "main",
+					"main": true,
+					"args": "--connect",
+					"number": 1,
+					"width": 0,
+					"height": 0
+				},
+				{
+					"name": "other",
+					"main": false,
+					"args": "--server",
+					"number": 1,
+					"width": 0,
+					"height": 0
+				},
+				{
+					"name": "other client",
+					"main": false,
+					"args": "--connect",
+					"number": 1,
+					"width": 0,
+					"height": 0
+				}
+			]
+		}
+	}
+}
