@@ -76,12 +76,10 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=960
-window/size/test_height=540
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg", "res://addons/zylann.editor_light/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AutoExportVersion/plugin.cfg", "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg", "res://addons/zylann.editor_light/plugin.cfg" )
 
 [input]
 

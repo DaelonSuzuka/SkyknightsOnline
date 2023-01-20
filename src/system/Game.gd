@@ -21,7 +21,7 @@ onready var World = get_node('/root/Main/World')
 onready var Ships = get_node('/root/Main/Ships')
 onready var Players = get_node('/root/Main/Players')
 
-# var version = load('res://system/Version.gd').new().VERSION
+var version = load('res://src/system/Version.gd').new().VERSION
 
 # just used for the pause menu to communicate to the main menu
 var returning_to_menu := false
@@ -72,7 +72,7 @@ func fix_main1():
 	var scene = get_tree().get_current_scene()
 	scene.get_parent().remove_child(scene)
 	saved_current_scene = scene
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://src/Main.tscn")
 	call_deferred('fix_main2')
 
 func fix_main2():
