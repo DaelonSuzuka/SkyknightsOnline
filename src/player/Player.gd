@@ -16,7 +16,7 @@ var camera_pos = null
 # ******************************************************************************
 
 func _ready():
-	InputManager.connect('input_event', self, '_handle_input_event')
+	InputManager.register(self)
 
 	Settings.connect_to('Controls/Mouse/Flight', self, 'flight_sens_changed')
 	Settings.connect_to('Controls/Mouse/Freelook', self, 'freelook_sens_changed')
@@ -147,31 +147,31 @@ func get_object_under_mouse():
 # 			if 'collider' in selection:
 # 				HUD.Radial.open_menu(get_viewport().get_mouse_position())
 
-func _handle_input_event(action, state):
-	match action:
+func handle_input(event):
+	match event.action:
 		'toggle_camera_mode':
-			toggle_camera_mode(state)
+			toggle_camera_mode(event.pressed)
 		'toggle_ship_engine_stats':
-			toggle_ship_engine_editor(state)
+			toggle_ship_engine_editor(event.pressed)
 		'free_mouse':
-			toggle_mouse_capture(state)
+			toggle_mouse_capture(event.pressed)
 		'freelook':
-			set_freelook(state)
+			set_freelook(event.pressed)
 		'open_menu':
 			print('menu')
 		'scoreboard':
 			print('scoreboard')
 		# 'open_chat':
-		#     if state:
+		#     if event.pressed:
 		#         print('chat')
 		'switch_seat_1':
-			if state:
+			if event.pressed:
 				switch_seat(0)
 		'switch_seat_2':
-			if state:
+			if event.pressed:
 				switch_seat(1)
 		'switch_seat_3':
-			if state:
+			if event.pressed:
 				switch_seat(2)
 
 var previous_state = {}
