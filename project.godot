@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "AmmoSource",
 "language": "GDScript",
 "path": "res://src/props/common/AmmoSource.gd"
+}, {
+"base": "Node",
+"class": "Eval",
+"language": "GDScript",
+"path": "res://src/system/Eval.gd"
+}, {
+"base": "Reference",
+"class": "FakeEvent",
+"language": "GDScript",
+"path": "res://src/system/FakeEvent.gd"
+}, {
+"base": "Reference",
+"class": "RateLimiter",
+"language": "GDScript",
+"path": "res://src/system/RateLimiter.gd"
 } ]
 _global_script_class_icons={
-"AmmoSource": ""
+"AmmoSource": "",
+"Eval": "",
+"FakeEvent": "",
+"RateLimiter": ""
 }
 
 [application]
@@ -28,12 +46,17 @@ config/icon="res://assets/icon/Skyknights.svg"
 
 [autoload]
 
+Stopwatch="*res://src/system/Stopwatch.gd"
+Utils="*res://src/system/Utils.gd"
+Files="*res://src/system/Files.gd"
+Args="*res://src/system/Args.gd"
 InputManager="*res://src/InputManager.gd"
 Settings="*res://src/ui/settings/Settings.tscn"
 Network="*res://src/network/network.gd"
 Game="*res://src/GameManager.gd"
 MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
+Scenes="*res://src/system/Scenes.gd"
 
 [debug]
 
@@ -49,7 +72,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/omnilaunch/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg" )
 
 [input]
 
@@ -104,6 +127,26 @@ ui_home={
 ui_end={
 "deadzone": 0.5,
 "events": [  ]
+}
+quentincaffeino_console_toggle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":96,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_autocomplete={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_history_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quentincaffeino_console_history_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [physics]
