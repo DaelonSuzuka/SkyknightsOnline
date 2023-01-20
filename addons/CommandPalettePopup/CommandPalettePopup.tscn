@@ -4,7 +4,7 @@
 [ext_resource path="res://addons/CommandPalettePopup/CommandPaletteSettings.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/CommandPalettePopup/SettingsAdder.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Image" id=1]
+[sub_resource type="Image" id=7]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -13,10 +13,10 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id=2]
+[sub_resource type="ImageTexture" id=8]
 flags = 4
 flags = 4
-image = SubResource( 1 )
+image = SubResource( 7 )
 size = Vector2( 16, 16 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
@@ -27,7 +27,7 @@ size = Vector2( 16, 16 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="Image" id=7]
+[sub_resource type="Image" id=9]
 data = {
 "data": PoolByteArray( 23, 22, 26, 111, 29, 28, 33, 239, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 239, 23, 22, 26, 111, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 240, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 241, 23, 22, 26, 111, 29, 28, 33, 240, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 238, 23, 22, 26, 111 ),
 "format": "RGBA8",
@@ -36,14 +36,14 @@ data = {
 "width": 10
 }
 
-[sub_resource type="ImageTexture" id=8]
+[sub_resource type="ImageTexture" id=10]
 flags = 4
 flags = 4
-image = SubResource( 7 )
+image = SubResource( 9 )
 size = Vector2( 10, 10 )
 
-[sub_resource type="StyleBoxTexture" id=9]
-texture = SubResource( 8 )
+[sub_resource type="StyleBoxTexture" id=11]
+texture = SubResource( 10 )
 region_rect = Rect2( 0, 0, 10, 10 )
 margin_left = 5.0
 margin_right = 5.0
@@ -71,8 +71,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PaletteMarginContainer"]
-margin_right = 1004.0
-margin_bottom = 575.0
+margin_right = 460.0
+margin_bottom = 245.0
 size_flags_horizontal = 3
 
 [node name="SearchFilter" type="HBoxContainer" parent="PaletteMarginContainer/VBoxContainer"]
@@ -80,46 +80,29 @@ margin_right = 1004.0
 margin_bottom = 26.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PaletteMarginContainer/VBoxContainer/SearchFilter"]
-margin_right = 708.0
+margin_right = 786.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 5
 
 [node name="Filter" type="LineEdit" parent="PaletteMarginContainer/VBoxContainer/SearchFilter/MarginContainer"]
-margin_right = 703.0
+margin_right = 781.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 50, 0 )
 clear_button_enabled = true
-right_icon = SubResource( 2 )
+shortcut_keys_enabled = false
+right_icon = SubResource( 8 )
 placeholder_text = "Type '?' to get help."
 caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="CopyButton" type="Button" parent="PaletteMarginContainer/VBoxContainer/SearchFilter"]
-margin_left = 712.0
-margin_right = 802.0
+margin_left = 790.0
+margin_right = 880.0
 margin_bottom = 26.0
 hint_tooltip = "Copies the file path to the clipboard if a file is selected. If the selection is a code snippet, the function gets copied."
 text = "Copy Info"
-icon = SubResource( 2 )
-
-[node name="ContextButton" type="Button" parent="PaletteMarginContainer/VBoxContainer/SearchFilter"]
-margin_left = 806.0
-margin_right = 885.0
-margin_bottom = 26.0
-text = "Context"
-icon = SubResource( 2 )
-
-[node name="SignalButton" type="Button" parent="PaletteMarginContainer/VBoxContainer/SearchFilter"]
-margin_left = 889.0
-margin_right = 963.0
-margin_bottom = 26.0
-text = "Signals"
-icon = SubResource( 2 )
-
-[node name="SignalPopupMenu" type="PopupMenu" parent="PaletteMarginContainer/VBoxContainer/SearchFilter/SignalButton"]
-margin_right = 20.0
-margin_bottom = 20.0
+icon = SubResource( 8 )
 
 [node name="AddButton" type="Button" parent="PaletteMarginContainer/VBoxContainer/SearchFilter"]
 margin_left = 967.0
@@ -132,7 +115,7 @@ visible = false
 margin_left = 902.0
 margin_right = 968.0
 margin_bottom = 26.0
-icon = SubResource( 2 )
+icon = SubResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="PaletteMarginContainer/VBoxContainer"]
 margin_top = 30.0
@@ -185,7 +168,7 @@ margin_bottom = 575.0
 margin_right = 484.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
 valign = 3
 clip_text = true
 
@@ -195,29 +178,26 @@ margin_right = 516.0
 margin_bottom = 24.0
 hint_tooltip = "Double tapping the keyboard shortcut will also switch between the two recent files."
 shortcut_in_tooltip = false
-icon = SubResource( 2 )
+icon = SubResource( 8 )
 
 [node name="LastLabel" type="Label" parent="PaletteMarginContainer/VBoxContainer/HSplitContainer"]
 margin_left = 520.0
 margin_right = 1004.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 0.3 )
+custom_styles/normal = SubResource( 11 )
 valign = 3
 clip_text = true
 
 [node name="SettingsAdder" parent="." instance=ExtResource( 3 )]
 
 [node name="CommandPaletteSettings" parent="." instance=ExtResource( 2 )]
+
 [connection signal="popup_hide" from="." to="." method="_on_CommandPalettePopup_popup_hide"]
 [connection signal="text_changed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/MarginContainer/Filter" to="." method="_on_Filter_text_changed"]
 [connection signal="text_entered" from="PaletteMarginContainer/VBoxContainer/SearchFilter/MarginContainer/Filter" to="." method="_on_Filter_text_entered"]
 [connection signal="pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/CopyButton" to="." method="_on_CopyButton_pressed"]
-[connection signal="pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/ContextButton" to="." method="_on_ContextButton_pressed"]
-[connection signal="pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/SignalButton" to="." method="_on_SignalButton_pressed"]
-[connection signal="focus_exited" from="PaletteMarginContainer/VBoxContainer/SearchFilter/SignalButton/SignalPopupMenu" to="." method="_on_SignalPopupMenu_focus_exited"]
-[connection signal="index_pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/SignalButton/SignalPopupMenu" to="." method="_on_SignalPopupMenu_index_pressed"]
 [connection signal="pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="PaletteMarginContainer/VBoxContainer/SearchFilter/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="item_activated" from="PaletteMarginContainer/VBoxContainer/MarginContainer/TabContainer/ItemList" to="." method="_on_ItemList_item_activated"]
