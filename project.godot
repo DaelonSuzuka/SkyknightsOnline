@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/props/common/AmmoSource.gd"
 }, {
+"base": "PopupMenu",
+"class": "ContextMenu",
+"language": "GDScript",
+"path": "res://src/system/ContextMenu.gd"
+}, {
 "base": "Node",
 "class": "Eval",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AmmoSource": "",
+"ContextMenu": "",
 "Eval": "",
 "FakeEvent": "",
 "RateLimiter": ""
