@@ -75,7 +75,7 @@ window/size/test_height=540
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/custom-scene-launcher/plugin.cfg", "res://addons/omnilaunch/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg", "res://addons/zylann.editor_light/plugin.cfg" )
 
 [input]
 
