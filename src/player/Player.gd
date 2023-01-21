@@ -296,6 +296,13 @@ func _process(delta):
 		HUD.Minimap.camera.translation.x = ship.translation.x
 		HUD.Minimap.camera.translation.z = ship.translation.z
 
-		HUD.Minimap.camera.rotation_degrees.z = fmod(((angle.y) / PI * 180) + 180, 360)
+		var heading_angle = fmod((angle.y / PI * 180) + 180, 360)
+		HUD.Minimap.camera.rotation_degrees.z = heading_angle
+
+		var icon = ship.get_node('MapIcon')
+		
+		# icon.global_rotation.x = 0
+		# icon.global_rotation.z = 0
+		icon.global_rotation = Vector3(0, (heading_angle + 180) * (PI / 180), 0)
 
 		# HUD.SeatingDiagram.health = ship.get_node('Health').current

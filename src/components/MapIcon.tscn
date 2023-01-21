@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/components/MapIcon.gd" type="Script" id=1]
+
+[node name="MapIcon" type="Sprite3D"]
+layers = 96
+billboard = 1
+no_depth_test = true
+fixed_size = true
+script = ExtResource( 1 )

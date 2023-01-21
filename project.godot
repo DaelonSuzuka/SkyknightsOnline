@@ -159,6 +159,11 @@ quentincaffeino_console_history_down={
  ]
 }
 
+[layer_names]
+
+3d_render/layer_6="map_icons"
+3d_render/layer_7="minimap_icons"
+
 [physics]
 
 common/physics_jitter_fix=0.0

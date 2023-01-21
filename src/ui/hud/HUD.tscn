@@ -279,6 +279,7 @@ physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="Minimap/ViewportContainer/Viewport"]
 transform = Transform( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
+cull_mask = 1048543
 projection = 1
 size = 5000.0
 near = 0.02
@@ -308,6 +309,7 @@ physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="Map/ViewportContainer/Viewport"]
 transform = Transform( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
+cull_mask = 1048511
 projection = 1
 size = 5000.0
 near = 0.02

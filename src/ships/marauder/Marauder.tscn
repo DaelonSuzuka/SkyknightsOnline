@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/ships/common/FirstPersonCamera.gd" type="Script" id=1]
 [ext_resource path="res://src/ships/common/ThirdPersonCamera.gd" type="Script" id=2]
@@ -9,7 +9,9 @@
 [ext_resource path="res://src/ships/common/Engine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/ships/common/Afterburner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/components/healthbar/HealthBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/ships/marauder/marauder_icon.png" type="Texture" id=10]
 [ext_resource path="res://src/ships/marauder/marauder.glb" type="PackedScene" id=11]
+[ext_resource path="res://src/components/MapIcon.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 metallic = 1.0
@@ -180,3 +182,9 @@ shape = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.825738, -0.294213 )
 visible = false
 shape = SubResource( 5 )
+
+[node name="MapIcon" parent="." instance=ExtResource( 12 )]
+pixel_size = 0.001
+axis = 1
+billboard = 0
+texture = ExtResource( 10 )

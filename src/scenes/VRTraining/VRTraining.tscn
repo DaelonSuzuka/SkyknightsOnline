@@ -169,16 +169,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 292.555, -2379.61 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -1200, 1200, 1200 )
 visible = false
+cull_mask = 1047583
 far = 10000.0
 
 [node name="Camera2" type="Camera" parent="."]
 transform = Transform( -0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, 0.353553, -0.612373, 1500, 1200, -1200 )
 visible = false
+cull_mask = 1047583
 far = 10000.0
 
 [node name="Camera3" type="Camera" parent="."]
 transform = Transform( -0.17748, 0.415909, -0.89192, 0, 0.906308, 0.422618, 0.984124, 0.0750063, -0.160851, -97.2036, 513.673, -309.4 )
 visible = false
+cull_mask = 1047583
 far = 10000.0
 
 [node name="Spawnpoints" type="Spatial" parent="."]
