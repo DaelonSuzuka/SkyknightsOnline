@@ -34,10 +34,15 @@ serve: venv
 # **************************************************************************** #
 # download godot binary and export templates for linux
 
-GDVERSION = 3.5
-GDBUILD = rc6
+GDVERSION = 3.5.1
+GDBUILD = stable
 
-URL = https://downloads.tuxfamily.org/godotengine/$(GDVERSION)/$(GDBUILD)/
+URL := https://downloads.tuxfamily.org/godotengine/$(GDVERSION)/
+
+ifneq ($(GDBUILD),stable)
+	URL := $(URL)$(GDBUILD)/
+endif
+
 GDBINARY = Godot_v$(GDVERSION)-$(GDBUILD)_linux_headless.64
 TEMPLATES = Godot_v$(GDVERSION)-$(GDBUILD)_export_templates.tpz
 
