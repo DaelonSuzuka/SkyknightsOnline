@@ -16,7 +16,7 @@ web:
 	$(GODOT) --export "HTML5"
 
 webdeploy:
-	cp build/web/* /var/www/html/magnusdei.io/skyknights2
+	cp build/web/* /var/www/html/magnusdei.io/skyknights
 
 win:
 	$(GODOT) --export "Windows Desktop"
