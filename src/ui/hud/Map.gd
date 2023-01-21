@@ -4,7 +4,6 @@ extends Control
 
 onready var viewport = $ViewportContainer/Viewport
 onready var camera = $ViewportContainer/Viewport/Camera
-onready var menu = $PopupMenu
 
 var default_size = 5000
 var min_size = 1000
