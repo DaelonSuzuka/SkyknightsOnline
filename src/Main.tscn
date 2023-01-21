@@ -5,9 +5,9 @@
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 
-[node name="Players" type="Node" parent="."]
-
 [node name="World" type="Node" parent="."]
+
+[node name="Players" type="Node" parent="."]
 
 [node name="Ships" type="Node" parent="."]
 

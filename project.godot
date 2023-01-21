@@ -61,10 +61,12 @@ InputManager="*res://src/system/InputManager.gd"
 Network="*res://src/network/Network.gd"
 ControlWebsocket="*res://src/network/ControlWebsocket.gd"
 Game="*res://src/system/Game.gd"
+Player="*res://src/player/Player.tscn"
 MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
 Scenes="*res://src/system/Scenes.gd"
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
+ShipManager="*res://src/system/ShipManager.gd"
 
 [debug]
 

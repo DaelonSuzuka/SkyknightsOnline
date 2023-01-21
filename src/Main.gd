@@ -15,8 +15,12 @@ func _ready():
 		return
 
 	# start game normally
-	MainMenu.Connect.connect('pressed', Network, 'join_server')
-	MainMenu.Local.connect('pressed', Game, 'on_local_pressed')
-	MainMenu.Spawn.hide()
-	Game.load_scene('hangar')
-	MainMenu.Spawn.connect('spawn_pressed', Game, 'spawn_pressed')
+	MainMenu.hide()
+	Game.load_scene('test_world')
+	
+	yield(get_tree().create_timer(0.1), "timeout")
+	var ship_data = {
+		'name': 'marauder',
+		'nosegun': 'colt',
+	}
+	ShipManager.spawn_ship(0, ship_data)

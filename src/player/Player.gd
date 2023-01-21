@@ -9,7 +9,7 @@ var ship = null
 var seat = null
 var first_person = true
 var freelook = false
-export var capture_mouse = false setget set_capture_mouse, get_capture_mouse
+var capture_mouse = false setget set_capture_mouse, get_capture_mouse
 var input_state = {}
 var camera_pos = null
 
@@ -24,7 +24,7 @@ func _ready():
 
 	update_mouse_capture()
 	update_camera_mode()
-	HUD.Radial.connect('item_selected', self, 'radial_item_selected')
+	# HUD.Radial.connect('item_selected', self, 'radial_item_selected')
 
 	for action in InputManager.actions:
 		input_state[action] = false
@@ -163,21 +163,9 @@ func _input(event):
 		HUD.Minimap.handle_input(event)
 		return
 
-		# if 'collider' in selection:
-		# 	var selected = selection.collider.owner.owner
-
-		# 	if selected != picked:
-		# 		picked = selected
-
-		# 		var camera = get_viewport().get_camera()
-		# 		var pos = camera.unproject_position(picked.global_translation)
-
-		# 		HUD.Radial.open_menu(pos)
-
-	var selection = get_object_under_mouse()
-	if 'collider' in selection:
-		HUD.Radial.open_menu(get_viewport().get_mouse_position())
-
+	# var selection = get_object_under_mouse()
+	# if 'collider' in selection:
+	# 	HUD.Radial.open_menu(get_viewport().get_mouse_position())
 
 func handle_input(event):
 	match event.action:
