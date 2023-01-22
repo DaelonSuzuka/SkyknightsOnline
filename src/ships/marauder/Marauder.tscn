@@ -188,3 +188,4 @@ pixel_size = 0.001
 axis = 1
 billboard = 0
 texture = ExtResource( 10 )
+tracked_object = NodePath("..")
