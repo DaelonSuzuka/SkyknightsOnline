@@ -181,6 +181,12 @@ func handle_input(event):
 		'open_menu':
 			if event.pressed:
 				print('menu')
+				if MainMenu.visible:
+					set_capture_mouse(true)
+					MainMenu.hide()
+				else:
+					set_capture_mouse(false)
+					MainMenu.show()
 		'scoreboard':
 			print('scoreboard')
 		'toggle_minimap_size':
@@ -221,6 +227,9 @@ func _physics_process(delta):
 	var pitch = 0
 	var roll = 0
 	var mouse_delta = InputManager.get_mouse() * delta
+
+	if MainMenu.visible:
+		return
 
 	if capture_mouse:
 		pitch = mouse_delta.y * flight_sens.y

@@ -7,6 +7,11 @@
 layer = 2
 script = ExtResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.15 )
+
 [node name="Panel" type="PanelContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -20,6 +25,7 @@ margin_right = 1913.0
 margin_bottom = 93.0
 
 [node name="Spawn" type="HBoxContainer" parent="Panel/Bar"]
+visible = false
 margin_right = 201.0
 margin_bottom = 86.0
 script = ExtResource( 1 )
@@ -42,58 +48,64 @@ margin_bottom = 86.0
 text = "Spawn"
 
 [node name="System" type="HBoxContainer" parent="Panel/Bar"]
-margin_left = 205.0
 margin_right = 1906.0
 margin_bottom = 86.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="VSeparator3" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1304.0
-margin_right = 1308.0
+visible = false
+margin_left = 1509.0
+margin_right = 1513.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Local" type="Button" parent="Panel/Bar/System"]
-margin_left = 1312.0
-margin_right = 1394.0
+visible = false
+margin_left = 1517.0
+margin_right = 1599.0
 margin_bottom = 86.0
 text = "VR Training"
 
 [node name="VSeparator5" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1398.0
-margin_right = 1402.0
+visible = false
+margin_left = 1603.0
+margin_right = 1607.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Connect" type="Button" parent="Panel/Bar/System"]
-margin_left = 1406.0
-margin_right = 1470.0
+visible = false
+margin_left = 1611.0
+margin_right = 1675.0
 margin_bottom = 86.0
 disabled = true
 text = "Connect"
 
 [node name="Spacer" type="Label" parent="Panel/Bar/System"]
-margin_left = 1474.0
+visible = false
+margin_left = 1679.0
 margin_top = 36.0
-margin_right = 1474.0
+margin_right = 1679.0
 margin_bottom = 50.0
 align = 1
 
 [node name="Spacer2" type="Label" parent="Panel/Bar/System"]
-margin_left = 1478.0
+visible = false
+margin_left = 1683.0
 margin_top = 36.0
-margin_right = 1478.0
+margin_right = 1683.0
 margin_bottom = 50.0
 align = 1
 
 [node name="NetStatus" type="VBoxContainer" parent="Panel/Bar/System"]
-margin_left = 1482.0
-margin_right = 1574.0
+visible = false
+margin_left = 1687.0
+margin_right = 1779.0
 margin_bottom = 86.0
 alignment = 1
 
@@ -129,26 +141,26 @@ text = "0 ms"
 align = 1
 
 [node name="VSeparator" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1578.0
-margin_right = 1582.0
+margin_left = 1783.0
+margin_right = 1787.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Settings" type="Button" parent="Panel/Bar/System"]
-margin_left = 1586.0
-margin_right = 1649.0
+margin_left = 1791.0
+margin_right = 1854.0
 margin_bottom = 86.0
 text = "Settings"
 
 [node name="VSeparator2" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1653.0
-margin_right = 1657.0
+margin_left = 1858.0
+margin_right = 1862.0
 margin_bottom = 86.0
 
 [node name="Quit" type="Button" parent="Panel/Bar/System"]
-margin_left = 1661.0
-margin_right = 1701.0
+margin_left = 1866.0
+margin_right = 1906.0
 margin_bottom = 86.0
 text = "Quit"

@@ -10,9 +10,9 @@ var paused := false
 
 var actions = {
 	# misc
-	'open_menu': {'key': KEY_QUOTELEFT},
+	'open_menu': {'key': KEY_ESCAPE},
 	'settings': {'key': KEY_BACKSLASH},
-	'exit': {'key': KEY_ESCAPE},
+	# 'exit': {'key': KEY_ESCAPE},
 	# 'console': {'key': KEY_QUOTE_LEFT},
 	'free_mouse': {'key': KEY_ALT},
 	'toggle_camera_mode': {'key': KEY_T},
