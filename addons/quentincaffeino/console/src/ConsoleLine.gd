@@ -114,7 +114,7 @@ func execute(input):
 			command.execute(parsedCommand.arguments)
 			Console.emit_signal("command_executed", command)
 		else:
-			var result = Eval.evaluate(input, null, Console.exec_locals)
+			var result = evaluate(input, null, Console.exec_locals)
 			if result is String and input == result:
 				Console.write_line('Command `' + parsedCommand.name + '` not found.')
 				Console.emit_signal("command_not_found", parsedCommand.name)
@@ -123,6 +123,23 @@ func execute(input):
 
 	Console.History.push(input)
 	self.clear()
+
+static func evaluate(input:String, global:Object=null, locals:Dictionary={}, _show_error:bool=true):
+	var _evaluated_value = null
+	var _expression = Expression.new()
+	
+	var _err = _expression.parse(input, PoolStringArray(locals.keys()))
+	
+	if _err != OK:
+		push_warning(_expression.get_error_text())
+	else:
+		_evaluated_value = _expression.execute(locals.values(), global, _show_error)
+		
+		if _expression.has_execute_failed():
+			return input
+		
+	return _evaluated_value
+
 
 
 # @param    PoolStringArray  rawCommands
