@@ -15,7 +15,7 @@ extends Control
 # ******************************************************************************
 
 func _ready():
-	close_button.connect('pressed',Callable(self,'queue_free'))
+	close_button.connect('pressed', self.queue_free)
 
 func set_data(data):
 	_name.text = data.get('name', '')
@@ -28,7 +28,7 @@ func set_data(data):
 func get_data():
 	var data = {
 		name = _name.text,
-		main = main.pressed,
+		main = main.button_pressed,
 		args = args.text,
 		number = number.value,
 		width = size_x.value,

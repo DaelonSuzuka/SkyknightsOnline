@@ -15,10 +15,10 @@ signal profile_deleted(profile_name)
 # ******************************************************************************
 
 func _ready():	
-	connect('item_selected',Callable(self,'profile_selected'))
+	connect('item_selected', self._profile_selected)
 	allow_rmb_select = true
-	connect('item_rmb_selected',Callable(self,'open_context_menu'))
-	connect('item_edited',Callable(self,'_end_rename'))
+	connect('item_mouse_selected', self._item_mouse_selected)
+	connect('item_edited', self._end_rename)
 
 	set_hide_root(true)
 	clear_profiles()
@@ -43,27 +43,30 @@ func create_profile(profile_name, select=true):
 		item.select(0)
 	return item
 
-func profile_selected():
+func _profile_selected():
 	var item = get_selected()
 	var current_profile = item.get_text(0)
-	
 	emit_signal('profile_selected', current_profile)
+
+func _item_mouse_selected(position, mouse_button_index):
+	if mouse_button_index == MOUSE_BUTTON_RIGHT:
+		open_context_menu()	
 
 # ******************************************************************************
 
 var ctx = null
 
-func open_context_menu(position: Vector2) -> void:
+func open_context_menu() -> void:
 	if ctx:
 		ctx.queue_free()
 		ctx = null
 		
-	var item = get_item_at_position(position)
+	var pos = get_global_mouse_position()
 
 	ctx = CtxMenu.new(self, 'context_menu_item_selected')
 	ctx.add_item('Rename')
 	ctx.add_item('Delete')
-	ctx.open(get_global_mouse_position())
+	ctx.open(pos)
 	
 func context_menu_item_selected(selection: String) -> void:
 	var item = get_selected()
@@ -115,31 +118,23 @@ class CtxMenu:
 
 	signal item_selected(item, args)
 
-	func _init(obj=null,cb=null,arg1=null,arg2=null):
-		set_hide_on_window_lose_focus(true)
+	func _init(obj=null, cb=null):
+		# set_hide_on_window_lose_focus(true)
 
 		if obj:
 			obj.add_child(self)
 
 		if obj and cb:
-			connect('item_selected',Callable(obj,cb))
+			connect('item_selected', Callable(obj, cb))
 
-		var args = []
-		if arg1:
-			args.append(arg1)
-		if arg2:
-			args.append(arg2)
-
-		connect('index_pressed',Callable(self,'_on_index_pressed').bind(args))
+		connect('index_pressed', self._on_index_pressed)
 
 	func open(pos=null):
 		if pos:
 			position = pos
+
 		popup()
 
 	func _on_index_pressed(idx, args=[]):
 		var item = get_item_text(idx)
-		if args:
-			emit_signal('item_selected', item, args)
-		else:
-			emit_signal('item_selected', item)
+		emit_signal('item_selected', item)

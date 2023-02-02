@@ -132,8 +132,27 @@ func settings_confirmed():
 func load_settings():
 	settings = load_json('res://omnilaunch_settings.json', default_settings)
 
+	# figure out default profile
+	var default = 'default'
+	if !(default in settings.profiles):
+		for profile in settings.profiles:
+			default = profile
+			break
+
+	# load and merge user settings
+	var user_settings = load_json('user://omnilaunch_settings.json', {})
+	settings['current_profile'] = user_settings.get('current_profile', default)
+
 func save_settings():
-	save_json('res://omnilaunch_settings.json', settings)
+	var project_settings = settings.duplicate(true)
+
+	var user_settings = {
+		'current_profile': project_settings.current_profile,
+	}
+	project_settings.erase('current_profile')
+
+	save_json('res://omnilaunch_settings.json', project_settings)
+	save_json('user://omnilaunch_settings.json', user_settings)
 
 # ******************************************************************************
 
@@ -213,7 +232,7 @@ func launch(profile):
 		args.append_array(['--position', '%s,%s' % [pos.x, pos.y]])
 		for arg in w.args.split(' '):
 			args.append(arg)
-		pids.append(OS.execute(OS.get_executable_path(), args, false))
+		pids.append(OS.execute(OS.get_executable_path(), args))
 
 # ******************************************************************************
 
@@ -230,21 +249,17 @@ func kill_pids():
 # ******************************************************************************
 
 func save_json(file_name: String, data) -> void:
-	var f = File.new()
-	f.open(file_name, File.WRITE)
-	f.store_string(JSON.stringify(data, "\t"))
-	f.close()
+	var f = FileAccess.open(file_name, FileAccess.WRITE)
+	f.store_string(JSON.stringify(data, "\t", false))
+	f = null
 
 func load_json(file_name: String, default=null):
 	var result = default
-	var f = File.new()
-	if f.file_exists(file_name):
-		f.open(file_name, File.READ)
+	if FileAccess.file_exists(file_name):
+		var f = FileAccess.open(file_name, FileAccess.READ)
 		var text = f.get_as_text()
-		f.close()
-		var test_json_conv = JSON.new()
-		test_json_conv.parse(text)
-		var json = test_json_conv.get_data()
-		if !json.error:
-			result = json.result
+		f = null
+		var json = JSON.parse_string(text)
+		if json:
+			result = json
 	return result
