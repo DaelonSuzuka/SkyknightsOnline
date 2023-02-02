@@ -298,10 +298,10 @@ func _process(delta):
 			HUD.WeaponInfo.ammo = '%04d' % weapon.ammo
 
 		var angle = ship.global_transform.basis.get_euler()
-		HUD.PitchLadderLeft.material.set_shader_parameter('pitch', angle.x / PI)
-		HUD.PitchLadderRight.material.set_shader_parameter('pitch', angle.x / PI)
-		HUD.HeadingIndicator.material.set_shader_parameter('heading', -angle.y / PI)
-		HUD.HorizonIndicator.rotation = -angle.z / PI * 180
+		HUD.PitchLadderLeft.material.set_shader_parameter('pitch', angle.x)
+		HUD.PitchLadderRight.material.set_shader_parameter('pitch', angle.x)
+		HUD.HeadingIndicator.material.set_shader_parameter('heading', -angle.y)
+		HUD.HorizonIndicator.rotation = -angle.z
 
 		HUD.Minimap.camera.position.x = ship.position.x
 		HUD.Minimap.camera.position.z = ship.position.z
