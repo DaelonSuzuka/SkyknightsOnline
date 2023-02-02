@@ -1,167 +1,107 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://b26lm6s0k4083"]
 
-[ext_resource path="res://src/ui/Spawn.gd" type="Script" id=1]
-[ext_resource path="res://src/ui/MainMenu.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://src/ui/Spawn.gd" id="1"]
+[ext_resource type="Script" path="res://src/ui/MainMenu.gd" id="2"]
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 2
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0.15 )
+color = Color(0, 0, 0, 0.15)
 
 [node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -100.0
+offset_top = -100.0
 
 [node name="Bar" type="HBoxContainer" parent="Panel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1913.0
-margin_bottom = 93.0
+layout_mode = 2
 
 [node name="Spawn" type="HBoxContainer" parent="Panel/Bar"]
 visible = false
-margin_right = 201.0
-margin_bottom = 86.0
-script = ExtResource( 1 )
+layout_mode = 2
+script = ExtResource("1")
 
 [node name="Ship" type="OptionButton" parent="Panel/Bar/Spawn"]
-margin_right = 56.0
-margin_bottom = 86.0
-text = "Ship"
+layout_mode = 2
 
 [node name="Nosegun" type="OptionButton" parent="Panel/Bar/Spawn"]
-margin_left = 60.0
-margin_right = 145.0
-margin_bottom = 86.0
-text = "Nosegun"
+layout_mode = 2
 
 [node name="Spawn" type="Button" parent="Panel/Bar/Spawn"]
-margin_left = 149.0
-margin_right = 201.0
-margin_bottom = 86.0
+layout_mode = 2
 text = "Spawn"
 
 [node name="System" type="HBoxContainer" parent="Panel/Bar"]
-margin_right = 1906.0
-margin_bottom = 86.0
+layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="VSeparator3" type="VSeparator" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1509.0
-margin_right = 1513.0
-margin_bottom = 86.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Local" type="Button" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1517.0
-margin_right = 1599.0
-margin_bottom = 86.0
+layout_mode = 2
 text = "VR Training"
 
 [node name="VSeparator5" type="VSeparator" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1603.0
-margin_right = 1607.0
-margin_bottom = 86.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Connect" type="Button" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1611.0
-margin_right = 1675.0
-margin_bottom = 86.0
+layout_mode = 2
 disabled = true
 text = "Connect"
 
 [node name="Spacer" type="Label" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1679.0
-margin_top = 36.0
-margin_right = 1679.0
-margin_bottom = 50.0
-align = 1
+layout_mode = 2
 
 [node name="Spacer2" type="Label" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1683.0
-margin_top = 36.0
-margin_right = 1683.0
-margin_bottom = 50.0
-align = 1
+layout_mode = 2
 
 [node name="NetStatus" type="VBoxContainer" parent="Panel/Bar/System"]
 visible = false
-margin_left = 1687.0
-margin_right = 1779.0
-margin_bottom = 86.0
+layout_mode = 2
 alignment = 1
 
 [node name="Username" type="Label" parent="Panel/Bar/System/NetStatus"]
-margin_top = 9.0
-margin_right = 92.0
-margin_bottom = 23.0
+layout_mode = 2
 text = "no username"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Status" type="Label" parent="Panel/Bar/System/NetStatus"]
-margin_top = 27.0
-margin_right = 92.0
-margin_bottom = 41.0
+layout_mode = 2
 text = "not connected"
-align = 1
 
 [node name="ID" type="Label" parent="Panel/Bar/System/NetStatus"]
-margin_top = 45.0
-margin_right = 92.0
-margin_bottom = 59.0
+layout_mode = 2
 text = "no client ID"
-align = 1
 
 [node name="Ping" type="Label" parent="Panel/Bar/System/NetStatus"]
-margin_top = 63.0
-margin_right = 92.0
-margin_bottom = 77.0
+layout_mode = 2
 text = "0 ms"
-align = 1
 
 [node name="VSeparator" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1783.0
-margin_right = 1787.0
-margin_bottom = 86.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Settings" type="Button" parent="Panel/Bar/System"]
-margin_left = 1791.0
-margin_right = 1854.0
-margin_bottom = 86.0
+layout_mode = 2
 text = "Settings"
 
 [node name="VSeparator2" type="VSeparator" parent="Panel/Bar/System"]
-margin_left = 1858.0
-margin_right = 1862.0
-margin_bottom = 86.0
+layout_mode = 2
 
 [node name="Quit" type="Button" parent="Panel/Bar/System"]
-margin_left = 1866.0
-margin_right = 1906.0
-margin_bottom = 86.0
+layout_mode = 2
 text = "Quit"

@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-var pos setget , get_pos
+var pos : get = get_pos
 
 var yaw_limit = Vector2(-PI / 2, PI / 2)
 var pitch_limit = Vector2(-PI / 2, PI / 5)

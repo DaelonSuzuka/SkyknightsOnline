@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh"
+uid="uid://58pphd2mc1c"
+path="res://.godot/imported/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh"
 
 [deps]
 
-files=[ "res://.import/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh" ]
+files=["res://.godot/imported/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh"]
 
 source_file="res://src/ships/marauder/weapons/vortek/vortek.obj"
-dest_files=[ "res://.import/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh", "res://.import/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh" ]
+dest_files=["res://.godot/imported/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh", "res://.godot/imported/vortek.obj-dbae0cecd0740371d9e72c6f54b6a836.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

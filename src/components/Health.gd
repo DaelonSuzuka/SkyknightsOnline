@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
-export var current = 1000
-export var maximum = 1000 setget set_maximum
+@export var current = 1000
+@export var maximum = 1000 : set = set_maximum
 
 func do_damage(amount):
 	current -= amount

@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var ships = {
 	'marauder': preload('res://src/ships/marauder/Marauder.tscn'),
@@ -10,11 +10,11 @@ var pedestal_rotation = -50
 var secondary_type = null
 
 func _ready():
-	# InputManager.connect('input_event', self, '_handle_input_event')
+	# InputManager.connect('input_event',Callable(self,'_handle_input_event'))
 
-	$UI/ShipSelector.connect('item_activated', self, '_ship_selected')
-	$UI/PrimarySelector.connect('item_activated', self, '_primary_selected')
-	$UI/SecondarySelector.connect('item_activated', self, 'secondary_selected')
+	$UI/ShipSelector.connect('item_activated',Callable(self,'_ship_selected'))
+	$UI/PrimarySelector.connect('item_activated',Callable(self,'_primary_selected'))
+	$UI/SecondarySelector.connect('item_activated',Callable(self,'secondary_selected'))
 
 	$UI/ShipSelector.hide()
 	$UI/PrimarySelector.hide()
@@ -42,7 +42,7 @@ func _ship_selected(index):
 	if ship:
 		$Pedestal.remove_child(ship)
 
-	ship = ships[ship_name].instance()
+	ship = ships[ship_name].instantiate()
 	$Pedestal.add_child(ship)
 	ship.healthbar.hide()
 
@@ -88,8 +88,8 @@ func secondary_selected(index):
 
 func _process(delta):
 	if camera_location:
-		$Camera.transform = $Camera.transform.interpolate_with(camera_location, delta)
-		$Camera.current = true
+		$Camera3D.transform = $Camera3D.transform.interpolate_with(camera_location, delta)
+		$Camera3D.current = true
 
 	var current_rot = $Pedestal.rotation_degrees.y
-	$Pedestal.rotation_degrees.y = lerp(current_rot, pedestal_rotation, delta)
+	$Pedestal.rotation_degrees.y = lerpf(current_rot, pedestal_rotation, delta)

@@ -1,283 +1,247 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dvyym3gy8n7ew"]
 
-[ext_resource path="res://addons/kenney_prototype_textures/light/texture_08.png" type="Texture" id=1]
-[ext_resource path="res://src/scenes/VRTraining/VRTrainingTerrain.glb" type="PackedScene" id=2]
-[ext_resource path="res://src/scenes/VRTraining/VRTraining.gd" type="Script" id=3]
-[ext_resource path="res://src/ships/target/Target.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/scenes/VRTraining/GIProbeData.tres" type="GIProbeData" id=5]
-[ext_resource path="res://addons/kenney_prototype_textures/dark/texture_02.png" type="Texture" id=6]
-[ext_resource path="res://src/props/Biolab/Biolab.tscn" type="PackedScene" id=10]
+[ext_resource type="Texture2D" uid="uid://bmq7xg7o5v6w3" path="res://addons/kenney_prototype_textures/light/texture_08.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://bad58rwi68wte" path="res://src/scenes/VRTraining/VRTrainingTerrain.glb" id="2"]
+[ext_resource type="Script" path="res://src/scenes/VRTraining/VRTraining.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://beg2k6m2wquhb" path="res://src/ships/target/Target.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://v2auur816550" path="res://addons/kenney_prototype_textures/dark/texture_02.png" id="6"]
+[ext_resource type="PackedScene" path="res://src/props/Biolab/Biolab.tscn" id="10"]
 
-[sub_resource type="ProceduralSky" id=1]
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-background_color = Color( 0.831373, 0.0196078, 1, 1 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 5.0
-ambient_light_sky_contribution = 0.5
-tonemap_mode = 3
-
-[sub_resource type="SpatialMaterial" id=3]
-flags_transparent = true
-flags_world_triplanar = true
-albedo_color = Color( 0.294118, 0.294118, 0.294118, 1 )
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 0.005, 0.005, 0.005 )
+[sub_resource type="StandardMaterial3D" id="3"]
+transparency = 1
+albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
+albedo_texture = ExtResource("1")
+uv1_scale = Vector3(0.005, 0.005, 0.005)
 uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=4]
-flags_world_triplanar = true
-albedo_color = Color( 0.294118, 0.294118, 0.294118, 1 )
-albedo_texture = ExtResource( 6 )
-uv1_scale = Vector3( 0.1, 0.1, 0.1 )
+[sub_resource type="StandardMaterial3D" id="4"]
+albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
+albedo_texture = ExtResource("6")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[node name="VRTraining" type="Spatial"]
-script = ExtResource( 3 )
+[node name="VRTraining" type="Node3D"]
+script = ExtResource("3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+[node name="Terrain" parent="." instance=ExtResource("2")]
+metadata/_edit_lock_ = true
 
-[node name="GIProbe" type="GIProbe" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1779.74, 0 )
-visible = false
-extents = Vector3( 6000, 2000, 6000 )
-data = ExtResource( 5 )
-
-[node name="Terrain" parent="." instance=ExtResource( 2 )]
-
-[node name="Walls" type="CSGCombiner" parent="."]
-use_in_baked_light = true
+[node name="Walls" type="CSGCombiner3D" parent="."]
 use_collision = true
 
-[node name="Wall1" type="CSGBox" parent="Walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 5010 )
-use_in_baked_light = true
-width = 10100.0
-height = 3000.0
-material = SubResource( 3 )
+[node name="Wall1" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 5010)
+material = SubResource("3")
 
-[node name="Wall2" type="CSGBox" parent="Walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, -5010 )
-width = 10100.0
-height = 3000.0
-material = SubResource( 3 )
+[node name="Wall2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, -5010)
+material = SubResource("3")
 
-[node name="Wall3" type="CSGBox" parent="Walls"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5010, 1500, 0 )
-width = 10100.0
-height = 3000.0
-material = SubResource( 3 )
+[node name="Wall3" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5010, 1500, 0)
+material = SubResource("3")
 
-[node name="Wall4" type="CSGBox" parent="Walls"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5010, 1500, 0 )
-width = 10100.0
-height = 3000.0
-material = SubResource( 3 )
+[node name="Wall4" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5010, 1500, 0)
+material = SubResource("3")
 
-[node name="Targets" type="Spatial" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1287.25, 697.015, 2158.26 )
+[node name="Targets" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1287.25, 697.015, 2158.26)
 
-[node name="Target" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.86178, 0, -0.507282, 0, 1, 0, 0.507282, 0, 0.86178, -853.815, -21.9932, 207.039 )
+[node name="Target" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.86178, 0, -0.507282, 0, 1, 0, 0.507282, 0, 0.86178, -853.815, -21.9932, 207.039)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target2" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( -0.123515, 0, -0.992343, 0, 1, 0, 0.992343, 0, -0.123515, 668.907, 527.419, -1135 )
+[node name="Target2" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(-0.123515, 0, -0.992343, 0, 1, 0, 0.992343, 0, -0.123515, 668.907, 527.419, -1135)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target3" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( -0.0104195, 0, -0.999946, 0, 1, 0, 0.999946, 0, -0.0104195, 617.519, 50, -897.627 )
+[node name="Target3" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(-0.0104195, 0, -0.999946, 0, 1, 0, 0.999946, 0, -0.0104195, 617.519, 50, -897.627)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target4" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.190792, 0, -0.981631, 0, 1, 0, 0.981631, 0, 0.190792, 236.681, 554.027, -1036.67 )
+[node name="Target4" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.190792, 0, -0.981631, 0, 1, 0, 0.981631, 0, 0.190792, 236.681, 554.027, -1036.67)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target5" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.783444, 0, -0.621462, 0, 1, 0, 0.621462, 0, 0.783444, -526.145, -88.7286, -433.703 )
+[node name="Target5" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.783444, 0, -0.621462, 0, 1, 0, 0.621462, 0, 0.783444, -526.145, -88.7286, -433.703)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target6" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.999371, 0, -0.035475, 0, 1, 0, 0.035475, 0, 0.999371, -1238.77, 628.181, 1058.57 )
+[node name="Target6" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.999371, 0, -0.035475, 0, 1, 0, 0.035475, 0, 0.999371, -1238.77, 628.181, 1058.57)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target7" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1124.65, 157.208, 968.317 )
+[node name="Target7" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1124.65, 157.208, 968.317)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target8" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.974558, 0, 0.224134, 0, 1, 0, -0.224134, 0, 0.974558, -996.687, 157.208, 1402.07 )
+[node name="Target8" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.974558, 0, 0.224134, 0, 1, 0, -0.224134, 0, 0.974558, -996.687, 157.208, 1402.07)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target9" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.26165, 0, -0.965163, 0, 1, 0, 0.965163, 0, 0.26165, -18.5073, -107.424, -697.469 )
+[node name="Target9" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.26165, 0, -0.965163, 0, 1, 0, 0.965163, 0, 0.26165, -18.5073, -107.424, -697.469)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target10" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.238516, 0, -0.971139, 0, 1, 0, 0.971139, 0, 0.238516, 100.174, 157.208, -805.929 )
+[node name="Target10" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.238516, 0, -0.971139, 0, 1, 0, 0.971139, 0, 0.238516, 100.174, 157.208, -805.929)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target11" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.933136, 0, -0.359524, 0, 1, 0, 0.359524, 0, 0.933136, -1143.56, 263.348, 620.854 )
+[node name="Target11" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.933136, 0, -0.359524, 0, 1, 0, 0.359524, 0, 0.933136, -1143.56, 263.348, 620.854)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target12" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.89637, 0, -0.443306, 0, 1, 0, 0.443306, 0, 0.89637, -1182.95, 417.095, 212.217 )
+[node name="Target12" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.89637, 0, -0.443306, 0, 1, 0, 0.443306, 0, 0.89637, -1182.95, 417.095, 212.217)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target13" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.801118, 0, -0.598506, 0, 1, 0, 0.598506, 0, 0.801118, -1034.17, 261.407, -100 )
+[node name="Target13" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.801118, 0, -0.598506, 0, 1, 0, 0.598506, 0, 0.801118, -1034.17, 261.407, -100)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target14" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.708512, 0, -0.705698, 0, 1, 0, 0.705698, 0, 0.708512, -740.972, 309.579, -561.393 )
+[node name="Target14" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.708512, 0, -0.705698, 0, 1, 0, 0.705698, 0, 0.708512, -740.972, 309.579, -561.393)
 rings = "four"
 respawn_delay = 10
 
-[node name="Target15" parent="Targets" instance=ExtResource( 4 )]
-transform = Transform( 0.465692, 0, -0.884947, 0, 1, 0, 0.884947, 0, 0.465692, -312.8, 261.407, -767.27 )
+[node name="Target15" parent="Targets" instance=ExtResource("4")]
+transform = Transform3D(0.465692, 0, -0.884947, 0, 1, 0, 0.884947, 0, 0.465692, -312.8, 261.407, -767.27)
 rings = "four"
 respawn_delay = 10
 
-[node name="Props" type="Spatial" parent="."]
+[node name="Props" type="Node3D" parent="."]
 
-[node name="Biolab" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -973.519, 337.169, 0 )
+[node name="Biolab" parent="Props" instance=ExtResource("10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -973.519, 337.169, 0)
 
-[node name="Biolab2" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2959.99, 341.212, 0 )
+[node name="Biolab2" parent="Props" instance=ExtResource("10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2959.99, 341.212, 0)
 
-[node name="Biolab3" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 292.555, -2379.61 )
+[node name="Biolab3" parent="Props" instance=ExtResource("10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1591.64, 292.555, -2379.61)
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -1200, 1200, 1200 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -1200, 1200, 1200)
 visible = false
 cull_mask = 1047583
 far = 10000.0
 
-[node name="Camera2" type="Camera" parent="."]
-transform = Transform( -0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, 0.353553, -0.612373, 1500, 1200, -1200 )
+[node name="Camera2" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, 0.353553, -0.612373, 1500, 1200, -1200)
 visible = false
 cull_mask = 1047583
 far = 10000.0
 
-[node name="Camera3" type="Camera" parent="."]
-transform = Transform( -0.17748, 0.415909, -0.89192, 0, 0.906308, 0.422618, 0.984124, 0.0750063, -0.160851, -97.2036, 513.673, -309.4 )
+[node name="Camera3" type="Camera3D" parent="."]
+transform = Transform3D(-0.17748, 0.415909, -0.89192, 0, 0.906308, 0.422618, 0.984124, 0.0750063, -0.160851, -97.2036, 513.673, -309.4)
 visible = false
 cull_mask = 1047583
 far = 10000.0
 
-[node name="Spawnpoints" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 434.989, 0 )
+[node name="Spawnpoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1916.26, 434.989, 0)
 
-[node name="1" type="Position3D" parent="Spawnpoints"]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, -20.8135, 0 )
+[node name="1" type="Marker3D" parent="Spawnpoints"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 100, -20.8135, 0)
 
-[node name="CSGCombiner" type="CSGCombiner" parent="Spawnpoints/1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0 )
-use_in_baked_light = true
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Spawnpoints/1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0)
 use_collision = true
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/1/CSGCombiner"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Spawnpoints/1/CSGCombiner3D"]
 radius = 10.0
 sides = 12
-material = SubResource( 4 )
+material = SubResource("4")
 
-[node name="2" type="Position3D" parent="Spawnpoints"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 100 )
+[node name="2" type="Marker3D" parent="Spawnpoints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 100)
 
-[node name="CSGCombiner" type="CSGCombiner" parent="Spawnpoints/2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0 )
-use_in_baked_light = true
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Spawnpoints/2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0)
 use_collision = true
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/2/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0046, -20.9027, 10.2663 )
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Spawnpoints/2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0046, -20.9027, 10.2663)
 radius = 10.0
 sides = 12
-material = SubResource( 4 )
+material = SubResource("4")
 
-[node name="3" type="Position3D" parent="Spawnpoints"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -100, 0, 0 )
+[node name="3" type="Marker3D" parent="Spawnpoints"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -100, 0, 0)
 
-[node name="CSGCombiner" type="CSGCombiner" parent="Spawnpoints/3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0 )
-use_in_baked_light = true
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Spawnpoints/3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0)
 use_collision = true
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/3/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2663, -20.9027, -17.0046 )
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Spawnpoints/3/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2663, -20.9027, -17.0046)
 radius = 10.0
 sides = 12
-material = SubResource( 4 )
+material = SubResource("4")
 
-[node name="4" type="Position3D" parent="Spawnpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+[node name="4" type="Marker3D" parent="Spawnpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
 
-[node name="CSGCombiner" type="CSGCombiner" parent="Spawnpoints/4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0 )
-use_in_baked_light = true
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Spawnpoints/4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31348, 0)
 use_collision = true
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Spawnpoints/4/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0046, -20.9027, -10.2663 )
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Spawnpoints/4/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0046, -20.9027, -10.2663)
 radius = 10.0
 sides = 12
-material = SubResource( 4 )
+material = SubResource("4")
 
-[node name="Lights" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3249.43, 0 )
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3249.43, 0)
 
-[node name="Omni" type="Spatial" parent="Lights"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 414.226, 0 )
+[node name="Omni" type="Node3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 414.226, 0)
 
-[node name="Top" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 750.867, 0 )
+[node name="Top" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 750.867, 0)
 light_energy = 2.95
 omni_range = 10000.0
 
-[node name="Bottom" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
+[node name="Bottom" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 visible = false
 omni_range = 10000.0
 
-[node name="Front" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 1000, 0 )
+[node name="Front" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 1000, 0)
 visible = false
 light_energy = 2.95
 omni_range = 10000.0
 
-[node name="Back" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1200, 1000, 0 )
+[node name="Back" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1200, 1000, 0)
 visible = false
 light_energy = 2.95
 omni_range = 10000.0
 
-[node name="Left" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 1200 )
+[node name="Left" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 1200)
 visible = false
 light_energy = 2.95
 omni_range = 10000.0
 
-[node name="Right" type="OmniLight" parent="Lights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -1200 )
+[node name="Right" type="OmniLight3D" parent="Lights/Omni"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -1200)
 visible = false
 light_energy = 2.95
 omni_range = 10000.0

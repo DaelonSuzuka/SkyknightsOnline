@@ -11,12 +11,13 @@ func _ready():
 		var item = create_item()
 		item.set_text(0, action)
 		if 'key' in InputManager.actions[action]:
-			var s = OS.get_scancode_string(InputManager.actions[action]['key'])
+			var s = OS.get_keycode_string(InputManager.actions[action]['key'])
 			item.set_text(1, s)
 		if 'mouse' in InputManager.actions[action]:
 			var s = 'Mouse ' + str(InputManager.actions[action]['mouse'])
 			item.set_text(1, s)
-	connect('button_pressed', self, '_button_pressed')
+			
+	# connect('button_pressed',Callable(self,'_button_pressed'))
 
 func _button_pressed(item, col, id):
 	print(item, col, id)

@@ -7,7 +7,7 @@ static func evaluate(input:String, global:Object=null, locals:Dictionary={}, _sh
 	var _evaluated_value = null
 	var _expression = Expression.new()
 	
-	var _err = _expression.parse(input, PoolStringArray(locals.keys()))
+	var _err = _expression.parse(input, PackedStringArray(locals.keys()))
 	
 	if _err != OK:
 		push_warning(_expression.get_error_text())

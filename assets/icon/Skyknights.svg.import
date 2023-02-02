@@ -2,12 +2,13 @@
 
 importer="image"
 type="Image"
-path="res://.import/Skyknights.svg-ae33a48807d1436eea3ee5a74fcf1d5a.image"
+uid="uid://b3svvwyib6cfk"
+path="res://.godot/imported/Skyknights.svg-ae33a48807d1436eea3ee5a74fcf1d5a.image"
 
 [deps]
 
 source_file="res://assets/icon/Skyknights.svg"
-dest_files=[ "res://.import/Skyknights.svg-ae33a48807d1436eea3ee5a74fcf1d5a.image" ]
+dest_files=["res://.godot/imported/Skyknights.svg-ae33a48807d1436eea3ee5a74fcf1d5a.image"]
 
 [params]
 

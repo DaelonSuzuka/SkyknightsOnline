@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var data = {
 	speed={
@@ -23,7 +23,7 @@ func apply(engine_data):
 	engine_data.vert.up.max += data.vert.up.max
 	return engine_data
 
-func remove(engine_data):
+func remove_at(engine_data):
 	engine_data.speed.accel -= data.speed.accel
 	engine_data.speed.max -= data.speed.max
 	engine_data.vert.up.force -= data.vert.up.force

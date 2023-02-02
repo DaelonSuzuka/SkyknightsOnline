@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 # ******************************************************************************
@@ -55,29 +55,29 @@ var layout_templates = null
 var profiles = null
 
 func _enter_tree():
-	settings_dialog = load('res://addons/omnilaunch/OmnilaunchSettings.tscn').instance()
+	settings_dialog = load('res://addons/omnilaunch/OmnilaunchSettings.tscn').instantiate()
 	settings_dialog.plugin = self
 	
-	layout_templates = load('res://addons/omnilaunch/LayoutTemplates.tscn').instance()
+	layout_templates = load('res://addons/omnilaunch/LayoutTemplates.tscn').instantiate()
 	var base = get_editor_interface().get_base_control()
 	base.add_child(layout_templates)
 
 	add_child(settings_dialog)
-	settings_dialog.connect('confirmed', self, 'settings_confirmed')
+	settings_dialog.connect('confirmed',Callable(self,'settings_confirmed'))
 
-	editor_toolbar = load('res://addons/omnilaunch/EditorToolbar.tscn').instance()
+	editor_toolbar = load('res://addons/omnilaunch/EditorToolbar.tscn').instantiate()
 
 	profiles = editor_toolbar.get_node('%Profiles')
-	profiles.connect('item_selected', self, 'profile_selected')
+	profiles.connect('item_selected',Callable(self,'profile_selected'))
 
 	var settings_btn = editor_toolbar.get_node('%Settings')
-	settings_btn.connect('pressed', self, 'settings_pressed')
+	settings_btn.connect('pressed',Callable(self,'settings_pressed'))
 
 	var stop_btn = editor_toolbar.get_node('%Stop')
-	stop_btn.connect('pressed', self, 'stop_pressed')
+	stop_btn.connect('pressed',Callable(self,'stop_pressed'))
 
 	var run_btn = editor_toolbar.get_node('%Run')
-	run_btn.connect('pressed', self, 'run_pressed')
+	run_btn.connect('pressed',Callable(self,'run_pressed'))
 	
 	load_settings()
 	
@@ -164,12 +164,12 @@ func launch(profile):
 		template = layout_templates.get_node('Nine')
 
 	for slot in template.get_children():
-		window_positions.append(slot.rect_position + (slot.rect_size / 2))
+		window_positions.append(slot.position + (slot.size / 2))
 
 	var c = 0
 
-	var x = ProjectSettings.get_setting('display/window/size/test_width')
-	var y = ProjectSettings.get_setting('display/window/size/test_height')
+	var x = ProjectSettings.get_setting('display/window/size/window_width_override')
+	var y = ProjectSettings.get_setting('display/window/size/window_height_override')
 	var default_window_size = Vector2(x, y)
 
 	if main_window:
@@ -188,14 +188,14 @@ func launch(profile):
 		args += '--position %s,%s ' % [pos.x, pos.y]
 		args += main_window.args
 
-		var main_run_args = ProjectSettings.get_setting('editor/main_run_args')
+		var main_run_args = ProjectSettings.get_setting('editor/run/main_run_args')
 		if main_run_args != args:
-			ProjectSettings.set_setting('editor/main_run_args', args)
+			ProjectSettings.set_setting('editor/run/main_run_args', args)
 
 		get_editor_interface().play_main_scene()
 
 		if main_run_args != main_window.args:
-			ProjectSettings.set_setting('editor/main_run_args', main_run_args)
+			ProjectSettings.set_setting('editor/run/main_run_args', main_run_args)
 	
 	kill_pids()
 	for w in windows:
@@ -232,7 +232,7 @@ func kill_pids():
 func save_json(file_name: String, data) -> void:
 	var f = File.new()
 	f.open(file_name, File.WRITE)
-	f.store_string(JSON.print(data, "\t"))
+	f.store_string(JSON.stringify(data, "\t"))
 	f.close()
 
 func load_json(file_name: String, default=null):
@@ -242,7 +242,9 @@ func load_json(file_name: String, default=null):
 		f.open(file_name, File.READ)
 		var text = f.get_as_text()
 		f.close()
-		var json = JSON.parse(text)
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(text)
+		var json = test_json_conv.get_data()
 		if !json.error:
 			result = json.result
 	return result

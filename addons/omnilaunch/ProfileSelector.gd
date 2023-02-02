@@ -1,4 +1,4 @@
-tool
+@tool
 extends Tree
 
 # ******************************************************************************
@@ -15,10 +15,10 @@ signal profile_deleted(profile_name)
 # ******************************************************************************
 
 func _ready():	
-	connect('item_selected', self, 'profile_selected')
+	connect('item_selected',Callable(self,'profile_selected'))
 	allow_rmb_select = true
-	connect('item_rmb_selected', self, 'open_context_menu')
-	connect('item_edited', self, '_end_rename')
+	connect('item_rmb_selected',Callable(self,'open_context_menu'))
+	connect('item_edited',Callable(self,'_end_rename'))
 
 	set_hide_root(true)
 	clear_profiles()
@@ -115,14 +115,14 @@ class CtxMenu:
 
 	signal item_selected(item, args)
 
-	func _init(obj=null, cb=null, arg1=null, arg2=null):
+	func _init(obj=null,cb=null,arg1=null,arg2=null):
 		set_hide_on_window_lose_focus(true)
 
 		if obj:
 			obj.add_child(self)
 
 		if obj and cb:
-			connect('item_selected', obj, cb)
+			connect('item_selected',Callable(obj,cb))
 
 		var args = []
 		if arg1:
@@ -130,11 +130,11 @@ class CtxMenu:
 		if arg2:
 			args.append(arg2)
 
-		connect('index_pressed', self, '_on_index_pressed', args)
+		connect('index_pressed',Callable(self,'_on_index_pressed').bind(args))
 
 	func open(pos=null):
 		if pos:
-			rect_position = pos
+			position = pos
 		popup()
 
 	func _on_index_pressed(idx, args=[]):

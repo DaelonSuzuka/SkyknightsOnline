@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 class_name RateLimiter
 
 var period := 1.0

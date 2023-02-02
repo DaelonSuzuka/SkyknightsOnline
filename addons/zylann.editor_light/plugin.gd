@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 const DirectDirectionalLight = preload("res://addons/zylann.editor_light/direct_directional_light.gd")
@@ -8,24 +8,24 @@ var _light = null
 
 func _enter_tree():
 	print("EditorLight plugin enter tree")
-	connect("scene_changed", self, "_on_scene_changed")
+	connect("scene_changed",Callable(self,"_on_scene_changed"))
 
 
 func _exit_tree():
 	print("EditorLight plugin exit tree")
-	disconnect("scene_changed", self, "_on_scene_changed")
+	disconnect("scene_changed",Callable(self,"_on_scene_changed"))
 	destroy_light()
 
 
 func handles(object):
-	if object is DirectionalLight:
+	if object is DirectionalLight3D:
 		destroy_light()
 
 
 func _on_scene_changed(scene_root):
 	#print("Switched to scene ", scene_root)
 	if scene_root != null:
-		var res = find_node_by_type(scene_root, DirectionalLight)
+		var res = find_node_by_type(scene_root, DirectionalLight3D)
 		if res == null:
 			create_light()
 	else:
@@ -36,9 +36,9 @@ func create_light():
 	if _light == null:
 		_light = DirectDirectionalLight.new()
 		_light.set_world(get_viewport().world)
-		var rot = Quat()
+		var rot = Quaternion()
 		rot.set_euler(Vector3(-PI/3.0, PI/6.0, 0))
-		var trans = Transform(Basis(rot), Vector3())
+		var trans = Transform3D(Basis(rot), Vector3())
 		_light.set_transform(trans)
 
 

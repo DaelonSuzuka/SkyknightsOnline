@@ -2,8 +2,8 @@ extends Control
 
 # ******************************************************************************
 
-onready var viewport = $ViewportContainer/Viewport
-onready var camera = $ViewportContainer/Viewport/Camera
+@onready var viewport = $SubViewportContainer/SubViewport
+@onready var camera = $SubViewportContainer/SubViewport/Camera3D
 
 var default_size = 3500
 var min_size = 1000
@@ -32,12 +32,12 @@ func zoom_out():
 
 func toggle_size():
 	if big:
-		margin_top = -400
-		margin_right = 400
+		offset_top = -400
+		offset_right = 400
 		big = false
 	else:
-		margin_top = -600
-		margin_right = 600
+		offset_top = -600
+		offset_right = 600
 		big = true
 
 # ******************************************************************************
@@ -72,10 +72,10 @@ func ctx_item_selected(item):
 			# waypoint_pos.y = 0
 			# print(waypoint_pos)
 
-			var waypoint = Waypoint.instance()
+			var waypoint = Waypoint.instantiate()
 			waypoints.append(waypoint)
 			Game.world.add_child(waypoint)
-			waypoint.translation = waypoint_pos
+			waypoint.position = waypoint_pos
 		'Clear Waypoints':
 
 			for waypoint in waypoints:
@@ -86,13 +86,13 @@ func ctx_item_selected(item):
 # ------------------------------------------------------------------------------
 
 # forward input events to the viewport so object picking can work
-func _input(event):
-	if viewport and is_inside_tree():
-		viewport.input(event)
+# func _input(event):
+	# if viewport and is_inside_tree():
+	# 	viewport.input(event)
 		
-func _unhandled_input(event):
-	if viewport and is_inside_tree():
-		viewport.unhandled_input(event)
+# func _unhandled_input(event):
+# 	if viewport and is_inside_tree():
+# 		viewport.unhandled_input(event)
 
 # ******************************************************************************
 
@@ -100,13 +100,13 @@ func get_object_under_mouse():
 	var mouse_pos = viewport.get_mouse_position()
 	var ray_from = camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * 10000
-	var space_state = camera.get_world().direct_space_state
+	var space_state = camera.get_world_3d().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
 	return selection
 
 func get_object_under_pos(pos: Vector2):
 	var ray_from = camera.project_ray_origin(pos)
 	var ray_to = ray_from + camera.project_ray_normal(pos) * 10000
-	var space_state = camera.get_world().direct_space_state
+	var space_state = camera.get_world_3d().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
 	return selection

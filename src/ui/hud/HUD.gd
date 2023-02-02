@@ -2,17 +2,17 @@ extends CanvasLayer
 
 # ******************************************************************************
 
-onready var Radial = $Radial
-onready var Debug = $Debug
-onready var WeaponInfo = $WeaponInfo
-onready var Crosshair = $Crosshair
-onready var ReloadIndicator = $ReloadIndicator
-onready var HorizonIndicator = $HorizonIndicator
-onready var HeadingIndicator = $HorizonIndicator/HeadingIndicator
-onready var PitchLadderLeft = $HorizonIndicator/PitchLadderLeft
-onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
-onready var Minimap = $Minimap
-onready var Map = $Map
+@onready var Radial = $Radial
+@onready var Debug = $Debug
+@onready var WeaponInfo = $WeaponInfo
+@onready var Crosshair = $Crosshair
+@onready var ReloadIndicator = $ReloadIndicator
+@onready var HorizonIndicator = $HorizonIndicator
+@onready var HeadingIndicator = $HorizonIndicator/HeadingIndicator
+@onready var PitchLadderLeft = $HorizonIndicator/PitchLadderLeft
+@onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
+@onready var Minimap = $Minimap
+@onready var Map = $Map
 # onready var Chat = $ChatBox
 
 # ******************************************************************************

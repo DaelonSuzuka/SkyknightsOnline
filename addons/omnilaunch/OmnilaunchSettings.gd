@@ -1,12 +1,12 @@
-tool
+@tool
 extends ConfirmationDialog
 
 # ******************************************************************************
 
-onready var profiles = $"%Profiles"
-onready var new_profile = $"%NewProfile"
-onready var new_window = $"%NewWindow"
-onready var window_box = $"%WindowBox"
+@onready var profiles = $"%Profiles"
+@onready var new_profile = $"%NewProfile"
+@onready var new_window = $"%NewWindow"
+@onready var window_box = $"%WindowBox"
 
 var Window = preload('Window.tscn')
 var _data = {}
@@ -17,13 +17,13 @@ var plugin = null
 # ******************************************************************************
 
 func _ready():
-	new_profile.connect('pressed', self, 'new_profile')
-	new_window.connect('pressed', self, 'new_window')
+	new_profile.connect('pressed',Callable(self,'new_profile'))
+	new_window.connect('pressed',Callable(self,'new_window'))
 
-	profiles.connect('profile_selected', self, 'profile_selected')
-	profiles.connect('profile_renamed', self, 'profile_renamed')
-	profiles.connect('profile_created', self, 'profile_created')
-	profiles.connect('profile_deleted', self, 'profile_deleted')
+	profiles.connect('profile_selected',Callable(self,'profile_selected'))
+	profiles.connect('profile_renamed',Callable(self,'profile_renamed'))
+	profiles.connect('profile_created',Callable(self,'profile_created'))
+	profiles.connect('profile_deleted',Callable(self,'profile_deleted'))
 
 func new_profile():
 	var profile_name = 'New Profile'
@@ -38,10 +38,10 @@ func new_profile():
 	profiles.create_profile(profile_name)
 
 func new_window(data=null):
-	var new_w = Window.instance()
+	var new_w = Window.instantiate()
 	window_box.add_child(new_w)
 
-	new_w.main.connect('toggled', self, 'reset_mains', [new_w])
+	new_w.main.connect('toggled',Callable(self,'reset_mains').bind(new_w))
 	if data:
 		new_w.set_data(data)
 	return new_w
@@ -52,7 +52,7 @@ func reset_mains(state, new_main):
 
 	for w in window_box.get_children():
 		if w != new_main:
-			w.main.pressed = false
+			w.main.button_pressed = false
 
 func profile_selected(profile_name):
 	save_window_data()

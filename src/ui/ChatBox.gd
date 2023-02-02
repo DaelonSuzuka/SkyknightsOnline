@@ -1,8 +1,8 @@
 extends Control
 
-onready var ChatLog = get_node('VBoxContainer/RichTextLabel')
-onready var InputLabel = get_node('VBoxContainer/HBoxContainer/Label')
-onready var InputField = get_node('VBoxContainer/HBoxContainer/LineEdit')
+@onready var ChatLog = get_node('VBoxContainer/RichTextLabel')
+@onready var InputLabel = get_node('VBoxContainer/HBoxContainer/Label')
+@onready var InputField = get_node('VBoxContainer/HBoxContainer/LineEdit')
 
 var last_dm_sender = ''
 var history = []
@@ -16,9 +16,9 @@ var groups = [
 var group_index = 0
 
 func _ready():
-	InputField.connect('text_entered', self, 'text_entered')
+	InputField.connect('text_submitted',Callable(self,'text_submitted'))
 	change_group(0)
-	Network.connect('chat_message_received', self, 'add_message')
+	Network.connect('chat_message_received',Callable(self,'add_message'))
 
 func _unhandled_input(event):
 	if event is InputEventKey:
@@ -38,7 +38,7 @@ func _unhandled_input(event):
 			InputField.grab_focus()
 			InputField.clear()
 			InputField.append_at_cursor('@' + last_dm_sender + ' ')
-			# InputField.caret_position =
+			# InputField.caret_column =
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			InputField.release_focus()
 		# if InputField.has_focus():
@@ -61,17 +61,17 @@ func add_message(username, text, group=0, color=''):
 		if username == 'You':
 			color = '#00abc7'
 
-	ChatLog.bbcode_text += '\n'
+	ChatLog.text += '\n'
 	if color == '':
-		ChatLog.bbcode_text += '[color=' + groups[group]['color'] + ']'
+		ChatLog.text += '[color=' + groups[group]['color'] + ']'
 	else:
-		ChatLog.bbcode_text += '[color=' + color + ']'
+		ChatLog.text += '[color=' + color + ']'
 	if username != '':
-		ChatLog.bbcode_text += '[' + username + ']: '
-	ChatLog.bbcode_text += text
-	ChatLog.bbcode_text += '[/color]'
+		ChatLog.text += '[' + username + ']: '
+	ChatLog.text += text
+	ChatLog.text += '[/color]'
 
-func text_entered(text):
+func text_submitted(text):
 	if text == '/h':
 		add_message('', 'There is no help message yet!', 0, '#ff5757')
 		InputField.text = ''

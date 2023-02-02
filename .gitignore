@@ -5,3 +5,5 @@ settings.json
 *.blend[0-9]
 
 build
+
+.godot

@@ -13,13 +13,13 @@ const RAD_90 := 0.5 * PI
 
 static func calc_circle_coordinates(radius, npoints, angle_offset=0, offset=Vector2.ZERO):
 	"""
-	Calculates <npoints> coordinates on a circle with a given <radius>.
+	Calculates <npoints> coordinates checked a circle with a given <radius>.
 	The first point lies at 3 o'clock unless you specify an <angle_offset>
 	(in radians)
 	
-	Returns a PoolVector2Array with the coordinates.
+	Returns a PackedVector2Array with the coordinates.
 	"""
-	var coords = PoolVector2Array()
+	var coords = PackedVector2Array()
 	var angle = RAD_360 / npoints
 	for i in range(npoints):
 		var y = radius * sin(angle_offset + i * angle)
@@ -68,7 +68,7 @@ static func calc_ring_segment(inner_radius, outer_radius, start_angle, end_angle
 	"""
 	Calculates the coordinates of a ring segment
 	"""
-	var coords = PoolVector2Array()
+	var coords = PackedVector2Array()
 	var fraction_of_full = (end_angle - start_angle) / RAD_360
 	var nopoints = max(2, int(outer_radius * fraction_of_full))
 	var nipoints = max(2, int(inner_radius * fraction_of_full))
@@ -85,7 +85,7 @@ static func calc_ring_segment(inner_radius, outer_radius, start_angle, end_angle
 	return coords
 
 static func calc_ring_segment_centers(radius, n_points, start_angle, end_angle, offset=Vector2.ZERO):
-	var coords = PoolVector2Array()
+	var coords = PackedVector2Array()
 	var angle = (end_angle - start_angle) / n_points
 	for i in range(n_points):
 		var y = radius * sin(start_angle + i * angle)
@@ -104,7 +104,7 @@ static func calc_ring_segment_AABB(inner, outer, start_angle, end_angle, center=
 
 static func draw_ring_segment(
 	canvas: CanvasItem,
-	coords: PoolVector2Array,
+	coords: PackedVector2Array,
 	fill_color,
 	stroke_color=null,
 	width=1.0,
@@ -120,10 +120,10 @@ static func draw_ring_segment(
 	if coords.size() == 0:
 		return
 	if fill_color:
-		canvas.draw_colored_polygon(coords, fill_color, PoolVector2Array(), null, null, antialiased)
+		canvas.draw_colored_polygon(coords, fill_color, PackedVector2Array(), null, null, antialiased)
 	if stroke_color:
 		canvas.draw_polyline(coords, stroke_color, width, antialiased)
-		canvas.draw_line(coords[-1], coords[0], stroke_color, width, antialiased)
+		canvas.draw_line(coords[-1],coords[0],stroke_color,width)
 
 static func draw_ring(
 	canvas: CanvasItem,
@@ -146,9 +146,9 @@ static func draw_ring(
 	var coords_inner
 	var coords_outer
 	if stroke_color != null:
-		coords_inner = PoolVector2Array()
-		coords_outer = PoolVector2Array()
-	var coords_all = PoolVector2Array()
+		coords_inner = PackedVector2Array()
+		coords_outer = PackedVector2Array()
+	var coords_all = PackedVector2Array()
 	var nopoints = max(2, int(outer_radius))
 	var nipoints = max(2, int(inner_radius))
 	var full360 = 2 * PI
@@ -171,10 +171,10 @@ static func draw_ring(
 		coords_all.append(v + offset)
 
 	if stroke_color:
-		canvas.draw_colored_polygon(coords_all, fill_color, PoolVector2Array(), null, null, false)
+		canvas.draw_colored_polygon(coords_all, fill_color, PackedVector2Array(), null, null, false)
 	else:
 		canvas.draw_colored_polygon(
-			coords_all, fill_color, PoolVector2Array(), null, null, antialiased
+			coords_all, fill_color, PackedVector2Array(), null, null, antialiased
 		)
 	if stroke_color:
 		canvas.draw_polyline(coords_inner, stroke_color, width, antialiased)

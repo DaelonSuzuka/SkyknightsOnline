@@ -1,8 +1,8 @@
-extends Spatial
+extends Node3D
 
-export(String, 'three', 'four') var rings = 'three'
+@export var rings = 'three' # (String, 'three', 'four')
 var current_time = 0
-export var respawn_delay = 5
+@export var respawn_delay = 5
 var dead = false
 
 func _ready():

@@ -51,14 +51,14 @@ func create_labels():
 			inputs[field] = input
 			input.placeholder_text = str(get_field(field))
 			$Scroll/Items.add_child(input)
-			input.connect('text_entered', self, 'text_entered', [field])
+			input.connect('text_submitted',Callable(self,'text_submitted').bind(field))
 
 			var reset = Button.new()
 			reset.text = 'reset'
 			$Scroll/Items.add_child(reset)
-			reset.connect('pressed', self, 'reset_pressed', [field, get_field(field)])
+			reset.connect('pressed',Callable(self,'reset_pressed').bind(field, get_field(field)))
 
-func text_entered(value, field):
+func text_submitted(value, field):
 	set_field(field, value)
 
 func reset_pressed(field, value):
@@ -69,13 +69,13 @@ func walk_data(data, prefix):
 	for property in data:
 		if typeof(data[property]) == TYPE_DICTIONARY:
 			walk_data(data[property], prefix + property + '.')
-		if typeof(data[property]) == TYPE_REAL:
+		if typeof(data[property]) == TYPE_FLOAT:
 			fields[prefix + property] = data[property]
 
 func _ready():
 	walk_data(get_parent().data, '')
-	get_node('../EditButtons/HBox/Copy').connect('pressed', self, 'copy_pressed')
-	get_node('../EditButtons/HBox/Paste').connect('pressed', self, 'paste_pressed')
+	get_node('../EditButtons/HBox/Copy').connect('pressed',Callable(self,'copy_pressed'))
+	get_node('../EditButtons/HBox/Paste').connect('pressed',Callable(self,'paste_pressed'))
 
 func copy_pressed():
 	var out = {}
@@ -83,23 +83,26 @@ func copy_pressed():
 		if inputs[field].text:
 			out[field] = float(inputs[field].text)
 
-	OS.set_clipboard(JSON.print(out, '    '))
+	# OS.set_clipboard(JSON.stringify(out, '    '))
 	get_node('../EditButtons/HBox/Label').text = 'copied to clipboard'
-	yield(get_tree().create_timer(2), 'timeout')
+	await get_tree().create_timer(2).timeout
 	get_node('../EditButtons/HBox/Label').text = ''
 
 func paste_pressed():
-	var json = JSON.parse(OS.get_clipboard())
-	if json.error == OK:
-		for field in json.result:
-			if field in fields:
-				set_field(field, json.result[field])
-				inputs[field].text = str(json.result[field])
-		get_node('../EditButtons/HBox/Label').text = 'pasted from clipboard'
-	else:
-		get_node('../EditButtons/HBox/Label').text = 'invalid settings'
-	yield(get_tree().create_timer(2), 'timeout')
-	get_node('../EditButtons/HBox/Label').text = ''
+	pass
+	# var test_json_conv = JSON.new()
+	# test_json_conv.parse(OS.get_clipboard())
+	# var json = test_json_conv.get_data()
+	# if json.error == OK:
+	# 	for field in json.result:
+	# 		if field in fields:
+	# 			set_field(field, json.result[field])
+	# 			inputs[field].text = str(json.result[field])
+	# 	get_node('../EditButtons/HBox/Label').text = 'pasted from clipboard'
+	# else:
+	# 	get_node('../EditButtons/HBox/Label').text = 'invalid settings'
+	# await get_tree().create_timer(2).timeout
+	# get_node('../EditButtons/HBox/Label').text = ''
 
 var current_time = 0.0
 

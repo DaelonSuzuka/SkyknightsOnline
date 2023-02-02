@@ -5,16 +5,16 @@ extends Node
 var world_avatar = null
 var avatars := {}
 
-onready var ships = {
+@onready var ships = {
 	'marauder': preload('res://src/ships/marauder/Marauder.tscn'),
 }
 
 func _ready():
 	pass
-	# Game.connect('scene_changed', self, 'scene_changed')
-	# Network.connect('peer_connected', self, 'create_peer')
-	# Network.connect('peer_disconnected', self, 'remove_peer')
-	# Network.connect('disconnected_from_server', self, 'remove_all_peers')
+	# Game.connect('scene_changed',Callable(self,'scene_changed'))
+	# Network.connect('peer_connected',Callable(self,'create_peer'))
+	# Network.connect('peer_disconnected',Callable(self,'remove_peer'))
+	# Network.connect('disconnected_from_server',Callable(self,'remove_all_peers'))
 
 # ******************************************************************************
 
@@ -25,11 +25,11 @@ func scene_changed():
 	avatars.clear()
 	if !Game.world:
 		return
-	if Network.connected:
-		for id in Network.player_registry:
-			create_peer(Network.player_registry[id])
-	else:
-		create_peer(Network.player_info)
+	# if Network.connected:
+	# 	for id in Network.player_registry:
+	# 		create_peer(Network.player_registry[id])
+	# else:
+	# 	create_peer(Network.player_info)
 
 func create_peer(pinfo):
 	var id = pinfo.net_id
@@ -48,7 +48,7 @@ func create_avatar(pinfo):
 	if !world_avatar:
 		world_avatar = load('res://world_avatar/WorldAvatar.tscn')
 
-	var avatar = world_avatar.instance()
+	var avatar = world_avatar.instantiate()
 	avatars[pinfo.net_id] = avatar
 	avatar.player_info = pinfo
 	return avatar
@@ -66,16 +66,18 @@ func remove_all_peers():
 
 var next_spawn = 1
 
-remotesync func spawn_ship(id, data):
+@rpc("any_peer", "call_local") func spawn_ship(id, data):
 	if Game.Ships.has_node(str(id)):
 		return
 
+	if !Game.world:
+		return
 	var spawn_origin = Game.world.get_node('Spawnpoints')
 	var spawn = spawn_origin.get_node(str(next_spawn))
 	next_spawn = ((next_spawn + 1) % 4) + 1
 
 	if data['name'] in ships:
-		var ship = ships[data['name']].instance()
+		var ship = ships[data['name']].instantiate()
 		ship.name = str(id)
 		ship.data = data
 		Game.Ships.add_child(ship)
@@ -86,19 +88,19 @@ remotesync func spawn_ship(id, data):
 		if id == 0:
 			Player.enter_ship(ship)
 
-	var display_name = ''
-	if id == Network.net_id:
-		display_name += 'my '
-	display_name += data['name']
+	# var display_name = ''
+	# if id == Network.net_id:
+	# 	display_name += 'my '
+	# display_name += data['name']
 
-func _physics_process(delta):
-	if Network.connected and Network.is_server:
-		for ship in get_tree().get_nodes_in_group('ships'):
-			if ship.dead:
-				var player = Game.Players.get_node(ship.name)
-				if player:
-					player.leave_ship()
-				ship.rpc('kill')
+# func _physics_process(delta):
+# 	if Network.connected and Network.is_server:
+# 		for ship in get_tree().get_nodes_in_group('ships'):
+# 			if ship.dead:
+# 				var player = Game.Players.get_node(ship.name)
+# 				if player:
+# 					player.leave_ship()
+# 				ship.rpc('kill')
 
 
 
@@ -164,12 +166,12 @@ func _physics_process(delta):
 # 	if Network.connected:
 # 		rpc_id(1, 'broadcast_input', id, event.to_dict())
 
-# # happens on the server
+# # happens checked the server
 # remote func broadcast_input(id, event_dict):
 # 	recieve_input(id, event_dict)
 # 	rpc('recieve_input', id, event_dict)
 
-# # happens back on each client
+# # happens back checked each client
 # remote func recieve_input(id, event_dict):
 # 	if id == Network.net_id:
 # 		return
@@ -187,12 +189,12 @@ func _physics_process(delta):
 # 	if Network.is_client:
 # 		rpc_id(1, 'broadcast_waypoint', Network.net_id, pos, force)
 
-# # happens on the server
+# # happens checked the server
 # remote func broadcast_waypoint(id, pos, force):
 # 	recieve_waypoint(id, pos, force)
 # 	rpc('recieve_waypoint', id, pos, force)
 
-# # happens back on each client
+# # happens back checked each client
 # remote func recieve_waypoint(id, pos, force):
 # 	if id == Network.net_id:
 # 		return
@@ -222,12 +224,12 @@ func _physics_process(delta):
 # 		var packet = avatars[Network.net_id].get_state()
 # 		rpc_id(1, 'server_receive_sync_packet', Network.net_id, packet)
 
-# # this happens on the server
+# # this happens checked the server
 # remote func server_receive_sync_packet(id, packet):
 # 	avatars[id].set_state(packet)
 # 	states[id] = packet
 
-# # this happens on EVERY client
+# # this happens checked EVERY client
 # remote func receive_sync_packet(packet):
 # 	for id in packet:
 # 		if id == Network.net_id:

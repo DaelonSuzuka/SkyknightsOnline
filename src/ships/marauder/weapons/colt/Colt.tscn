@@ -3,13 +3,13 @@
 [ext_resource path="res://src/ships/marauder/weapons/colt/colt.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/ships/marauder/weapons/colt/Colt.gd" type="Script" id=2]
 
-[node name="Colt" type="Spatial"]
+[node name="Colt" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
-[node name="Muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522804, 2.16052 )
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522804, 2.16052 )

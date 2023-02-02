@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var draw = load('res://src/ui/debug_overlay/DrawLine3D.gd').new()
+@onready var draw = load('res://src/ui/debug_overlay/DrawLine3D.gd').new()
 # onready var draw = $DebugDraw3D
 
 # func _ready():

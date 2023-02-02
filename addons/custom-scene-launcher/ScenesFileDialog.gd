@@ -1,7 +1,7 @@
 extends FileDialog
 
 
-func _init() -> void:
-	mode = FileDialog.MODE_OPEN_FILE
+func _init():
+	mode = FileDialog.FILE_MODE_OPEN_FILE
 	access = FileDialog.ACCESS_RESOURCES
-	set_filters(PoolStringArray(["*.tscn ; Godot Scenes"]))
+	set_filters(PackedStringArray(["*.tscn ; Godot Scenes"]))

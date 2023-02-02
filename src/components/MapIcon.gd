@@ -2,8 +2,8 @@ extends Sprite3D
 
 # ******************************************************************************
 
-export(NodePath) var tracked_object = ''
-onready var _tracked_object = get_node_or_null(tracked_object)
+@export var tracked_object: NodePath = ''
+@onready var _tracked_object = get_node_or_null(tracked_object)
 
 # ******************************************************************************
 

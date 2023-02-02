@@ -14,8 +14,8 @@ var ships = {
 }
 
 func _ready():
-	$Ship.connect('item_selected', self, 'on_ship_selected')
-	$Spawn.connect('pressed', self, '_on_spawn_pressed')
+	$Ship.connect('item_selected',Callable(self,'on_ship_selected'))
+	$Spawn.connect('pressed',Callable(self,'_on_spawn_pressed'))
 	for ship in ships:
 		$Ship.add_item(ship)
 

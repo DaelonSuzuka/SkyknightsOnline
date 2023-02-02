@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/ui/hud/Debug.gd" type="Script" id=1]
-[ext_resource path="res://src/ui/hud/textures/reload.png" type="Texture" id=2]
-[ext_resource path="res://src/ui/hud/textures/reload_background.png" type="Texture" id=3]
+[ext_resource path="res://src/ui/hud/textures/reload.png" type="Texture2D" id=2]
+[ext_resource path="res://src/ui/hud/textures/reload_background.png" type="Texture2D" id=3]
 [ext_resource path="res://src/ui/hud/FpsCounter.gd" type="Script" id=4]
 [ext_resource path="res://addons/RadialMenu/RadialMenu.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/hud/HUD.gd" type="Script" id=6]
 [ext_resource path="res://src/ui/hud/WeaponInfo.gd" type="Script" id=7]
-[ext_resource path="res://src/ui/hud/textures/horizon_indicator.png" type="Texture" id=8]
-[ext_resource path="res://src/ui/hud/textures/heading_indicator.png" type="Texture" id=9]
-[ext_resource path="res://src/ui/hud/textures/pitch_ladder.png" type="Texture" id=10]
+[ext_resource path="res://src/ui/hud/textures/horizon_indicator.png" type="Texture2D" id=8]
+[ext_resource path="res://src/ui/hud/textures/heading_indicator.png" type="Texture2D" id=9]
+[ext_resource path="res://src/ui/hud/textures/pitch_ladder.png" type="Texture2D" id=10]
 [ext_resource path="res://src/ui/hud/PitchLadderShader.tres" type="Material" id=11]
 [ext_resource path="res://src/ui/hud/HeadingIndicatorShader.tres" type="Material" id=12]
 [ext_resource path="res://src/ui/hud/Minimap.gd" type="Script" id=13]
@@ -23,9 +23,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 80.0
-margin_top = -50.0
-margin_right = 226.0
+offset_left = 80.0
+offset_top = -50.0
+offset_right = 226.0
 mouse_filter = 2
 script = ExtResource( 7 )
 __meta__ = {
@@ -33,37 +33,37 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="WeaponInfo"]
-margin_right = 146.0
-margin_bottom = 14.0
+offset_right = 146.0
+offset_bottom = 14.0
 text = "Weapon Name"
 
 [node name="Ammo" type="HBoxContainer" parent="WeaponInfo"]
-margin_top = 18.0
-margin_right = 146.0
-margin_bottom = 32.0
+offset_top = 18.0
+offset_right = 146.0
+offset_bottom = 32.0
 mouse_filter = 2
 
 [node name="Spacer" type="Label" parent="WeaponInfo/Ammo"]
-margin_right = 20.0
-margin_bottom = 14.0
+offset_right = 20.0
+offset_bottom = 14.0
 text = "     "
 
 [node name="Magazine" type="Label" parent="WeaponInfo/Ammo"]
-margin_left = 24.0
-margin_right = 85.0
-margin_bottom = 14.0
+offset_left = 24.0
+offset_right = 85.0
+offset_bottom = 14.0
 text = "magazine"
 
 [node name="Divider" type="Label" parent="WeaponInfo/Ammo"]
-margin_left = 89.0
-margin_right = 94.0
-margin_bottom = 14.0
+offset_left = 89.0
+offset_right = 94.0
+offset_bottom = 14.0
 text = "/"
 
 [node name="Reserve" type="Label" parent="WeaponInfo/Ammo"]
-margin_left = 98.0
-margin_right = 146.0
-margin_bottom = 14.0
+offset_left = 98.0
+offset_right = 146.0
+offset_bottom = 14.0
 text = "reserve"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,25 +74,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -128.0
-margin_right = 128.0
-margin_bottom = 128.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 mouse_filter = 2
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReloadIndicator" type="TextureProgress" parent="."]
+[node name="ReloadIndicator" type="TextureProgressBar" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -64.0
-margin_right = 64.0
-margin_bottom = 64.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 mouse_filter = 2
 value = 90.0
 texture_under = ExtResource( 3 )
@@ -107,11 +107,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -500.0
-margin_top = -500.0
-margin_right = 500.0
-margin_bottom = 500.0
-rect_pivot_offset = Vector2( 500, 500 )
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+pivot_offset = Vector2( 500, 500 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,11 +123,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -400.0
-margin_right = 400.0
-margin_bottom = -350.0
-rect_clip_content = true
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = -350.0
+clip_contents = true
 mouse_filter = 2
 texture = ExtResource( 9 )
 expand = true
@@ -139,9 +139,9 @@ __meta__ = {
 [node name="HorizonLeft" type="TextureRect" parent="HorizonIndicator"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -300.0
-margin_right = 100.0
-margin_bottom = 300.0
+offset_top = -300.0
+offset_right = 100.0
+offset_bottom = 300.0
 mouse_filter = 2
 texture = ExtResource( 8 )
 flip_h = true
@@ -151,9 +151,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -300.0
-margin_bottom = 300.0
+offset_left = -100.0
+offset_top = -300.0
+offset_bottom = 300.0
 mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true
@@ -167,11 +167,11 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -75.0669
-margin_top = -254.866
-margin_right = -35.0669
-margin_bottom = 275.134
-rect_clip_content = true
+offset_left = -75.0669
+offset_top = -254.866
+offset_right = -35.0669
+offset_bottom = 275.134
+clip_contents = true
 mouse_filter = 2
 texture = ExtResource( 10 )
 expand = true
@@ -185,11 +185,11 @@ __meta__ = {
 material = ExtResource( 11 )
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 30.0
-margin_top = -265.0
-margin_right = 70.0
-margin_bottom = 265.0
-rect_clip_content = true
+offset_left = 30.0
+offset_top = -265.0
+offset_right = 70.0
+offset_bottom = 265.0
+clip_contents = true
 mouse_filter = 2
 texture = ExtResource( 10 )
 expand = true
@@ -201,31 +201,31 @@ __meta__ = {
 [node name="Debug" type="PanelContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -100.0
-margin_bottom = 25.0
+offset_left = -100.0
+offset_bottom = 25.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBox" type="VBoxContainer" parent="Debug"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 93.0
-margin_bottom = 39.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 93.0
+offset_bottom = 39.0
 
 [node name="FpsCounter" type="Label" parent="Debug/VBox"]
-margin_right = 86.0
-margin_bottom = 14.0
+offset_right = 86.0
+offset_bottom = 14.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MouseOver" type="Label" parent="Debug/VBox"]
-margin_top = 18.0
-margin_right = 86.0
-margin_bottom = 32.0
+offset_top = 18.0
+offset_right = 86.0
+offset_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -236,49 +236,49 @@ anchor_left = 1.2
 anchor_top = 0.5
 anchor_right = 1.2
 anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -150.0
-margin_right = 150.0
-margin_bottom = 72.2631
-rect_min_size = Vector2( 300, 222.263 )
-rect_pivot_offset = Vector2( 150, 150 )
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 72.2631
+custom_minimum_size = Vector2( 300, 222.263 )
+pivot_offset = Vector2( 150, 150 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 5 )
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2( 200, 20 )
 hdr = false
 disable_3d = true
 
-[node name="TextureRect" type="TextureRect" parent="Viewport"]
+[node name="TextureRect" type="TextureRect" parent="SubViewport"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Minimap" type="Panel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -400.0
-margin_right = 400.0
+offset_top = -400.0
+offset_right = 400.0
 script = ExtResource( 13 )
 
-[node name="ViewportContainer" type="ViewportContainer" parent="Minimap"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Minimap"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 stretch = true
 
-[node name="Viewport" type="Viewport" parent="Minimap/ViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Minimap/SubViewportContainer"]
 size = Vector2( 390, 390 )
 handle_input_locally = false
 render_target_update_mode = 3
 physics_object_picking = true
 
-[node name="Camera" type="Camera" parent="Minimap/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
+[node name="Camera3D" type="Camera3D" parent="Minimap/SubViewportContainer/SubViewport"]
+transform = Transform3D( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
 cull_mask = 1048543
 projection = 1
 size = 5000.0
@@ -292,23 +292,23 @@ anchor_right = 0.9
 anchor_bottom = 0.9
 script = ExtResource( 14 )
 
-[node name="ViewportContainer" type="ViewportContainer" parent="Map"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Map"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 stretch = true
 
-[node name="Viewport" type="Viewport" parent="Map/ViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Map/SubViewportContainer"]
 size = Vector2( 1526, 854 )
 handle_input_locally = false
 render_target_update_mode = 3
 physics_object_picking = true
 
-[node name="Camera" type="Camera" parent="Map/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
+[node name="Camera3D" type="Camera3D" parent="Map/SubViewportContainer/SubViewport"]
+transform = Transform3D( 1, 0, -3.82137e-15, 3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 5000, 0 )
 cull_mask = 1048511
 projection = 1
 size = 5000.0
@@ -316,18 +316,18 @@ near = 0.02
 far = 10000.0
 
 [node name="Panel" type="Panel" parent="Map"]
-margin_left = 8.0
-margin_top = 82.0
-margin_right = 174.0
-margin_bottom = 364.0
+offset_left = 8.0
+offset_top = 82.0
+offset_right = 174.0
+offset_bottom = 364.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Map/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 5.0
+offset_top = 5.0
 
 [node name="Label" type="Label" parent="Map/Panel/VBoxContainer"]
-margin_right = 166.0
-margin_bottom = 14.0
+offset_right = 166.0
+offset_bottom = 14.0
 text = "Spawn Points"
 align = 1

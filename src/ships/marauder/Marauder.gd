@@ -1,9 +1,9 @@
 extends 'res://src/ships/common/BaseShip.gd'
 
-export(String, 'none', 'colt', 'vortek') var nosegun = 'none'
+@export var nosegun = 'none' # (String, 'none', 'colt', 'vortek')
 
-var wing_angle = 0
-var wing_turn_speed = 0.05
+var wing_angle := 0.0
+var wing_turn_speed := 0.05
 
 func _ready():
 	ship_dir = 'res://src/ships/marauder/'
@@ -70,17 +70,17 @@ func _ready():
 
 	$Engine.EditPanel.create_labels()
 
-	# var panel1_material = SpatialMaterial.new()
+	# var panel1_material = StandardMaterial3D.new()
 	# panel1_material.flags_unshaded = true
 	# panel1_material.flags_transparent = true
-	# $Model/Panel1.set_surface_material(0, panel1_material)
+	# $Model/Panel1.set_surface_override_material(0, panel1_material)
 
 	# var panel1_texture = ViewportTexture.new()
-	# panel1_texture.viewport_path = 'Panels/Panel1/Viewport'
-	# $Model/Panel1.get_surface_material(0).albedo_texture = panel1_texture
+	# panel1_texture.viewport_path = 'Panels/Panel1/SubViewport'
+	# $Model/Panel1.get_surface_override_material(0).albedo_texture = panel1_texture
 
-	$Model/Panel1.get_surface_material(0).albedo_texture = $Panels/Panel1/Viewport.get_texture()
-	$Panels/Panel1/Viewport/Sprite.texture = $Panels/Panel1/Viewport/Sprite/InnerViewport.get_texture()
+	# $Model/Panel1.get_surface_override_material(0).albedo_texture = $Panels/Panel1/SubViewport.get_texture()
+	# $Panels/Panel1/SubViewport/Sprite2D.texture = $Panels/Panel1/SubViewport/Sprite2D/InnerViewport.get_texture()
 
 	if nosegun != 'none':
 		equip('weapons', 'nosegun', nosegun)
@@ -96,19 +96,21 @@ func scale(number, inMin, inMax, outMin, outMax):
 	return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin
 
 func _physics_process(delta):
-	var _max = $Engine.data.speed.max / 3
-	var _in = clamp($Engine.data.speed.current, 0, _max)
+	super(delta)
+
+	var _max = $'%Engine'.data.speed.max / 3
+	var _in = clamp($'%Engine'.data.speed.current, 0, _max)
 	var target_wing_angle = scale(_in, 0, _max, -90, 0)
 
-	wing_angle = lerp(wing_angle, target_wing_angle, wing_turn_speed)
+	wing_angle = lerpf(wing_angle, target_wing_angle, wing_turn_speed)
 
 	$Model/Wings.rotation_degrees.x = wing_angle
 	$Model/Engines.rotation_degrees.x = wing_angle
 
 	if input_state['afterburner']:
-		$Engine.add_modifier('afterburner', $Afterburner)
+		$'%Engine'.add_modifier('afterburner', $Afterburner)
 	else:
-		$Engine.remove_modifier('afterburner')
+		$'%Engine'.remove_modifier('afterburner')
 
 	if current_weapon:
 		current_weapon.firing = input_state['fire_primary']

@@ -7,7 +7,7 @@ class Vector:
 	var width  # Line width
 	var color  # Draw color
 
-	func _init(_object, _property, _scale, _width, _color):
+	func _init(_object,_property,_scale,_width,_color):
 		object = _object
 		property = _property
 		scale = _scale
@@ -30,7 +30,7 @@ func _process(delta):
 	update()
 
 func _draw():
-	var camera = get_viewport().get_camera()
+	var camera = get_viewport().get_camera_3d()
 	for vector in vectors:
 		vector.draw(self, camera)
 

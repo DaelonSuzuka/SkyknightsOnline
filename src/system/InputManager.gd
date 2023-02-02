@@ -16,14 +16,14 @@ var actions = {
 	# 'console': {'key': KEY_QUOTE_LEFT},
 	'free_mouse': {'key': KEY_ALT},
 	'toggle_camera_mode': {'key': KEY_T},
-	'freelook': {'mouse': BUTTON_MIDDLE},
+	'freelook': {'mouse': MOUSE_BUTTON_MIDDLE},
 	'scoreboard': {'key': KEY_TAB},
 	'map': {'key': KEY_M},
 	'open_chat': {'key': KEY_ENTER},
 	'toggle_ship_engine_stats': {'key': KEY_MINUS},
 	'toggle_minimap_size': {'key': KEY_H},
-	'minimap_zoom_in': {'mouse': BUTTON_WHEEL_UP},
-	'minimap_zoom_out': {'mouse': BUTTON_WHEEL_DOWN},
+	'minimap_zoom_in': {'mouse': MOUSE_BUTTON_WHEEL_UP},
+	'minimap_zoom_out': {'mouse': MOUSE_BUTTON_WHEEL_DOWN},
 	# movement
 	'throttle_up': {'key': KEY_W},
 	'throttle_down': {'key': KEY_S},
@@ -35,14 +35,14 @@ var actions = {
 	'roll_left': {'key': KEY_Q},
 	'roll_right': {'key': KEY_E},
 	'vertical_thrust_up': {'key': KEY_SPACE},
-	'vertical_thrust_down': {'key': KEY_CONTROL},
+	'vertical_thrust_down': {'key': KEY_CTRL},
 	#
 	'switch_seat_1': {'key': KEY_F1},
 	'switch_seat_2': {'key': KEY_F2},
 	'switch_seat_3': {'key': KEY_F3},
 	# weapons and items
-	'fire_primary': {'mouse': BUTTON_LEFT},
-	'fire_secondary': {'mouse': BUTTON_RIGHT},
+	'fire_primary': {'mouse': MOUSE_BUTTON_LEFT},
+	'fire_secondary': {'mouse': MOUSE_BUTTON_RIGHT},
 	'reload': {'key': KEY_R},
 	'select_item_1': {'key': KEY_1},
 	'select_item_2': {'key': KEY_2},
@@ -65,7 +65,7 @@ func _ready() -> void:
 
 func register(object) -> void:
 	if object.has_method('handle_input'):
-		connect('input_event', object, 'handle_input')
+		connect('input_event', object.handle_input)
 
 func register_actions():
 	for action in actions:
@@ -74,7 +74,7 @@ func register_actions():
 
 		if 'key' in control:
 			var ev = InputEventKey.new()
-			ev.scancode = control['key']
+			ev.keycode = control['key']
 			InputMap.action_add_event(action, ev)
 
 		if 'mouse' in control:
@@ -93,10 +93,10 @@ func _input(event):
 		
 	if event is InputEventMouseButton:
 		match event.button_index:
-			BUTTON_WHEEL_UP:
+			MOUSE_BUTTON_WHEEL_UP:
 				var ev = FakeEvent.new('minimap_zoom_in', true)
 				emit_signal('input_event', ev)
-			BUTTON_WHEEL_DOWN:
+			MOUSE_BUTTON_WHEEL_DOWN:
 				var ev = FakeEvent.new('minimap_zoom_out', true)
 				emit_signal('input_event', ev)
 
@@ -109,13 +109,13 @@ func get_mouse():
 # ------------------------------------------------------------------------------
 
 func _notification(what) -> void:
-	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
 		paused = true
 		for action in actions:
 			state[action] = false
 			var event = FakeEvent.new(action, false)
 			emit_signal('input_event', event)
-	if what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_IN:
 		paused = false
 
 # ******************************************************************************

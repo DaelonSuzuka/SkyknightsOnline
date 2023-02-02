@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 func _ready():
 	#$Player.enter_ship($Reaver)

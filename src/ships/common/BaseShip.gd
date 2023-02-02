@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 
 var data = null
 
@@ -10,19 +10,19 @@ var seating_diagram_outline = ''
 var slots = {}
 var inventory = {}
 
-sync var server_transform = Transform()
-sync var server_linear_velocity = Vector3()
-sync var server_angular_velocity = Vector3()
+var server_transform = Transform3D()
+var server_linear_velocity = Vector3()
+var server_angular_velocity = Vector3()
 var interpolation_active = true
 
-var input_state = {} setget set_input
+var input_state = {} : set = set_input
 
 var current_weapon = null
-sync var dead = false
+var dead = false
 
-onready var healthbar = $HealthBar
-onready var seats = $Seats
-onready var engine = $Engine
+@onready var healthbar = $HealthBar
+@onready var seats = $Seats
+@onready var engine = $Engine
 
 func _ready():
 	add_to_group('ships')
@@ -33,9 +33,9 @@ func _ready():
 	input_state['roll'] = 0.0
 	input_state['yaw'] = 0.0
 
-	if get_tree().get_network_peer():
-		if !is_network_master():
-			server_transform = transform
+	# if get_tree().get_multiplayer_peer():
+	# 	if !is_multiplayer_authority():
+	# 		server_transform = transform
 
 func equip(category, item_type, item_name):
 	if !(category in slots):
@@ -52,11 +52,11 @@ func equip(category, item_type, item_name):
 		current_weapon = null
 
 	var item_dir = slots[category][item_type][item_name]
-	if !item_dir:
+	if !(item_dir == null):
 		inventory[category][item_type] = null
 		return
 	
-	var item = load(ship_dir + item_dir).instance()
+	var item = load(ship_dir + item_dir).instantiate()
 	inventory[category][item_type] = item
 	if item_type == 'nosegun':
 		$Nosegun.add_child(item)
@@ -70,21 +70,21 @@ func set_input(input):
 	for action in input:
 		input_state[action] = input[action]
 
-remotesync func kill():
+func kill():
 	queue_free()
 
 func _physics_process(delta):
-	if Network.connected:
-		if is_network_master():
-			rset_unreliable('server_transform', transform)
-		else:
-			if interpolation_active:		
-				var scale_factor = 0.1
-				var dist = transform.origin.distance_squared_to(server_transform.origin)
-				var weight = clamp(pow(2, dist/4) * scale_factor, 0.0, 1.0)
-				transform = transform.interpolate_with(server_transform, weight)
-			else:
-				transform = server_transform
+	# if Network.connected:
+	# 	if is_multiplayer_authority():
+	# 		rset_unreliable('server_transform', transform)
+	# 	else:
+	# 		if interpolation_active:		
+	# 			var scale_factor = 0.1
+	# 			var dist = transform.origin.distance_squared_to(server_transform.origin)
+	# 			var weight = clamp(pow(2, dist/4) * scale_factor, 0.0, 1.0)
+	# 			transform = transform.interpolate_with(server_transform, weight)
+	# 		else:
+	# 			transform = server_transform
 
 	$Engine.calculate_forces(input_state)
 
@@ -93,6 +93,8 @@ func _physics_process(delta):
 	rotate_object_local(Vector3.UP, $Engine.data.yaw.current * delta)
 	rotate_object_local(Vector3.FORWARD, $Engine.data.roll.current * delta)
 
-	move_and_slide($Engine.data.velocity, Vector3.UP)
+	set_velocity($Engine.data.velocity)
+	set_up_direction(Vector3.UP)
+	move_and_slide()
 
 	transform = transform.orthonormalized()

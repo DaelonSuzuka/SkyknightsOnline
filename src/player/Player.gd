@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 # ******************************************************************************
 
@@ -9,7 +9,7 @@ var ship = null
 var seat = null
 var first_person = true
 var freelook = false
-var capture_mouse = false setget set_capture_mouse, get_capture_mouse
+var capture_mouse = false : get = get_capture_mouse, set = set_capture_mouse
 var input_state = {}
 var camera_pos = null
 
@@ -24,7 +24,7 @@ func _ready():
 
 	update_mouse_capture()
 	update_camera_mode()
-	# HUD.Radial.connect('item_selected', self, 'radial_item_selected')
+	# HUD.Radial.connect('item_selected',Callable(self,'radial_item_selected'))
 
 	for action in InputManager.actions:
 		input_state[action] = false
@@ -63,7 +63,7 @@ func toggle_mouse_capture(state=1):
 	if state:
 		capture_mouse = !capture_mouse
 		# MainMenu.visible = !capture_mouse
-		HUD.Radial.close_menu()
+		# HUD.Radial.close_menu()
 
 		update_mouse_capture()
 
@@ -71,8 +71,8 @@ func toggle_mouse_capture(state=1):
 
 func update_camera_pos():
 	if ship and camera_pos:
-		$Camera.current = true
-		$Camera.transform = camera_pos.global_transform
+		$Camera3D.current = true
+		$Camera3D.transform = camera_pos.global_transform
 
 func update_camera_mode():
 	if ship:
@@ -137,28 +137,28 @@ func toggle_menu(state):
 			MainMenu.show()
 			set_capture_mouse(false)
 
-func get_object_under_mouse():
-	var mouse_pos = get_viewport().get_mouse_position()
-	var camera = get_viewport().get_camera()
-	var ray_from = camera.project_ray_origin(mouse_pos)
-	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * 1000
-	var space_state = get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
-	return selection
+# func get_object_under_mouse():
+# 	var mouse_pos = get_viewport().get_mouse_position()
+# 	var camera = get_viewport().get_camera_3d()
+# 	var ray_from = camera.project_ray_origin(mouse_pos)
+# 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * 1000
+# 	var space_state = get_world_3d().direct_space_state
+# 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 0x7FFFFFFF, true, true)
+# 	return selection
 
 var picked = null
 
 func _input(event):
 	if capture_mouse or !(event is InputEventMouseButton):
 		return
-	if event.button_index != BUTTON_RIGHT or !event.pressed:
+	if event.button_index != MOUSE_BUTTON_RIGHT or !event.pressed:
 		return
 		
 	if HUD.Map.visible:
 		HUD.Map.handle_input(event)
 		return
 	
-	var rect = Rect2(HUD.Minimap.rect_position, HUD.Minimap.rect_size)
+	var rect = Rect2(HUD.Minimap.position, HUD.Minimap.size)
 	if rect.has_point(event.position):
 		HUD.Minimap.handle_input(event)
 		return
@@ -188,7 +188,8 @@ func handle_input(event):
 					set_capture_mouse(false)
 					MainMenu.show()
 		'scoreboard':
-			print('scoreboard')
+			pass
+			# print('scoreboard')
 		'toggle_minimap_size':
 			if event.pressed and !HUD.Map.visible:
 				HUD.Minimap.toggle_size()
@@ -254,29 +255,29 @@ func _physics_process(delta):
 		input_state['roll'] = roll
 		input_state['yaw'] = 0
 
-		if !Network.connected:
-			apply_input(input_state)
-			return
+		apply_input(input_state)
+		# if !Network.connected:
+		# 	return
 
-		var state_diff = {}
+		# var state_diff = {}
 
-		for action in input_state:
-			if action in previous_state:
-				pass
-			else:
-				previous_state[action] = null
+		# for action in input_state:
+		# 	if action in previous_state:
+		# 		pass
+		# 	else:
+		# 		previous_state[action] = null
 
-			if previous_state[action] != input_state[action]:
-				state_diff[action] = input_state[action]
-				previous_state[action] = input_state[action]
+		# 	if previous_state[action] != input_state[action]:
+		# 		state_diff[action] = input_state[action]
+		# 		previous_state[action] = input_state[action]
 
-		if current_time > 0.5:
-			current_time = 0.0
-			rpc_unreliable_id(1, 'network_update', input_state)
-		else:
-			rpc_unreliable_id(1, 'network_update', state_diff)
+		# if current_time > 0.5:
+		# 	current_time = 0.0
+		# 	rpc_unreliable_id(1, 'network_update', input_state)
+		# else:
+		# 	rpc_unreliable_id(1, 'network_update', state_diff)
 
-remotesync func apply_input(input):
+@rpc("any_peer", "call_local") func apply_input(input):
 	if ship:
 		ship.input_state = input
 
@@ -297,13 +298,13 @@ func _process(delta):
 			HUD.WeaponInfo.ammo = '%04d' % weapon.ammo
 
 		var angle = ship.global_transform.basis.get_euler()
-		HUD.PitchLadderLeft.material.set_shader_param('pitch', angle.x / PI)
-		HUD.PitchLadderRight.material.set_shader_param('pitch', angle.x / PI)
-		HUD.HeadingIndicator.material.set_shader_param('heading', -angle.y / PI)
-		HUD.HorizonIndicator.rect_rotation = -angle.z / PI * 180
+		HUD.PitchLadderLeft.material.set_shader_parameter('pitch', angle.x / PI)
+		HUD.PitchLadderRight.material.set_shader_parameter('pitch', angle.x / PI)
+		HUD.HeadingIndicator.material.set_shader_parameter('heading', -angle.y / PI)
+		HUD.HorizonIndicator.rotation = -angle.z / PI * 180
 
-		HUD.Minimap.camera.translation.x = ship.translation.x
-		HUD.Minimap.camera.translation.z = ship.translation.z
+		HUD.Minimap.camera.position.x = ship.position.x
+		HUD.Minimap.camera.position.z = ship.position.z
 
 		var heading_angle = fmod((angle.y / PI * 180) + 180, 360)
 		HUD.Minimap.camera.rotation_degrees.z = heading_angle

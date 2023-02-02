@@ -1,6 +1,6 @@
 extends Sprite3D
 
-onready var healthbar = $Viewport/HealthBar2D
+@onready var healthbar = $SubViewport/HealthBar2D
 
 var bar_red = preload('res://src/components/healthbar/healthbar_red.png')
 var bar_green = preload('res://src/components/healthbar/healthbar_green.png')
@@ -15,7 +15,7 @@ func _ready():
 		show()
 		auto = true
 
-	texture = $Viewport.get_texture()
+	texture = $SubViewport.get_texture()
 
 func _process(delta):
 	if auto:

@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://drw2irdgk6thy"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
 uniform float pitch = 0;
 
@@ -12,5 +12,5 @@ void fragment(){
 }"
 
 [resource]
-shader = SubResource( 1 )
-shader_param/pitch = 0.0
+shader = SubResource("1")
+shader_parameter/pitch = 0.0

@@ -5,11 +5,11 @@
 [ext_resource path="res://src/props/common/AmmoSource.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/props/common/SpawnPoint.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CylinderShape3D" id=1]
 height = 15.0
 radius = 20.0
 
-[node name="Biolab" type="Spatial"]
+[node name="Biolab" type="Node3D"]
 script = ExtResource( 2 )
 
 [node name="Model" parent="." instance=ExtResource( 1 )]
@@ -18,50 +18,50 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="SpawnPoint" parent="Model/LandingPads/Pad1" index="1" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="AmmoSource" parent="Model/LandingPads/Pad2" index="0" instance=ExtResource( 3 )]
 shape = SubResource( 1 )
 
 [node name="SpawnPoint" parent="Model/LandingPads/Pad2" index="1" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
-[node name="EditorLights" type="Spatial" parent="."]
+[node name="EditorLights" type="Node3D" parent="."]
 visible = false
 
-[node name="Omni" type="Spatial" parent="EditorLights"]
+[node name="Omni" type="Node3D" parent="EditorLights"]
 
-[node name="Top" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0 )
+[node name="Top" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9
 
-[node name="Bottom" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, 0 )
+[node name="Bottom" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, 0 )
 editor_only = true
 omni_range = 3298.9
 
-[node name="Front" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0 )
+[node name="Front" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9
 
-[node name="Back" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 0, 0 )
+[node name="Back" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 0, 0 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9
 
-[node name="Left" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000 )
+[node name="Left" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9
 
-[node name="Right" type="OmniLight" parent="EditorLights/Omni"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000 )
+[node name="Right" type="OmniLight3D" parent="EditorLights/Omni"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000 )
 light_energy = 2.95
 editor_only = true
 omni_range = 3298.9

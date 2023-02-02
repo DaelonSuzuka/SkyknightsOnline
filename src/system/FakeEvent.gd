@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 class_name FakeEvent
 
 # ******************************************************************************
@@ -8,7 +8,7 @@ class_name FakeEvent
 var action = ''
 var pressed = false
 
-func _init(name='', value=false):
+func _init(name='',value=false):
 	action = name
 	pressed = value
 

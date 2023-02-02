@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var _direction = {
 	current = 0.0,
@@ -63,10 +63,10 @@ func add_modifier(name, modifier):
 
 func remove_modifier(name):
 	if name in modifiers:
-		data = modifiers[name].remove(data)
+		data = modifiers[name].remove_at(data)
 		modifiers.erase(name)
 
-onready var EditPanel = $EditPanel
+@onready var EditPanel = $EditPanel
 var editor_visible = false
 
 func show_editor():
@@ -128,27 +128,27 @@ func calculate_forces(input, modifier={}):
 	else:
 		up.target *= up.damp
 	up.target = clamp(up.target, 0, up.max)
-	up.current = lerp(up.current, up.target, up.response)
+	up.current = lerpf(up.current, up.target, up.response)
 
 	if input['vertical_thrust_down']:
 		down.target += down.force
 	else:
 		down.target *= down.damp
 	down.target = clamp(down.target, down.max, 0)
-	down.current = lerp(down.current, down.target, down.response)
+	down.current = lerpf(down.current, down.target, down.response)
 
 	if input['throttle_up']:
 		speed.target += speed.accel
 	if input['throttle_down']:
 		speed.target -= speed.brake
 	speed.target = clamp(speed.target, 0, speed.max)
-	speed.current = lerp(speed.current, speed.target, speed.response)
+	speed.current = lerpf(speed.current, speed.target, speed.response)
 
 	data.velocity.x = 0
 	data.velocity.y = hover.current + up.current + down.current
 	data.velocity.z = speed.current
 
-	data.velocity = Quat(global_transform.basis).xform(data.velocity)
+	data.velocity = Quaternion(global_transform.basis) * data.velocity
 	data.velocity.y -= data.gravity
 
 	pitch.input = clamp(input['pitch'], -1, 1)
@@ -161,7 +161,7 @@ func calculate_forces(input, modifier={}):
 	pitch.target += pitch.input * pitch.force
 	pitch.target *= pitch.damp
 	pitch.target = clamp(pitch.target, -pitch.max, pitch.max)
-	pitch.current = lerp(pitch.current, pitch.target, pitch.response)
+	pitch.current = lerpf(pitch.current, pitch.target, pitch.response)
 
 	yaw.input = clamp(input['yaw'], -1, 1)
 	if input['yaw_left']:
@@ -173,7 +173,7 @@ func calculate_forces(input, modifier={}):
 	yaw.target += yaw.input * yaw.force
 	yaw.target *= yaw.damp
 	yaw.target = clamp(yaw.target, -yaw.max, yaw.max)
-	yaw.current = lerp(yaw.current, yaw.target, yaw.response)
+	yaw.current = lerpf(yaw.current, yaw.target, yaw.response)
 
 	roll.input = clamp(-input['roll'], -1, 1)
 	if input['roll_left']:
@@ -185,4 +185,4 @@ func calculate_forces(input, modifier={}):
 	roll.target += roll.input * roll.force
 	roll.target *= roll.damp
 	roll.target = clamp(roll.target, -roll.max, roll.max)
-	roll.current = lerp(roll.current, roll.target, roll.response)
+	roll.current = lerpf(roll.current, roll.target, roll.response)

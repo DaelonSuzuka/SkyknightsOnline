@@ -1,14 +1,14 @@
-extends Spatial
+extends Node3D
 
-onready var seats = {}
+@onready var seats = {}
 
 func _ready():
 	for seat in get_children():
-		seats[int(seat.name)] = {
+		seats[int(str(seat.name))] = {
 			'occupant': null,
 		}
 		for view in seat.get_children():
-			seats[int(seat.name)][view.name] = view
+			seats[int(str(seat.name))][view.name] = view
 
 func get_camera_pos(seat=0, view=0):
 	if seat in seats:

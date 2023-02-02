@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-var pos setget , get_pos
+var pos : get = get_pos
 
 func get_pos():
 	return $CameraPos

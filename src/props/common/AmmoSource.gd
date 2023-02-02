@@ -1,38 +1,38 @@
-tool
-class_name AmmoSource extends Area
+@tool
+class_name AmmoSource extends Area3D
 
-export(float) var trigger_delay = 5.0
+@export var trigger_delay: float = 5.0
 
-export(Shape) var shape setget set_shape
+@export var shape: Shape3D : set = set_shape
 
 func set_shape(new_shape):
 	shape = new_shape
 	if is_inside_tree():
-		$CollisionShape.shape = new_shape
+		$CollisionShape3D.shape = new_shape
 
-export(Vector3) var offset setget set_offset
+@export var offset: Vector3 : set = set_offset
 
 func set_offset(new_offset):
 	offset = new_offset
 	if is_inside_tree():
-		$CollisionShape.transform.origin = new_offset
+		$CollisionShape3D.transform.origin = new_offset
 
-export(Array, NodePath) var ignore
+@export var ignore : Array[NodePath] = [] # (Array, NodePath)
 var ignored_bodies = []
 
 var targets = []
 
 func _ready():
 	if shape:
-		$CollisionShape.shape = shape
-		$CollisionShape.transform.origin = offset
+		$CollisionShape3D.shape = shape
+		$CollisionShape3D.transform.origin = offset
 
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		for path in ignore:
 			ignored_bodies.append(get_node(path))
 
-		connect('body_entered', self, 'on_body_entered')
-		connect('body_exited', self, 'on_body_exited')
+		connect('body_entered',Callable(self,'on_body_entered'))
+		connect('body_exited',Callable(self,'on_body_exited'))
 
 func on_body_entered(body: Node):
 	if !(body in ignored_bodies):

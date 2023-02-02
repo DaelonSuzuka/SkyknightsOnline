@@ -1,9 +1,9 @@
 extends HBoxContainer
 
-export var setting_name = 'auto'
-export var description = ''
-export var default_value = ''
-var value = '' setget set_value
+@export var setting_name = 'auto'
+@export var description = ''
+@export var default_value = ''
+var value = '' : set = set_value
 
 signal value_changed(value)
 
@@ -19,7 +19,7 @@ func _ready():
 
 	set_value(default_value)
 
-	$LineEdit.connect('text_entered', self, 'line_changed')
+	$LineEdit.connect('text_submitted',Callable(self,'line_changed'))
 
 func emit():
 	value = $LineEdit.text

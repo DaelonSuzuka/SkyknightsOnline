@@ -11,20 +11,20 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="."]
-margin_top = 293.0
-margin_right = 150.0
-margin_bottom = 307.0
-rect_min_size = Vector2( 150, 0 )
+offset_top = 293.0
+offset_right = 150.0
+offset_bottom = 307.0
+custom_minimum_size = Vector2( 150, 0 )
 text = "Name"
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 154.0
-margin_right = 304.0
-margin_bottom = 600.0
-rect_min_size = Vector2( 150, 0 )
+offset_left = 154.0
+offset_right = 304.0
+offset_bottom = 600.0
+custom_minimum_size = Vector2( 150, 0 )
 
 [node name="Description" type="Label" parent="."]
-margin_left = 308.0
-margin_top = 293.0
-margin_right = 308.0
-margin_bottom = 307.0
+offset_left = 308.0
+offset_top = 293.0
+offset_right = 308.0
+offset_bottom = 307.0

@@ -5,8 +5,8 @@
 [node name="ChatBox" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -578.0
-margin_bottom = -443.0
+offset_right = -578.0
+offset_bottom = -443.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -28,8 +28,8 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_right = 446.0
-margin_bottom = 129.0
+offset_right = 446.0
+offset_bottom = 129.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -40,26 +40,26 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 133.0
-margin_right = 446.0
-margin_bottom = 157.0
+offset_top = 133.0
+offset_right = 446.0
+offset_bottom = 157.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 visible = false
-margin_top = 5.0
-margin_right = 51.0
-margin_bottom = 19.0
+offset_top = 5.0
+offset_right = 51.0
+offset_bottom = 19.0
 text = "[Team]: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-margin_right = 446.0
-margin_bottom = 24.0
+offset_right = 446.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 placeholder_alpha = 0.224

@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 # weapon stats
 var magazine_capacity = 1

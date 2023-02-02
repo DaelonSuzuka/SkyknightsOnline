@@ -1,8 +1,8 @@
 extends VBoxContainer
 
-var weapon_name setget set_weapon_name
-var magazine setget set_magazine
-var ammo setget set_ammo
+var weapon_name : set = set_weapon_name
+var magazine : set = set_magazine
+var ammo : set = set_ammo
 
 func _ready():
 	pass

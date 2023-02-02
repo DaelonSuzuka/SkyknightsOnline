@@ -1,11 +1,11 @@
 extends HBoxContainer
 
-export var setting_name = 'auto'
-export var description = ''
-export var min_value = 0.001
-export var max_value = 1.0
-export var default_value = 0.5
-var value = 0.5 setget set_value
+@export var setting_name = 'auto'
+@export var description = ''
+@export var min_value = 0.001
+@export var max_value = 1.0
+@export var default_value = 0.5
+var value = 0.5 : set = set_value
 
 signal value_changed(value)
 
@@ -26,8 +26,8 @@ func _ready():
 
 	set_value(default_value)
 
-	$Slider.connect('value_changed', self, 'slider_changed')
-	$LineEdit.connect('text_entered', self, 'line_changed')
+	$Slider.connect('value_changed',Callable(self,'slider_changed'))
+	$LineEdit.connect('text_submitted',Callable(self,'line_changed'))
 
 func emit():
 	emit_signal('value_changed', value)

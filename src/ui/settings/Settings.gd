@@ -29,7 +29,7 @@ func _input(event):
 func register(setting):
 	var path = setting.get_path()
 	settings[str(path).right(15)] = setting
-	setting.connect('value_changed', self, 'request_save')
+	setting.connect('value_changed',Callable(self,'request_save'))
 
 func request_save(_value):
 	need_to_save = true
@@ -42,7 +42,7 @@ func read(path):
 
 func connect_to(path, object, method):
 	if path in settings:
-		read(path).connect('value_changed', object, method)
+		read(path).connect('value_changed',Callable(object,method))
 		object.call(method, read(path).value)
 
 func save_settings():
@@ -52,21 +52,14 @@ func save_settings():
 		var value = settings[setting].value
 		if setting in settings_on_disk or value != settings[setting].default_value:
 			data[setting] = value
-	var json = JSON.print(data, '\t')
-	var f = File.new()
-	f.open(settings_file, File.WRITE)
-	f.store_string(json)
-	f.close()
+	var json = JSON.stringify(data, '\t')
+
+	Files.save_json(settings_file, json)
 
 func load_settings():
-	var f = File.new()
-	if f.file_exists(settings_file):
-		f.open(settings_file, File.READ)
-		var text = f.get_as_text()
-		f.close()
-		var result = JSON.parse(text).result
-		if result is Dictionary:
-			for setting in result:
-				if setting in settings:
-					settings[setting].value = result[setting]
-				settings_on_disk[setting] = result[setting]
+	var result = Files.load_json(settings_file, {})
+	if result is Dictionary:
+		for setting in result:
+			if setting in settings:
+				settings[setting].value = result[setting]
+			settings_on_disk[setting] = result[setting]

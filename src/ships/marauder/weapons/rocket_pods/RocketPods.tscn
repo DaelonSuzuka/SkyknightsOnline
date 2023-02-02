@@ -3,12 +3,12 @@
 [ext_resource path="res://src/ships/marauder/weapons/rocket_pods/rocket_pods.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/ships/marauder/weapons/rocket_pods/RocketPods.gd" type="Script" id=2]
 
-[node name="RocketPods" type="Spatial"]
+[node name="RocketPods" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource( 1 )
 material/0 = null
 
-[node name="Muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.548571, 2.30593 )
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.548571, 2.30593 )

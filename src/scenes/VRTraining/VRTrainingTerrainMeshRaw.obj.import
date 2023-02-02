@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh"
+uid="uid://ba14fjou0t488"
+path="res://.godot/imported/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh"
 
 [deps]
 
-files=[ "res://.import/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh" ]
+files=["res://.godot/imported/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh"]
 
 source_file="res://src/scenes/VRTraining/VRTrainingTerrainMeshRaw.obj"
-dest_files=[ "res://.import/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh", "res://.import/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh" ]
+dest_files=["res://.godot/imported/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh", "res://.godot/imported/VRTrainingTerrainMeshRaw.obj-362857cfcab6b4c9253c2ae4ec9f6e71.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

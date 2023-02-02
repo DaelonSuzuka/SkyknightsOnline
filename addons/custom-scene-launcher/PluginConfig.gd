@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 const PLUGIN_NAME := "custom-scene-launcher"
 const SETTINGS_KEY := PLUGIN_NAME + "/scene"
@@ -8,12 +8,12 @@ const PLUGIN_CONFIG := "settings.cfg"
 
 var _plugin_config = ConfigFile.new()
 
-var scene_path: String setget set_scene_path, get_scene_path
-var was_manually_set: bool setget set_was_manually_set, get_was_manually_set
+var scene_path: String : get = get_scene_path, set = set_scene_path
+var was_manually_set: bool : get = get_was_manually_set, set = set_was_manually_set
 var root_dir: String
 
 
-func _init(dir: String) -> void:
+func _init(dir: String):
 	root_dir = dir
 
 

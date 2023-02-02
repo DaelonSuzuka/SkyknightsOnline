@@ -1,4 +1,4 @@
-extends Position3D
+extends Marker3D
 
 func _ready():
 	pass
