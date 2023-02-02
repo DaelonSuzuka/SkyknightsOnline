@@ -34,8 +34,8 @@ serve: venv
 # **************************************************************************** #
 # download godot binary and export templates for linux
 
-GDVERSION = 3.5.1
-GDBUILD = stable
+GDVERSION = 4.0
+GDBUILD = beta17
 
 URL := https://downloads.tuxfamily.org/godotengine/$(GDVERSION)/
 
