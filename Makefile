@@ -72,7 +72,7 @@ else
 	GD := ~/godot/$(GDBINARY)
 endif
 
-GDARGS := --path isotope_project --no-window --quiet
+GDARGS := --headless --no-window --quiet
 
 GODOT = $(GD) $(GDARGS)
 
