@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvyym3gy8n7ew"]
+[gd_scene load_steps=11 format=3 uid="uid://dvyym3gy8n7ew"]
 
 [ext_resource type="Texture2D" uid="uid://bmq7xg7o5v6w3" path="res://addons/kenney_prototype_textures/light/texture_08.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://bad58rwi68wte" path="res://src/scenes/VRTraining/VRTrainingTerrain.glb" id="2"]
 [ext_resource type="Script" path="res://src/scenes/VRTraining/VRTraining.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://beg2k6m2wquhb" path="res://src/ships/target/Target.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://v2auur816550" path="res://addons/kenney_prototype_textures/dark/texture_02.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://cr571ydr1s3cu" path="res://src/ships/marauder/Marauder.tscn" id="7_dykho"]
 [ext_resource type="PackedScene" path="res://src/props/Biolab/Biolab.tscn" id="10"]
+
+[sub_resource type="Environment" id="Environment_olu2a"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="3"]
 transparency = 1
@@ -22,6 +27,9 @@ uv1_triplanar = true
 
 [node name="VRTraining" type="Node3D"]
 script = ExtResource("3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_olu2a")
 
 [node name="Terrain" parent="." instance=ExtResource("2")]
 metadata/_edit_lock_ = true
@@ -84,7 +92,7 @@ rings = "four"
 respawn_delay = 10
 
 [node name="Target8" parent="Targets" instance=ExtResource("4")]
-transform = Transform3D(0.974558, 0, 0.224134, 0, 1, 0, -0.224134, 0, 0.974558, -996.687, 157.208, 1402.07)
+transform = Transform3D(0.974558, 0, 0.224134, 0, 1, 0, -0.224134, 0, 0.974558, 403.573, -248.938, 2187.08)
 rings = "four"
 respawn_delay = 10
 
@@ -245,3 +253,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -1200)
 visible = false
 light_energy = 2.95
 omni_range = 10000.0
+
+[node name="Marauder" parent="." instance=ExtResource("7_dykho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1459.26, 384.377, 168.991)
