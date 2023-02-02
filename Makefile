@@ -43,7 +43,7 @@ ifneq ($(GDBUILD),stable)
 	URL := $(URL)$(GDBUILD)/
 endif
 
-GDBINARY = Godot_v$(GDVERSION)-$(GDBUILD)_linux_headless.64
+GDBINARY = Godot_v$(GDVERSION)-$(GDBUILD)_linux.x86_64
 TEMPLATES = Godot_v$(GDVERSION)-$(GDBUILD)_export_templates.tpz
 
 download:
