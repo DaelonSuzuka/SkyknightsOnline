@@ -135,8 +135,8 @@ func save_json(file_name: String, data, auto_prefix:=true) -> void:
 	_ensure_directory(file_name.get_base_dir())
 
 	var f = FileAccess.open(file_name, FileAccess.WRITE)
-	f.store_string(JSON.stringify(data, "\t"))
-	f.close()
+	f.store_string(JSON.stringify(data, "\t", false))
+	f = null
 
 func load_json(file_name: String, default=null, auto_prefix:=true):
 	var result = default
@@ -149,8 +149,8 @@ func load_json(file_name: String, default=null, auto_prefix:=true):
 	if FileAccess.file_exists(file_name):
 		var f = FileAccess.open(file_name, FileAccess.READ)
 		var text = f.get_as_text()
-		f.close()
+		f = null
 		var json = JSON.parse_string(text)
-		if !json.error:
-			result = json.result
+		if json:
+			result = json
 	return result
