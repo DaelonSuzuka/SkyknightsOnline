@@ -52,7 +52,7 @@ func equip(category, item_type, item_name):
 		current_weapon = null
 
 	var item_dir = slots[category][item_type][item_name]
-	if !(item_dir == null):
+	if item_dir == null:
 		inventory[category][item_type] = null
 		return
 	
