@@ -6,6 +6,7 @@ var wing_angle := 0.0
 var wing_turn_speed := 0.05
 
 func _ready():
+	super()
 	ship_dir = 'res://src/ships/marauder/'
 
 	slots = {
