@@ -11,6 +11,7 @@
 [sub_resource type="Environment" id="Environment_olu2a"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 5.0
 
 [sub_resource type="StandardMaterial3D" id="3"]
 transparency = 1
