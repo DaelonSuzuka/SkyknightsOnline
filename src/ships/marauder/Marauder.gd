@@ -69,7 +69,7 @@ func _ready():
 
 	$Engine.backup_data()
 
-	$Engine.EditPanel.create_labels()
+	# $Engine.EditPanel.create_labels()
 
 	# var panel1_material = StandardMaterial3D.new()
 	# panel1_material.flags_unshaded = true

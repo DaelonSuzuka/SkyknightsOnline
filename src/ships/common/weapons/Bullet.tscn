@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://src/ships/common/weapons/Bullet.gd" id="1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_0410l"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_m7e5y"]
 radius = 0.219426
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qa25d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncx57"]
 albedo_color = Color(1, 0.827451, 0, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_11qgu"]
+[sub_resource type="SphereMesh" id="SphereMesh_5n88i"]
 
 [node name="Area3D" type="Area3D"]
 script = ExtResource("1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_0410l")
+shape = SubResource("SphereShape3D_m7e5y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_qa25d")
-mesh = SubResource("SphereMesh_11qgu")
+material_override = SubResource("StandardMaterial3D_ncx57")
+mesh = SubResource("SphereMesh_5n88i")

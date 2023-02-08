@@ -13,6 +13,7 @@ extends CanvasLayer
 @onready var PitchLadderRight = $HorizonIndicator/PitchLadderRight
 @onready var Minimap = $Minimap
 @onready var Map = $Map
+@onready var EngineEditor = $EngineEditor
 # onready var Chat = $ChatBox
 
 # ******************************************************************************
@@ -20,6 +21,7 @@ extends CanvasLayer
 func _ready():
 	hide_hud()
 	Map.hide()
+	EngineEditor.hide()
 
 func hide_hud():
 	WeaponInfo.hide()

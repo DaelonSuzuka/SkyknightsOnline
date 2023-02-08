@@ -53,8 +53,8 @@ var base_data = data.duplicate(true)
 var modifiers = {}
 var active_modifiers = []
 
-func _ready():
-	hide_editor()
+# func _ready():
+# 	hide_editor()
 
 func add_modifier(name, modifier):
 	if !(name in modifiers):
@@ -66,18 +66,18 @@ func remove_modifier(name):
 		data = modifiers[name].remove_at(data)
 		modifiers.erase(name)
 
-@onready var EditPanel = $EditPanel
-var editor_visible = false
+# @onready var EditPanel = $EditPanel
+# var editor_visible = false
 
-func show_editor():
-	$EditPanel.show()
-	$EditButtons.show()
-	editor_visible = true
+# func show_editor():
+# 	$EditPanel.show()
+# 	$EditButtons.show()
+# 	editor_visible = true
 
-func hide_editor():
-	$EditPanel.hide()
-	$EditButtons.hide()
-	editor_visible = false
+# func hide_editor():
+# 	$EditPanel.hide()
+# 	$EditButtons.hide()
+# 	editor_visible = false
 
 func backup_data():
 	base_data = data.duplicate(true)

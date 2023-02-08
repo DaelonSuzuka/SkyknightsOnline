@@ -86,12 +86,12 @@ func toggle_camera_mode(state=1):
 
 # ******************************************************************************
 
-func toggle_ship_engine_editor(state=1):
-	if state and ship:
-		if ship.engine.editor_visible:
-			ship.engine.hide_editor()
+func toggle_ship_engine_editor():
+	if ship:
+		if HUD.EngineEditor.visible:
+			HUD.EngineEditor.hide()
 		else:
-			ship.engine.show_editor()
+			HUD.EngineEditor.show()
 
 func set_freelook(state=1):
 	freelook = state
@@ -115,6 +115,7 @@ func enter_ship(new_ship):
 	switch_seat(ship.seats.get_first_empty_seat())
 
 	# update UI stuff
+	HUD.EngineEditor.set_target(ship.engine)
 	HUD.show_hud()
 	ship.healthbar.hide()
 	if ship.current_weapon:
@@ -125,6 +126,8 @@ func enter_ship(new_ship):
 func leave_ship():
 	ship.healthbar.show()
 	ship = null
+	
+	HUD.EngineEditor.set_target(null)
 
 	HUD.hide_hud()
 
@@ -172,7 +175,8 @@ func handle_input(event):
 		'toggle_camera_mode':
 			toggle_camera_mode(event.pressed)
 		'toggle_ship_engine_stats':
-			toggle_ship_engine_editor(event.pressed)
+			if event.pressed:
+				toggle_ship_engine_editor()
 		'free_mouse':
 			if event.pressed:
 				toggle_mouse_capture()

@@ -6,25 +6,25 @@
 [ext_resource type="Script" path="res://src/ships/marauder/Marauder.gd" id="4"]
 [ext_resource type="Script" path="res://src/ships/common/Seats.gd" id="5"]
 [ext_resource type="ArrayMesh" uid="uid://d1vgl31b6gy1r" path="res://src/ships/marauder/cosmetics/fins.obj" id="6"]
-[ext_resource type="PackedScene" path="res://src/ships/common/Engine.tscn" id="7"]
+[ext_resource type="Script" path="res://src/ships/common/Engine.gd" id="7_5o1pu"]
 [ext_resource type="PackedScene" path="res://src/ships/common/Afterburner.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://src/components/healthbar/HealthBar.tscn" id="9"]
 [ext_resource type="Texture2D" uid="uid://c1s7c68an561u" path="res://src/ships/marauder/marauder_icon.png" id="10"]
 [ext_resource type="PackedScene" uid="uid://be6q6wtff6r5s" path="res://src/ships/marauder/marauder.glb" id="11"]
 [ext_resource type="PackedScene" path="res://src/components/MapIcon.tscn" id="12"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2mqr"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkxt1"]
 height = 5.87985
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsj1p"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogmyp"]
 radius = 0.564485
 height = 5.38846
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_prgyj"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dsi2i"]
 radius = 0.663576
 height = 2.15855
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b6u2m"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0aem1"]
 radius = 0.930727
 height = 2.2808
 
@@ -68,9 +68,10 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FinHardpoint"]
 mesh = ExtResource("6")
 
-[node name="Engine" parent="." instance=ExtResource("7")]
+[node name="Engine" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.60748, 0)
+script = ExtResource("7_5o1pu")
 
 [node name="Health" parent="." instance=ExtResource("3")]
 
@@ -111,32 +112,32 @@ far = 100000.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258142, 2.36031)
 visible = false
-shape = SubResource("CapsuleShape3D_a2mqr")
+shape = SubResource("CapsuleShape3D_kkxt1")
 
 [node name="CollisionShape2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.991356, -0.131201, 0, 0.131201, 0.991356, 0, 0.512451, -4.3355)
 visible = false
-shape = SubResource("CapsuleShape3D_jsj1p")
+shape = SubResource("CapsuleShape3D_ogmyp")
 
 [node name="CollisionShape3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995061, -0.364434, 1.42015)
 visible = false
-shape = SubResource("CapsuleShape3D_prgyj")
+shape = SubResource("CapsuleShape3D_dsi2i")
 
 [node name="CollisionShape4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993326, -0.364434, 1.42015)
 visible = false
-shape = SubResource("CapsuleShape3D_prgyj")
+shape = SubResource("CapsuleShape3D_dsi2i")
 
 [node name="CollisionShape5" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17907, 0.825738, -0.294213)
 visible = false
-shape = SubResource("CapsuleShape3D_b6u2m")
+shape = SubResource("CapsuleShape3D_0aem1")
 
 [node name="CollisionShape6" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.825738, -0.294213)
 visible = false
-shape = SubResource("CapsuleShape3D_b6u2m")
+shape = SubResource("CapsuleShape3D_0aem1")
 
 [node name="MapIcon" parent="." instance=ExtResource("12")]
 pixel_size = 0.001
