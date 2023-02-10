@@ -16,7 +16,7 @@ func _ready():
 
 	# start game normally
 	MainMenu.hide()
-	Game.load_scene('test_world')
+	Game.load_scene('city')
 	
 	await get_tree().create_timer(0.1).timeout
 	var ship_data = {
