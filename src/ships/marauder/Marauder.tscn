@@ -13,18 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://be6q6wtff6r5s" path="res://src/ships/marauder/marauder.glb" id="11"]
 [ext_resource type="PackedScene" path="res://src/components/MapIcon.tscn" id="12"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkxt1"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6c3fs"]
 height = 5.87985
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogmyp"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yuuc4"]
 radius = 0.564485
 height = 5.38846
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dsi2i"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ijj0"]
 radius = 0.663576
 height = 2.15855
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0aem1"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x5tdd"]
 radius = 0.930727
 height = 2.2808
 
@@ -112,32 +112,32 @@ far = 100000.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258142, 2.36031)
 visible = false
-shape = SubResource("CapsuleShape3D_kkxt1")
+shape = SubResource("CapsuleShape3D_6c3fs")
 
 [node name="CollisionShape2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.991356, -0.131201, 0, 0.131201, 0.991356, 0, 0.512451, -4.3355)
 visible = false
-shape = SubResource("CapsuleShape3D_ogmyp")
+shape = SubResource("CapsuleShape3D_yuuc4")
 
 [node name="CollisionShape3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995061, -0.364434, 1.42015)
 visible = false
-shape = SubResource("CapsuleShape3D_dsi2i")
+shape = SubResource("CapsuleShape3D_3ijj0")
 
 [node name="CollisionShape4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993326, -0.364434, 1.42015)
 visible = false
-shape = SubResource("CapsuleShape3D_dsi2i")
+shape = SubResource("CapsuleShape3D_3ijj0")
 
 [node name="CollisionShape5" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17907, 0.825738, -0.294213)
 visible = false
-shape = SubResource("CapsuleShape3D_0aem1")
+shape = SubResource("CapsuleShape3D_x5tdd")
 
 [node name="CollisionShape6" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.825738, -0.294213)
 visible = false
-shape = SubResource("CapsuleShape3D_0aem1")
+shape = SubResource("CapsuleShape3D_x5tdd")
 
 [node name="MapIcon" parent="." instance=ExtResource("12")]
 pixel_size = 0.001
