@@ -51,7 +51,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/omnilaunch/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/panku_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/omnilaunch/plugin.cfg", "res://addons/panku_console/plugin.cfg")
 
 [input]
 
