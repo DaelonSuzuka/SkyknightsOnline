@@ -247,7 +247,7 @@ func _physics_process(delta):
 
 	if ship and seat == 0:
 		if first_person and freelook and capture_mouse:
-			ship.seats.set_freelook(seat, mouse_delta * freelook_sens)
+			ship.seats.set_freelook(seat, mouse_delta * freelook_sens / 4)
 			pitch = 0
 			roll = 0
 
