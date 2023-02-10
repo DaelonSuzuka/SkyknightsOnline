@@ -19,7 +19,7 @@ webdeploy:
 	cp build/web/* /var/www/html/magnusdei.io/skyknights
 
 unzipdeploy:
-	unzip web.zip
+	unzip build/web/web.zip
 	cp build/web/* /var/www/html/magnusdei.io/skyknights
 
 win:
