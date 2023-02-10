@@ -24,3 +24,4 @@ func _ready():
 		'nosegun': 'colt',
 	}
 	ShipManager.spawn_ship(0, ship_data)
+	Player.toggle_mouse_capture(true)
