@@ -186,9 +186,13 @@ func handle_input(event):
 			if event.pressed:
 				print('menu')
 				if MainMenu.visible:
+					HUD.Crosshair.show()
+					HUD.WeaponInfo.show()
 					set_capture_mouse(true)
 					MainMenu.hide()
 				else:
+					HUD.Crosshair.hide()
+					HUD.WeaponInfo.hide()
 					set_capture_mouse(false)
 					MainMenu.show()
 		'scoreboard':
