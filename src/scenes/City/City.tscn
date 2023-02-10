@@ -234,7 +234,7 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1276.04, 2176)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1276.04, 2176)
 visible = false
 light_color = Color(1, 0, 0.0901961, 1)
 light_energy = 2.0

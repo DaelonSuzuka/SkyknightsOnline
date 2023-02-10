@@ -30,5 +30,5 @@ render_priority = 0
 shader = SubResource("Shader_62d84")
 shader_parameter/thickness = 0.1
 shader_parameter/outline_color = Color(1.2, 0, 1.2, 1)
-shader_parameter/distance_fade_min = 0.0
-shader_parameter/distance_fade_max = 10000.0
+shader_parameter/distance_fade_min = 2000.0
+shader_parameter/distance_fade_max = 5000.0
