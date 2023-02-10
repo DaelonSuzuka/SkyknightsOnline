@@ -18,6 +18,10 @@ web:
 webdeploy:
 	cp build/web/* /var/www/html/magnusdei.io/skyknights
 
+unzipdeploy:
+	unzip web.zip
+	cp build/web/* /var/www/html/magnusdei.io/skyknights
+
 win:
 	$(GODOT) --export "Windows Desktop"
 
