@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://6mbfwf8640dl"]
+
+[ext_resource type="Material" uid="uid://dernjqjlueowp" path="res://src/scenes/City/OutlineShader.tres" id="1_4ficu"]
+
+[resource]
+next_pass = ExtResource("1_4ficu")
+albedo_color = Color(0, 0, 0, 1)
+uv2_world_triplanar = true
+distance_fade_max_distance = 1391.78

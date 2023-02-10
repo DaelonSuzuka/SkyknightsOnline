@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dernjqjlueowp"]
+
+[sub_resource type="Shader" id="Shader_62d84"]
+code = "shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_always;
+
+uniform float thickness = 0.1;
+uniform vec4 outline_color: source_color = vec4(1.0);
+uniform float distance_fade_min;
+uniform float distance_fade_max;
+
+void vertex() {
+	vec3 normal = (COLOR.xyz - vec3(0.5)) * 2.0;
+	VERTEX += (normal * thickness);
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	
+	ALPHA *= clamp(smoothstep(distance_fade_max, distance_fade_min, length(VERTEX)), 0.0, 1.0);
+	//if (outline_color.a < 1.0) {
+	//	ALPHA = outline_color.a;
+	//}
+}
+
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_62d84")
+shader_parameter/thickness = 0.1
+shader_parameter/outline_color = Color(1.2, 0, 1.2, 1)
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 10000.0
