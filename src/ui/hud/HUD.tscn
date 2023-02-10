@@ -205,17 +205,7 @@ script = ExtResource("4")
 layout_mode = 2
 
 [node name="Radial" type="Popup" parent="."]
-visible = true
 script = ExtResource("5")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-disable_3d = true
-size = Vector2i(200, 20)
-
-[node name="TextureRect" type="TextureRect" parent="SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 
 [node name="Minimap" type="Panel" parent="."]
 anchors_preset = 2
