@@ -31,7 +31,6 @@ MainMenu="*res://src/ui/MainMenu.tscn"
 HUD="*res://src/ui/hud/HUD.tscn"
 Scenes="*res://src/system/Scenes.gd"
 ShipManager="*res://src/system/ShipManager.gd"
-Console="*res://addons/panku_console/console.tscn"
 
 [debug]
 
@@ -51,7 +50,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/omnilaunch/plugin.cfg", "res://addons/panku_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/omnilaunch/plugin.cfg")
 
 [input]
 
@@ -107,20 +106,11 @@ ui_end={
 "deadzone": 0.5,
 "events": []
 }
-toggle_console={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
-}
 
 [layer_names]
 
 3d_render/layer_6="map_icons"
 3d_render/layer_7="minimap_icons"
-
-[panku]
-
-toggle_console_action="toggle_console"
 
 [physics]
 
