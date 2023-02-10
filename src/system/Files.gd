@@ -120,9 +120,8 @@ func _ensure_suffix(path:String, suffix:='.json') -> String:
 	return path
 
 func _ensure_directory(path:String) -> void:
-	var dir = DirAccess.open(path)
-	if !dir.dir_exists(path):
-		dir.make_dir_recursive(path)
+	if !DirAccess.dir_exists_absolute(path):
+		DirAccess.make_dir_recursive_absolute(path)
 
 # ------------------------------------------------------------------------------
 
