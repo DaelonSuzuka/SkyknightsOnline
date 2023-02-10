@@ -23,8 +23,8 @@ func _input(event):
 		return
 
 	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_ESCAPE:
-			toggle_visibility()
+		if event.pressed and event.keycode == KEY_ESCAPE:
+				toggle_visibility()
 
 func register(setting):
 	var path = setting.get_path()

@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://bb2l6rifsi1ah"]
 
-[ext_resource path="res://src/ui/settings/Settings.gd" type="Script" id=1]
-[ext_resource path="res://src/ui/settings/SettingSlider.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/ui/settings/Tree.gd" type="Script" id=3]
-[ext_resource path="res://src/ui/settings/SettingTextbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/ui/settings/SettingCheckbox.tscn" type="PackedScene" id=5]
+[ext_resource type="Script" path="res://src/ui/settings/Settings.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/ui/settings/SettingSlider.tscn" id="2"]
+[ext_resource type="Script" path="res://src/ui/settings/Tree.gd" id="3"]
+[ext_resource type="PackedScene" path="res://src/ui/settings/SettingTextbox.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://src/ui/settings/SettingCheckbox.tscn" id="5"]
 
 [node name="Settings" type="TabContainer"]
+top_level = true
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -17,222 +20,111 @@ offset_right = 304.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 600, 400 )
-tab_alignment = 0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 
 [node name="General" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="General"]
-offset_right = 592.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "Network Settings"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HSeparator" type="HSeparator" parent="General"]
-offset_top = 18.0
-offset_right = 592.0
-offset_bottom = 22.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
-[node name="Username" parent="General" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 26.0
-offset_right = 592.0
-offset_bottom = 50.0
+[node name="Username" parent="General" instance=ExtResource("4")]
+layout_mode = 2
 description = "display name for online play"
 
-[node name="ServerAddress" parent="General" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 54.0
-offset_right = 592.0
-offset_bottom = 78.0
+[node name="ServerAddress" parent="General" instance=ExtResource("4")]
+layout_mode = 2
 description = "the server to connect to"
 default_value = "skyknights.daelon.net"
 
-[node name="ServerPort" parent="General" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 82.0
-offset_right = 592.0
-offset_bottom = 106.0
+[node name="ServerPort" parent="General" instance=ExtResource("4")]
+layout_mode = 2
 default_value = "9099"
 
 [node name="Controls" type="TabContainer" parent="."]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
-tab_alignment = 0
+layout_mode = 2
 
 [node name="Mouse" type="VBoxContainer" parent="Controls"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Description" type="Label" parent="Controls/Mouse"]
-offset_right = 584.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "Various mouse related settings"
 
 [node name="HSeparator" type="HSeparator" parent="Controls/Mouse"]
-offset_top = 18.0
-offset_right = 584.0
-offset_bottom = 22.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Controls/Mouse"]
-offset_top = 26.0
-offset_right = 584.0
-offset_bottom = 40.0
+layout_mode = 2
 text = "Mouse Sensitivity"
 
-[node name="Flight" parent="Controls/Mouse" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 44.0
-offset_right = 584.0
-offset_bottom = 68.0
+[node name="Flight" parent="Controls/Mouse" instance=ExtResource("2")]
+layout_mode = 2
 tooltip_text = "Mouse sensitivity for flying an aircraft"
 
-[node name="Freelook" parent="Controls/Mouse" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 72.0
-offset_right = 584.0
-offset_bottom = 96.0
+[node name="Freelook" parent="Controls/Mouse" instance=ExtResource("2")]
+layout_mode = 2
 tooltip_text = "Mouse sensitivity for using the freelook camera"
 
-[node name="Turret" parent="Controls/Mouse" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 100.0
-offset_right = 584.0
-offset_bottom = 124.0
+[node name="Turret" parent="Controls/Mouse" instance=ExtResource("2")]
+layout_mode = 2
 tooltip_text = "Mouse sensitivity for operating a gun turret"
 
 [node name="HSeparator2" type="HSeparator" parent="Controls/Mouse"]
-offset_top = 128.0
-offset_right = 584.0
-offset_bottom = 132.0
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="Controls/Mouse"]
-offset_top = 136.0
-offset_right = 584.0
-offset_bottom = 150.0
+layout_mode = 2
 text = "Other options"
 
-[node name="InvertY" parent="Controls/Mouse" instance=ExtResource( 5 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 154.0
-offset_right = 584.0
-offset_bottom = 178.0
+[node name="InvertY" parent="Controls/Mouse" instance=ExtResource("5")]
+layout_mode = 2
 
 [node name="Keyboard" type="Tree" parent="Controls"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 53.0
-offset_right = -4.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("3")
 
 [node name="Controller" type="Control" parent="Controls"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Controls/Controller"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "What are you even doing here?"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Audio" type="VBoxContainer" parent="."]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="Description" type="Label" parent="Audio"]
-offset_right = 592.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "Volumes"
 
-[node name="Master" parent="Audio" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 18.0
-offset_right = 592.0
-offset_bottom = 42.0
+[node name="Master" parent="Audio" instance=ExtResource("2")]
+layout_mode = 2
 
-[node name="Sound Effects" parent="Audio" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 46.0
-offset_right = 592.0
-offset_bottom = 70.0
+[node name="Sound Effects" parent="Audio" instance=ExtResource("2")]
+layout_mode = 2
 
-[node name="Ambient Sounds" parent="Audio" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 74.0
-offset_right = 592.0
-offset_bottom = 98.0
+[node name="Ambient Sounds" parent="Audio" instance=ExtResource("2")]
+layout_mode = 2
 
 [node name="Video" type="Control" parent="."]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 32.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Video"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 14.0
 text = "Coming soon"
