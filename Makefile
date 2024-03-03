@@ -13,7 +13,7 @@ pull:
 	git pull
 
 web:
-	$(GODOT) --export "HTML5"
+	$(GODOT) --export-debug "HTML5"
 
 webdeploy:
 	cp build/web/* /home/daelon/www/html/skyknights
@@ -59,8 +59,8 @@ download:
 
 	wget $(URL)$(TEMPLATES)
 	unzip $(TEMPLATES)
-	mkdir -p ~/.local/share/godot/templates
-	mv templates/ ~/.local/share/godot/templates/$(GDVERSION).$(GDBUILD)/
+	mkdir -p ~/.local/share/godot/export_templates
+	mv templates/ ~/.local/share/godot/export_templates/$(GDVERSION).$(GDBUILD)/
 
 	rm $(TEMPLATES)
 
