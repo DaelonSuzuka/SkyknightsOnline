@@ -16,11 +16,11 @@ web:
 	$(GODOT) --export "HTML5"
 
 webdeploy:
-	cp build/web/* /var/www/html/magnusdei.io/skyknights
+	cp build/web/* /home/daelon/www/html/skyknights
 
 unzipdeploy:
 	unzip build/web/web.zip
-	cp build/web/* /var/www/html/magnusdei.io/skyknights
+	cp build/web/* /home/daelon/www/html/skyknights
 
 win:
 	$(GODOT) --export "Windows Desktop"
@@ -38,8 +38,8 @@ serve: venv
 # **************************************************************************** #
 # download godot binary and export templates for linux
 
-GDVERSION = 4.0
-GDBUILD = beta17
+GDVERSION = 4.2.1
+GDBUILD = stable
 
 URL := https://downloads.tuxfamily.org/godotengine/$(GDVERSION)/
 
