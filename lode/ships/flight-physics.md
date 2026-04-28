@@ -4,6 +4,8 @@
 
 `Engine.gd` implements a **spring-damper flight model**. Forces are calculated from `input_state`, producing velocity and angular rates applied by `BaseShip._physics_process()`.
 
+**Design rationale**: The spring-damper was reverse-engineered to recreate the feel of Planetside 2's original air controls — the good version before they changed it. The spring quality — push the stick, the aircraft accelerates toward your input rather than snapping there; release, it settles — is the whole game. If this feel is wrong, the hover duel doesn't work. The intentional softness of the spring-damper IS the feel. Any additional softness from the engine (input latency, frame delay, pipeline overhead) on top of the intentional spring is a separate problem — one layer of spring is the game, two layers of spring is the engine getting in the way.
+
 ## Data Structure
 
 ```gdscript
