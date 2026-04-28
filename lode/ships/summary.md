@@ -1,5 +1,19 @@
 # Ship System
 
+## Hull Classes
+
+Primary axis is **size class** — light hulls (fighters) and heavy hulls (platforms). See [../plans/game-design.md](../plans/game-design.md) for full design.
+
+| Class | Hulls | Identity |
+|-------|-------|----------|
+| Light (Fighters) | Hover specialist, Speed specialist, Agility specialist | Duel machines — differ by *how* they duel |
+| Heavy (Platforms) | Gunship, Support | Purpose-built for team roles — combat and utility |
+
+All fighters share: small RCS, low HP, minimal base armor, small mod bays, 1 main gun + 2 pylon hardpoints, low PG, solo.
+All heavies share: large RCS, high HP, substantial base armor, large mod bays, more hardpoints, high PG, slower.
+
+Marauder is the current/only implemented ship — a light hull that needs to be classified into one of the three fighter identities as the roster develops.
+
 ## Architecture
 
 All ships extend `BaseShip.gd` (`CharacterBody3D`). The equip system uses a **slot/inventory** model.

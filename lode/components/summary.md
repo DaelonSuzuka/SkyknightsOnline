@@ -2,7 +2,9 @@
 
 Reusable components attached as child nodes to game entities.
 
-## Health (`Node3D`)
+## Health (`Node3D`) — Placeholder
+
+Current implementation is a flat HP pool. Will be expanded to support the full defense layer system (shield, subtractive armor, % armor, threshold mitigation, auto-repair). See [../plans/game-design.md](../plans/game-design.md) for design.
 
 ```gdscript
 var current: int   # Current HP

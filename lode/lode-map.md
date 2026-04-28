@@ -26,6 +26,7 @@ lode/
     summary.md         # Game scenes: VRTraining, Hangar, City
   build/
     summary.md         # Build system, export presets, Makefile
-  plans/               # Roadmaps & TODOs (empty)
+  plans/
+    game-design.md      # Core vision, flight model, game modes, hull classes, item roster, fitting, weapons, EWAR, damage/defense, cap, art direction, level design
   tmp/                 # Git-ignored session scraps
 ```

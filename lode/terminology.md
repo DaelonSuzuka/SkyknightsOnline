@@ -19,4 +19,14 @@
 - **City** — Large city map (buildings, river, domain blocks)
 - **MapIcon** — Sprite3D on render layers 6/7 for minimap/map visibility
 - **RateLimiter** — Throttles network sync packets (currently dormant)
+- **Core Loop** — Pilot → fight → capture → resupply → rearm; the heartbeat of the game
+- **Territory Control** — Objective capture (Biolab, Tower, domain blocks), Planetside-style; used in MOBA and territory modes
+- **Light Hull / Fighter** — Small, fast, agile hull class. All duel machines. Hover/speed/agility specialist variants.
+- **Heavy Hull / Platform** — Large, slow, tough hull class. Purpose-built for team roles. Gunship (combat) and support (utility) variants.
+- **Gunship** — Heavy combat platform. Two-seater, turret hardpoint, chunky subtractive armor, big mod bay. A problem that demands coordination.
+- **Support** — Heavy utility platform. EWACS-capable, cargo hooks, deployable bays, shaped mod bays. Force multiplier, not prerequisite.
+- **Mod Bay** — Tetris-style inventory grid inside the aircraft for internal systems (shield, armor, radar, ewar, etc.)
+- **Power Grid (PG)** — Numerical fitting budget; every item has a PG cost, every hull has a PG max
+- **RCS** — Radar Cross Section; determines how detectable a hull is. Small for fighters, large for platforms.
+- **Capacitor** — Shared energy pool for ship systems (afterburner, shield, autorepair, countermeasures, ewar, railgun charge). EVE-style recharge curve.
 - **Omnilaunch** — Editor addon for multi-window launch profiles (server + client testing)
