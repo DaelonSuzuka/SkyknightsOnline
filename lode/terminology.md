@@ -1,0 +1,22 @@
+# Terminology
+
+- **Autoload** — Godot singleton node registered in project.godot, globally accessible by name
+- **BaseShip** — Abstract base class for all ships (`CharacterBody3D`), defines slot/inventory/equip pattern
+- **Marauder** — The only implemented ship; swing-wing fighter with noseguns + pylons
+- **Engine** — Flight physics component (`Engine.gd`); spring-damper force model with modifiers
+- **Afterburner** — Engine modifier that boosts speed/accel/vert-thrust when active
+- **Seats** — Multi-seat component with per-seat FP/TP cameras and gimbal limits
+- **FakeEvent** — Lightweight `RefCounted` wrapping an input action + pressed state; serializable for networking
+- **InputManager** — Autoload that detects action state changes, emits `input_event(FakeEvent)` to registered objects
+- **Slot/Inventory** — Ship equipment model: `slots` defines available loadout options, `inventory` holds currently equipped items
+- **Nosegun** — Forward-fixed weapon category (Colt = fast/low-dmg, Vortek = slow/high-dmg)
+- **Pylons** — Wing-mounted weapon category (Tanks, RocketPods — currently stubs)
+- **ControlWebsocket** — Separate WebSocket to a management server for server discovery/orchestration (dormant)
+- **BlenderImport** — `EditorScenePostImport` scripts that auto-assign materials and create trimesh collisions on import
+- **EngineEditor** — HUD widget that walks `Engine.data` dict and creates live-editable labels for tuning
+- **VRTraining** — Test/training scene with terrain and collision
+- **Hangar** — Ship selection and weapon outfitting scene
+- **City** — Large city map (buildings, river, domain blocks)
+- **MapIcon** — Sprite3D on render layers 6/7 for minimap/map visibility
+- **RateLimiter** — Throttles network sync packets (currently dormant)
+- **Omnilaunch** — Editor addon for multi-window launch profiles (server + client testing)

@@ -1,9 +1,7 @@
-.import
-export.cfg
-settings.json
 
 *.blend[0-9]
-
 build
-
-.godot
+export.cfg
+.godotlode/tmp/
+.import
+settings.json
